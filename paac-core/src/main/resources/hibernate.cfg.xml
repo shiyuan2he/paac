@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    	 <!--c3p0连接池
+        <property name="hibernate.connection.driver_class">org.mariadb.jdbc.Driver</property>
+        JDBC URL
+        <property name="hibernate.connection.url">jdbc:mariadb://192.168.1.8:3306/paac?useUnicode=true&amp;characterEncoding=utf-8</property>
+        数据库用户名
+        <property name="hibernate.connection.username">paac</property>
+        数据库密码
+        <property name="hibernate.connection.password">paac@mariadb</property>
+        SQL方言，这边设定的是MySQL
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        显示实际操作数据库时的SQL
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+        
+        对象与数据库表格映像文件
+        <mapping class="com.codelibrary.javaee.entry.hibernate.User"/>
+		        
+		<property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.timeout">1800</property>
+        <property name="hibernate.c3p0.max_statements">50</property> 
+       
+		
+		dbcp连接池 
+			显示实际操作数据库时的SQL
+        <property name="show_sql">true</property>
+        	SQL方言，这边设定的是MySQL
+        <property name="dialect">net.sf.hibernate.dialect.MySQLDialect</property>
+        	驱动程序，在后续的章节中将讲述mysql、sqlserver和Oracle数据库的配置
+        <property name="connection.driver_class">……</property>
+        JDBC URL
+        <property name="connection.url">……</property>
+        	数据库用户名,eg. root
+        <property name="connection.username">…</property>
+        	数据库密码, eg. root
+        <property name="connection.password">…</property>
+        <property name="dbcp.maxActive">100</property> 
+		<property name="dbcp.whenExhaustedAction">1</property>
+		<property name="dbcp.maxWait">60000</property> 
+		<property name="dbcp.maxIdle">10</property> 
+		<property name="dbcp.ps.maxActive">100</property> 
+		<property name="dbcp.ps.whenExhaustedAction">1</property> 
+		<property name="dbcp.ps.maxWait">60000</property> 
+		<property name="dbcp.ps.maxIdle">10</property>
+			对象与数据库表格映像文件
+		<mapping resource="com/amigo/pojo/User.hbm.xml"/>
+		<mapping resource="com/amigo/pojo/Org.hbm.xml"/>-->
+    </session-factory> 
+</hibernate-configuration>

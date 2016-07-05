@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+ "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+  "http://struts.apache.org/dtds/struts-2.3.dtd" >
+<struts>
+	<package name="user" namespace="/manage/user" extends="struts-default">
+		<action name="user_*" method="{1}" class="com.codelibrary.javaee.action.user.UserAction">
+			<interceptor-ref name="myStack"></interceptor-ref>
+			<result name="userAdd">/WEB-INF/content/websitePage/website.jsp</result>
+			<result name="login_ok">/WEB-INF/content/mainFrame.jsp</result>
+			<result name="toLoginView">/WEB-INF/content/login/login.jsp</result>
+			<result name="toRegisterView">/WEB-INF/content/login/register.jsp</result>
+		</action>
+	</package>
+</struts>

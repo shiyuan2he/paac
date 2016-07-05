@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+       http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.2.xsd 
+        http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context-4.2.xsd
+          http://www.springframework.org/schema/tx
+           http://www.springframework.org/schema/tx/spring-tx-4.2.xsd ">
+
+	<!-- Database config -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="${driverClassName}"/>
+        <property name="jdbcUrl" value="${jdbc_url}" />
+		<property name="user" value="${jdbc_username}" />
+		<property name="password" value="${jdbc_password}" />
+        
+        <property name="minPoolSize" value="5" />
+		<property name="maxPoolSize" value="30" />
+		<property name="initialPoolSize" value="10"/>
+		<property name="maxIdleTime" value="60"/>
+		<property name="acquireIncrement" value="5" />
+		<property name="maxStatements" value="0" />
+		<property name="checkoutTimeout" value="5000" />
+		<property name="idleConnectionTestPeriod" value="60" />
+		<property name="acquireRetryAttempts" value="30" />
+		<property name="breakAfterAcquireFailure" value="true" />
+    </bean>	
+	<!-- config hibernate session factory -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
+		p:dataSource-ref="dataSource" p:packagesToScan="com.codelibrary.javaee.entry.hibernate">
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+				<prop key="hibernate.current_session_context_class">${hibernate.current_session_context_class}</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- 以下三个配置可有可无，sessionFactory下的方法基本上已经够用，但是配置后提供了更多的dao曾封装方法，丰富baseDaoImpl 底层工具类 -->
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate" p:sessionFactory-ref="sessionFactory" />
+	<bean id="hibernateDaoSupport" class="org.springframework.orm.hibernate4.support.HibernateDaoSupport" p:hibernateTemplate-ref="hibernateTemplate" abstract="true"/>
+	<bean id="sessionFactoryUtils" class="org.springframework.orm.hibernate4.SessionFactoryUtils" abstract="true" />
+	<!-- 事务处理：配置声明式事务方法一>在serviece层的类上或者是方法名上添加@Transaction即可开启事务处理机制 		-->
+	<!-- <bean name="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager" p:sessionFactory-ref="sessionFactory"/>
+    <tx:annotation-driven transaction-manage="transactionManager"/> -->
+	<!-- 事务处理：配置声明式事务方法二>使用tx/aop命名空间的配置 -->
+	<!-- <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="edit*" propagation="REQUIRED" />
+			<tx:method name="saveOrUpdate*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="repair*" propagation="REQUIRED" />
+			<tx:method name="upload*" propagation="REQUIRED" />
+			<tx:method name="roleEdit*" propagation="REQUIRED" />
+			
+			<tx:method name="*" propagation="REQUIRED" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+	<aop:config>
+		<aop:pointcut id="transactionPointcut" expression="execution(* rml.service..*Impl.*(..))" />
+		<aop:advisor pointcut-ref="transactionPointcut" advice-ref="transactionAdvice" />
+	</aop:config> -->
+	
+	<!-- <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+	<property name="sessionFactory"  ref="sessionFactory"/>
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+
+	<tx:advice id="transaction" transaction-manager="transactionManager">
+	<tx:attributes>
+		<tx:method name="getById*" read-only="true"/>
+		<tx:method name="*"/>
+	</tx:attributes>
+	</tx:advice>
+	<aop:config>
+		<aop:pointcut expression="execution(* com.itshixun.online.service.impl.*.*(..))" id="point"/>
+		<aop:advisor advice-ref="transaction" pointcut-ref="point"/>	
+	</aop:config> -->
+</beans>
+
+<!-- autoscan hbm for hiberante config 此部分配置可配置在sessionFactory中-->
+<!-- <property name="mappingDirectoryLocations"> <list> <value>classpath:/rml/model</value> 
+	</list> </property> -->
+<!-- <property name="mappingResources"> <list> <value>Tauth.hbm.xml</value> 
+	<value>Tmenu.hbm.xml</value> <value>Tonline.hbm.xml</value> <value>Trole.hbm.xml</value> 
+	<value>Tuser.hbm.xml</value> <value>Tusertrole.hbm.xml</value> <value>Troletauth.hbm.xml</value> 
+	<value>Tloguserlogin.hbm.xml</value> <value>Tloguserreg.hbm.xml</value> </list> 
+	</property> -->
