@@ -22,7 +22,7 @@ import com.codelibrary.javaee.dao.hibernate.BaseDao;
 public class BaseDaoImpl<O, S extends java.io.Serializable> implements BaseDao<O, S> {
 	private org.hibernate.SessionFactory sessionFactory;
 	private org.springframework.orm.hibernate4.HibernateTemplate hibernateTemplate ;
-	private org.springframework.orm.hibernate4.support.HibernateDaoSupport hibernateDaoSupport ;
+	//private org.springframework.orm.hibernate4.support.HibernateDaoSupport hibernateDaoSupport ;
 	
 	private BaseDaoImpl(){}
 	
@@ -146,9 +146,9 @@ public class BaseDaoImpl<O, S extends java.io.Serializable> implements BaseDao<O
 	public void setHibernateTemplate(org.springframework.orm.hibernate4.HibernateTemplate hibernateTemplate) {
 		this.hibernateTemplate = hibernateTemplate;
 	}
-	public org.springframework.orm.hibernate4.support.HibernateDaoSupport getHibernateDaoSupport() {
-		return hibernateDaoSupport;
-	}
+//	public org.springframework.orm.hibernate4.support.HibernateDaoSupport getHibernateDaoSupport() {
+//		return hibernateDaoSupport;
+//	}
 	/**
 	 * @description 
 	 *		<p>从spring容器（spring－dao）注入hibernateDaoSupport</p>
@@ -160,9 +160,9 @@ public class BaseDaoImpl<O, S extends java.io.Serializable> implements BaseDao<O
 	 * @returnType void
 	 * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
 	 */
-	@org.springframework.beans.factory.annotation.Autowired
-	public void setHibernateDaoSupport(org.springframework.orm.hibernate4.support.HibernateDaoSupport hibernateDaoSupport) {
-		this.hibernateDaoSupport = hibernateDaoSupport;
-	}
+//	@org.springframework.beans.factory.annotation.Autowired
+//	public void setHibernateDaoSupport(org.springframework.orm.hibernate4.support.HibernateDaoSupport hibernateDaoSupport) {
+//		this.hibernateDaoSupport = hibernateDaoSupport;
+//	}
 }
 

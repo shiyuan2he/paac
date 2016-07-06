@@ -47,8 +47,8 @@
 	</bean>
 	<!-- 以下三个配置可有可无，sessionFactory下的方法基本上已经够用，但是配置后提供了更多的dao曾封装方法，丰富baseDaoImpl 底层工具类 -->
 	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate" p:sessionFactory-ref="sessionFactory" />
-	<bean id="hibernateDaoSupport" class="org.springframework.orm.hibernate4.support.HibernateDaoSupport" p:hibernateTemplate-ref="hibernateTemplate" abstract="true"/>
-	<bean id="sessionFactoryUtils" class="org.springframework.orm.hibernate4.SessionFactoryUtils" abstract="true" />
+	<!-- <bean id="hibernateDaoSupport" class="org.springframework.orm.hibernate4.support.HibernateDaoSupport" p:hibernateTemplate-ref="hibernateTemplate"/> -->
+	<!-- <bean id="sessionFactoryUtils" class="org.springframework.orm.hibernate4.SessionFactoryUtils"/> -->
 	<!-- 事务处理：配置声明式事务方法一>在serviece层的类上或者是方法名上添加@Transaction即可开启事务处理机制 		-->
 	<!-- <bean name="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager" p:sessionFactory-ref="sessionFactory"/>
     <tx:annotation-driven transaction-manage="transactionManager"/> -->

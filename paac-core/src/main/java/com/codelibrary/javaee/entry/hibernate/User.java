@@ -7,7 +7,6 @@ import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -51,13 +50,16 @@ public class User implements Serializable{
 	 * 
 	 */
 	private String id ; // 用户表主键
-	private String username ; //用户名
+	private String username ; //登陆名
 	private String realname; //真实姓名
 	private String nickname; //用户昵称
 	private String password ; //用户密码
 	private String certNo ; //身份证号码
 	private Date birth ;	//出生日期
 	private Address address ; // 住址
+	private Date createTime ;//创建账号日期
+	private Date upTime ;// 修改帐号日期
+	private String upUser ; //修改帐号人  本人或者管理员
 	
 	public User() {}
 
@@ -79,8 +81,7 @@ public class User implements Serializable{
 	}
 	
 	@Id
-	@Column(nullable=false,unique=true,length=20)
-	//@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(nullable=false,unique=true)
 	@GenericGenerator(name="paacID",strategy="com.codelibrary.javaee.utils.IDGeneratorHelper")
 	@GeneratedValue(generator="paacID")
 	public String getId() {
@@ -97,9 +98,6 @@ public class User implements Serializable{
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	/*@Id
-	@GeneratedValue(generator="password")
-	@GenericGenerator(name="password",strategy="assigned")*/
 	@Column(nullable=false,unique=true,length=64)
 	public String getPassword() {
 		return password;
@@ -135,10 +133,35 @@ public class User implements Serializable{
 	public String getNickname() {
 		return nickname;
 	}
+	@Column(nullable=false)
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+	@Column(nullable=false)
+	public Date getUpTime() {
+		return upTime;
+	}
+
+	public void setUpTime(Date upTime) {
+		this.upTime = upTime;
+	}
+	@Column(nullable=false)
+	public String getUpUser() {
+		return upUser;
+	}
+
+	public void setUpUser(String upUser) {
+		this.upUser = upUser;
+	}
 
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
+	
 
 	@Override
 	public int hashCode() {

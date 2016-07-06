@@ -5,6 +5,8 @@ import java.io.Serializable;
 import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SessionImplementor;
 
+import com.hsy.codebase.utils.javase.util.RandomHelper;
+
 /**
  * @description <p>Hibernate主键生成策略</p>
  * @path paac-core/com.codelibrary.javaee.utils.IDGeneratorHelper.java	
@@ -19,7 +21,7 @@ public class IDGeneratorHelper implements org.hibernate.id.IdentifierGenerator{
 
 	@Override
 	public Serializable generate(SessionImplementor arg0, Object arg1) throws HibernateException {
-		return null;
+		return RandomHelper.IDGenerateValue(System.currentTimeMillis());
 	}
 }
 
