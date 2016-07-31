@@ -95,14 +95,10 @@ public class BeanHelper {
 		Object returnObj = new Object() ;
 		@SuppressWarnings("rawtypes")
 		Class clazz = obj.getClass();
-		try {
-			java.beans.PropertyDescriptor pd = new java.beans.PropertyDescriptor(fieldName, clazz) ;
-			java.lang.reflect.Method getMethod = pd.getReadMethod() ;
-			if(null != pd){
-				returnObj = getMethod.invoke(obj) ;
-			}
-		} catch (IntrospectionException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
-			throw e ;
+		java.beans.PropertyDescriptor pd = new java.beans.PropertyDescriptor(fieldName, clazz) ;
+		java.lang.reflect.Method getMethod = pd.getReadMethod() ;
+		if(null != pd){
+			returnObj = getMethod.invoke(obj) ;
 		}
 		return returnObj ;
 	}

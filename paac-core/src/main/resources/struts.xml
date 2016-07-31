@@ -3,6 +3,8 @@
  "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
   "http://struts.apache.org/dtds/struts-2.3.dtd" >
 <struts>
+	<!-- 指定国际化资源文件，名为：message.properties ，多个资源文件以英文逗号隔开-->
+	<constant name="struts.custom.i18n.resources" value="message"/>
 	 <!-- 请求参数的编码方式--> 
     <constant name="struts.i18n.encoding" value="UTF-8"/> 
 
@@ -21,26 +23,11 @@
     <!-- 指定由spring负责action对象的创建      --> 
     <!-- <constant name="struts.objectFactory" value="spring" />  -->
     
-    <!-- 是否开启动态方法调用	使用于使用！调用action方法--> 
+    <!-- 是否开启动态方法调用	使用于使用！调用action方法 --> 
     <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
-	
-	<!-- 
-		<interceptors>
-			<interceptor name="myTimer" class="com.codelibrary.javaee.intercepter.TimerIntercepter"></interceptor>
-			<interceptor name="myAuth" class="com.codelibrary.javaee.intercepter.AuthIntercepter"></interceptor>
-			自定义拦截器栈
-			<interceptor-stack name="myStack">
-				<interceptor-ref name="myTimer"></interceptor-ref>
-				<interceptor-ref name="myAuth"></interceptor-ref>
-				<interceptor-ref name="defaultStack"></interceptor-ref>
-			</interceptor-stack>
-		</interceptors>
-		默认action
-		<default-action-ref name="user_404"></default-action-ref>
-		<action name="user_404">
-			<result>/404.jsp</result>
-		</action> -->
-		
+    <!-- 该常量指定试图标签的默认主题，默认xhtml -->
+    <constant name="struts.ui.theme" value="xhtml"/>
+    
 	<!-- 用户相关配置文件 -->
 	<include file="struts/struts-user.xml"></include>
 </struts>

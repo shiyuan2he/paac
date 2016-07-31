@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.codelibrary.javaee.action.base.BaseAction;
 import com.codelibrary.javaee.entry.hibernate.User;
-import com.hsy.codebase.utils.javase.string.StringHelper;
 import com.opensymphony.xwork2.ModelDriven;
 
 /**
@@ -44,8 +43,8 @@ public class UserAction extends BaseAction implements ModelDriven<User>{
 	 * @description 
 	 *		<p>跳转到登陆页面</p>
 	 */
-	public String toLoginView(){
-		return "toLoginView" ;
+	public String login_login(){
+		return "toView" ;
 	}
 	/**
 	 * 
@@ -54,8 +53,8 @@ public class UserAction extends BaseAction implements ModelDriven<User>{
 	 * @description 
 	 *		<p>跳转到添加用户页面</p>
 	 */
-	public String toRegisterView(){
-		return "toRegisterView" ;
+	public String login_register(){
+		return "toView" ;
 	}
 	@Override
 	public User getModel() {

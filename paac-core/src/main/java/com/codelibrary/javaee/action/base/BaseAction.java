@@ -16,7 +16,9 @@ import org.apache.struts2.util.ServletContextAware;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * @description <p>请在此处输入类的描述</p>
+ * @description <p>action基类，封装request，response，session，application等信息
+ * 					ActionContext也能够获取到httpservletrequest等信息。
+ * 				</p>
  * @path paac-core/com.codelibrary.javaee.action.base.BaseAction.java	
  * @time 2016年5月15日 上午10:14:59
  * @github 
