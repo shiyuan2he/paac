@@ -1,4 +1,7 @@
 package com.hsy.codebase.utils.javase.logger;
+
+import java.util.Iterator;
+
 /**
  * @see 系统日志输出
  * @Date 2015.08.12
@@ -26,5 +29,12 @@ public class SystemLogger {
 	 */
 	public static void log(String msg,String msg2,String msg3){
 		System.out.println(msg + msg2 + msg3) ;
+	}
+	public static void log(String... msgs){
+		StringBuilder sb = new StringBuilder() ;
+		for(String msg : msgs){
+			sb.append(msg) ;
+		}
+		System.out.println(sb.toString());
 	}
 }
