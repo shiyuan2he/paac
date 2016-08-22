@@ -1,8 +1,6 @@
 package com.hsy.codebase.utils.javase.bean;
 
-import java.beans.IntrospectionException;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 

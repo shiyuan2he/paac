@@ -15,6 +15,8 @@
 				<interceptor-ref name="defaultStack"></interceptor-ref>
 			</interceptor-stack>
 		</interceptors>
+		<!--默认action 当找不到需要的action，会进入此action处理-->
+		<default-action-ref name="404"></default-action-ref>
 		<!-- 全局视图层 -->
 		<global-results>
 			<result name="to404" type="">/404.jsp</result>
@@ -26,8 +28,6 @@
 			<exception-mapping exception="java.lang.Exception" result="root"></exception-mapping>
 			<exception-mapping exception="com.hsy.codebase.utils.javase.exception.MyException" result="my"></exception-mapping>
 		</global-exception-mappings>
-		<!--默认action 当找不到需要的action，会进入此action处理-->
-		<default-action-ref name="404"></default-action-ref>
 		<action name="404" class="com.codelibrary.javaee.action.user.UserAction">
 			<result>/404.jsp</result>
 		</action>

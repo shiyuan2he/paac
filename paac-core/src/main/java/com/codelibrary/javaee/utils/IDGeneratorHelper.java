@@ -19,7 +19,6 @@ import com.hsy.codebase.utils.javase.util.RandomHelper;
  */
 public class IDGeneratorHelper implements org.hibernate.id.IdentifierGenerator{
 
-	@Override
 	public Serializable generate(SessionImplementor arg0, Object arg1) throws HibernateException {
 		return RandomHelper.IDGenerateValue(System.currentTimeMillis());
 	}

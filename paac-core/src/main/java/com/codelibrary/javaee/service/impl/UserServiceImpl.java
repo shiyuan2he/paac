@@ -17,12 +17,10 @@ public class UserServiceImpl implements UserService {
 	@org.springframework.beans.factory.annotation.Autowired
 	private BaseDao<User,String> baseDao ;
 
-	@Override
 	public boolean login(User user) {
 		return false;
 	}
 
-	@Override
 	public boolean register(User user) {
 		if(user != null){
 		}

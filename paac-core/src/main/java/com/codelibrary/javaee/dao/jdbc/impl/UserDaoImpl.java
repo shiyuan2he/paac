@@ -22,7 +22,6 @@ import com.codelibrary.javaee.utils.JDBCUtils;
 @Component
 public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao{
 
-	@Override
 	public void saveUser(User user) throws SQLException {
 		Connection conn = JDBCUtils.getConnection() ;
 		StringBuilder sql = new StringBuilder() ;
@@ -36,7 +35,6 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao{
 			System.out.println("执行失败");
 		}
 	}
-	@Override
 	public List<User> findUser(User user) throws SQLException {
 		Connection conn = JDBCUtils.getConnection() ;
 		StringBuilder sql = new StringBuilder() ;

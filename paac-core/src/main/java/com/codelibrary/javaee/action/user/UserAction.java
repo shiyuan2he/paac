@@ -56,7 +56,6 @@ public class UserAction extends BaseAction implements ModelDriven<User>{
 	public String login_register(){
 		return "toView" ;
 	}
-	@Override
 	public User getModel() {
 		if(user == null){
 			user = new User() ;

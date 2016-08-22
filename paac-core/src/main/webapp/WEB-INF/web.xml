@@ -35,6 +35,16 @@
 	  <listener>
 	    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	  </listener>
+	  <servlet>
+	  	<servlet-name>AuthImageServlet</servlet-name>
+	  	<display-name>AuthImageServlet</display-name>
+	  	<description></description>
+	  	<servlet-class>com.codelibrary.javaee.AuthImageServlet</servlet-class>
+	  </servlet>
+	  <servlet-mapping>
+	  	<servlet-name>AuthImageServlet</servlet-name>
+	  	<url-pattern>/AuthImageServlet</url-pattern>
+	  </servlet-mapping>
 	<welcome-file-list>
 	   <welcome-file>/index.jsp</welcome-file>
 	</welcome-file-list>

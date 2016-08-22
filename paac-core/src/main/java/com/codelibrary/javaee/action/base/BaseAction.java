@@ -40,21 +40,17 @@ public class BaseAction extends ActionSupport implements ServletRequestAware,Ser
 	private static final long serialVersionUID = 1L;
 
 
-	@Override
 	public void setServletRequest(HttpServletRequest request) {
 		this.request = request ;
 		this.httpSession = request.getSession() ;
 	}
 	
-	@Override
 	public void setServletResponse(HttpServletResponse response) {
 		this.response = response ;
 	}
-	@Override
 	public void setSession(Map<String, Object> session) {
 		this.mapSession = session ;
 	}
-	@Override
 	public void setServletContext(ServletContext application) {
 		this.application = application ; 
 	}
