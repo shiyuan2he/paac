@@ -1,4 +1,4 @@
-package com.codelibrary.javaee;
+package com.codelibrary.javaee.servlet;
 
 import java.awt.Color;
 import java.awt.Font;
