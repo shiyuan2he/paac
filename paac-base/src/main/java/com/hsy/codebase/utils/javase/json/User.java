@@ -8,8 +8,23 @@ public class User {
 	private String userCode;
 	private String userPwd;
 	private Date userRegTime;
-	private Date userLoginTime;
 	private String userLoginIp;
+	
+	public User() {
+		super();
+	}
+	
+	public User(String userId, String userName, String userCode,
+			String userPwd, Date userRegTime,String userLoginIp) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		this.userCode = userCode;
+		this.userPwd = userPwd;
+		this.userRegTime = userRegTime;
+		this.userLoginIp = userLoginIp;
+	}
+
 	public String getUserId() {
 		return userId;
 	}
@@ -40,16 +55,18 @@ public class User {
 	public void setUserRegTime(Date userRegTime) {
 		this.userRegTime = userRegTime;
 	}
-	public Date getUserLoginTime() {
-		return userLoginTime;
-	}
-	public void setUserLoginTime(Date userLoginTime) {
-		this.userLoginTime = userLoginTime;
-	}
 	public String getUserLoginIp() {
 		return userLoginIp;
 	}
 	public void setUserLoginIp(String userLoginIp) {
 		this.userLoginIp = userLoginIp;
+	}
+
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", userName=" + userName
+				+ ", userCode=" + userCode + ", userPwd=" + userPwd
+				+ ", userRegTime=" + userRegTime + ", userLoginIp="
+				+ userLoginIp + "]";
 	}
 }

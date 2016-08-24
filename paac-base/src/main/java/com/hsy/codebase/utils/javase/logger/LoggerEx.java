@@ -3,6 +3,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  * 
@@ -12,6 +13,9 @@ import org.apache.log4j.Logger;
  */
 public class LoggerEx {
 
+	static{
+		PropertyConfigurator.configure("log4j.properties");
+	}
 	/**
 	 * 日志类储存器
 	 */
