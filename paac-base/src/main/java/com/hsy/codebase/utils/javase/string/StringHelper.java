@@ -56,7 +56,7 @@ public class StringHelper{
 	 * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
 	 */
 	public static boolean isNullOrEmpty(String str){
-		return "".equals(str)||StringUtils.isEmpty(str) ;
+		return null == str || "null".equalsIgnoreCase(str) || "".equals(str) || StringUtils.isEmpty(str) ;
 	}
 	/**
 	 * 
