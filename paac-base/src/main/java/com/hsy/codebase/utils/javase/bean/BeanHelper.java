@@ -14,7 +14,7 @@ import java.util.Map;
  * @email shiyuan4work@sina.com
  * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
  */
-public class BeanHelper {
+public class BeanHelper{
 	/**
 	 * 
 	 * @description <p>比较两个javabean属性不同</p>

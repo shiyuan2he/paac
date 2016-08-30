@@ -19,7 +19,7 @@ import org.apache.log4j.Logger;
  * @email shiyuan4work@sina.com
  * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
  */
-public class StringHelper{
+public class StringHelper extends StringUtils{
 	private static Logger _logger = Logger.getLogger(StringHelper.class) ;
 	/**
 	 * 

@@ -1,4 +1,4 @@
-package com.hsy.codebase.utils.javase.clazz;
+package com.hsy.codebase.utils.javase.bean;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
