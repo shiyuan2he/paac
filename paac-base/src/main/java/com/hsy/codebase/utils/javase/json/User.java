@@ -2,7 +2,7 @@ package com.hsy.codebase.utils.javase.json;
 
 import java.util.Date;
 
-public class ssssfdafdf:qser {
+public class User {
 	private String userId;
 	private String userName;
 	private String userCode;
