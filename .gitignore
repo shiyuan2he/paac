@@ -1,6 +1,7 @@
 # intelliJ idea
 */.idea
 */paac-base.iml
+*/paac-core.iml
 
 # eclipse
 */*.class
