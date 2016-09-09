@@ -12,7 +12,8 @@
 	<title>平台云网站首页</title>
 </head>
 <body>
-
-
+	<script>
+		window.location.href = "<%=basePath%>/manage/user/user_toLoginView.action" ;
+	</script>
 </body>
 </html>
