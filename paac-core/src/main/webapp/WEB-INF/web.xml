@@ -9,10 +9,10 @@
 	  </context-param>
 	  <filter>
 	    <filter-name>struts2</filter-name>
-	    <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	    <filter-class>org.apache.struts2.dispiatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
 	  </filter>-->
 	  <!-- 过滤器 -->
-	 <!-- <filter>
+	<!-- <filter>
 			<filter-name>encodingFilter</filter-name>
 			<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
 			<init-param>
@@ -44,8 +44,27 @@
 	  <servlet-mapping>
 	  	<servlet-name>AuthImageServlet</servlet-name>
 	  	<url-pattern>/AuthImageServlet</url-pattern>
-	  </servlet-mapping>-->
+	  </servlet-mapping>
+	<filter>
+   	 <filter-name>UrlRewriteFilter</filter-name>
+   	 <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+    <init-param>
+      <param-name>logLevel</param-name>
+      <param-value>WARN</param-value>
+    </init-param>
+     <init-param>
+      <param-name>confPath</param-name>
+      <param-value>/WEB-INF/urlrewrite_new.xml</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>UrlRewriteFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+  </filter-mapping>
+	-->
 	<welcome-file-list>
 	   <welcome-file>/website/index.html</welcome-file>
 	</welcome-file-list>
-</web-app>
+</web-app
