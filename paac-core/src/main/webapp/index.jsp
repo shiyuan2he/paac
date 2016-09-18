@@ -13,7 +13,9 @@
 </head>
 <body>
 	<script>
-		window.location.href = "<%=basePath%>/manage/user/user_toLoginView.action" ;
+		//window.location.href = "<%=basePath%>/manage/user/user_toLoginView.action" ;
+		window.location.href = "website/main.jsp" ;
+
 	</script>
 </body>
 </html>
