@@ -89,12 +89,3 @@
 		<aop:advisor advice-ref="transaction" pointcut-ref="point"/>	
 	</aop:config> -->
 </beans>
-
-<!-- autoscan hbm for hiberante config 此部分配置可配置在sessionFactory中-->
-<!-- <property name="mappingDirectoryLocations"> <list> <value>classpath:/rml/model</value> 
-	</list> </property> -->
-<!-- <property name="mappingResources"> <list> <value>Tauth.hbm.xml</value> 
-	<value>Tmenu.hbm.xml</value> <value>Tonline.hbm.xml</value> <value>Trole.hbm.xml</value> 
-	<value>Tuser.hbm.xml</value> <value>Tusertrole.hbm.xml</value> <value>Troletauth.hbm.xml</value> 
-	<value>Tloguserlogin.hbm.xml</value> <value>Tloguserreg.hbm.xml</value> </list> 
-	</property> -->
