@@ -12,8 +12,5 @@
 	<title>平台云网站首页</title>
 </head>
 <body>
-	<script>
-		window.location.href = "website/main.jsp" ;
-	</script>
 </body>
 </html>

@@ -70,7 +70,12 @@
 		    <artifactId>spring-orm</artifactId>
 		    <version>${version.spring}</version>
 		</dependency>
-		
+	    <!--	urlrewritefilter 包	-->
+	    <dependency>
+		  <groupId>org.tuckey</groupId>
+		  <artifactId>urlrewritefilter</artifactId>
+		  <version>4.0.4</version>
+	    </dependency>
 		<!-- hibernate package -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
