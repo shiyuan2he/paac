@@ -64,7 +64,6 @@ public class ArraysUtils {
 			 * operand 表示正在计算的元素索引
 			 */
 			public int applyAsInt(int operand) {
-				// TODO Auto-generated method stub
 				return operand + 6;
 			}
 		});

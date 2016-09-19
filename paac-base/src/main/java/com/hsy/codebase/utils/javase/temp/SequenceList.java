@@ -108,6 +108,15 @@ public class SequenceList<T> {
 //		int numMoved = size - index - 1;
 //		if (numMoved > 0) {
 //			System.arraycopy(elementData, index + 1, elementData, index, numMoved);
+<<<<<<< HEAD
+////		}
+//		// 清空最后一个元素
+////		elementData[--size] = null;
+//		return oldValue;
+//	}
+//
+//	// 删除顺序线性表中最后一个元素
+=======
 //		}
 //		// 清空最后一个元素
 //		elementData[--size] = null;
@@ -115,6 +124,7 @@ public class SequenceList<T> {
 //	}
 
 	// 删除顺序线性表中最后一个元素
+>>>>>>> 4e19d3ddcbd6bc1c725f0b54597dfe1a68b41610
 //	public T remove() {
 //		return delete(size - 1);
 //	}
@@ -127,8 +137,13 @@ public class SequenceList<T> {
 	// 清空线性表
 //	public void clear() {
 //		// 将底层数组所有元素赋为null
+<<<<<<< HEAD
+////		Arrays.fill(elementData, null);
+////		size = 0;
+=======
 //		Arrays.fill(elementData, null);
 //		size = 0;
+>>>>>>> 4e19d3ddcbd6bc1c725f0b54597dfe1a68b41610
 //	}
 
 //	public String toString() {
