@@ -12,6 +12,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.codelibrary.javaee.entry.hibernate.dependence.Address;
+
 /**
  * @description <p>请在此处输入类的描述</p>
  * @path paac-core/com.codelibrary.javaee.entry.hibernate.User.java	

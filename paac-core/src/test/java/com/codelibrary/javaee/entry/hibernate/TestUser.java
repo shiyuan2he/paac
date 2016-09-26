@@ -5,6 +5,7 @@ import java.util.Date;
 import org.junit.Test;
 
 import com.codelibrary.javaee.UnitTestBaseHibernate;
+import com.codelibrary.javaee.entry.hibernate.dependence.Address;
 /**
  * @description <p>请在此处输入类的描述</p>
  * @path paac-core/com.codelibrary.javaee.entry.hibernate.TestUser.java	

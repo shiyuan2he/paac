@@ -1,4 +1,4 @@
-package com.codelibrary.javaee.entry.hibernate;
+package com.codelibrary.javaee.entry.hibernate.dependence;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

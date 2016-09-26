@@ -12,5 +12,7 @@
 	<title>平台云网站首页</title>
 </head>
 <body>
+	<!-- 此地址会被转发到网站首页 -->
+	<!-- /website/main.jsp -->
 </body>
 </html>

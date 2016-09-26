@@ -15,7 +15,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="世远云平台 | 平台项目 | 云服务平台" />
-``  <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="js/move-top.js"></script>
 	<script type="text/javascript" src="js/easing.js"></script>
@@ -36,19 +36,17 @@
 	<div class="container">
 		<div class="header-top">
 			<div class="logo">
-				<a href="main.jsp">campaign</a>
+				<a href="main.jsp">运动</a>
 			</div>
 			<div class="top-menu">
 				<span class="menu"><img src="images/nav.png" alt=""/></span>
 				<ul>
-					<li><a class="active" href="#home" class="scroll">Home</a></li>
-					<li><a href="#about" class="scroll">About</a></li>
-					<li><a href="#services" class="scroll">Services</a></li>
-					<li><a href="#team" class="scroll">Team</a></li>
-					<li><a href="#portfolio" class="scroll">Portfolio</a></li>
-					<li><a href="#testimonials" class="scroll">Testimonials</a></li>
-					<li><a href="#news" class="scroll">News</a></li>
-					<li><a href="#contact" class="scroll">Contact</a></li>
+					<li><a class="active" href="#home" class="scroll">首页</a></li>
+					<li><a href="#about" class="scroll">关于我</a></li>
+					<li><a href="#services" class="scroll">服务</a></li>
+					<li><a href="#portfolio" class="scroll">图片墙</a></li>
+					<li><a href="#news" class="scroll">动态</a></li>
+					<li><a href="#contact" class="scroll">联系我</a></li>
 				</ul>
 			</div>
 			<script>
@@ -59,8 +57,9 @@
 			<div class="clearfix"></div>
 		</div>
 
-		<p class="banner-center">Lorem Cras consequat iaculis id vehicula erat mattis quis. Vivamus laoreet velit justo, in ven e natis purus pretium sit amet. Praesent lectus tortor, tincidu nt in consectetur.</p>
-		<div class="banner-bottom">
+		<p class="banner-center">欢迎访问我的个人网站，希望浏览我的网站能给您带来生活上的帮助。</p>
+		<!-- 一段简短的说明，暂时去除  -->
+		<!-- <div class="banner-bottom">
 			<div class="banner-grids">
 				<div class="col-md-5 left-grid">
 					<img src="images/img1.jpg" class="img-responsive" alt="/">
@@ -71,17 +70,16 @@
 				</div>
 				<div class="clearfix"></div>
 			</div>
-		</div>
+		</div> -->
 
 	</div>
-</div>
 </div>
 <div class="content">
 	<div class="about-section" id="about">
 		<div class="container">
 			<div class="about-header">
-				<h3>about us</h3>
-				<p>Lorem ipsum dolor sit amet consectetur adipisc elit  Proin ultricies vestibulum.</p>
+				<h3>关于我</h3>
+				<p>我的一些足迹.</p>
 			</div>
 			<div class="about-grids">
 				<div class="col-md-3 about-grid">
@@ -418,7 +416,7 @@
 		<div class="footer-top">
 		</div>
 		<div class="footer-bottom">
-			<p>Copyright &copy; 2015.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+			<p>Copyright &copy; 2016.All rights reserved.</p>
 		</div>
 		<script type="text/javascript">
 			$(document).ready(function() {

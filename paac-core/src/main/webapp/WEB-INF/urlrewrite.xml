@@ -5,11 +5,11 @@
 	<!-- 首页转发 -->
 	<rule>
 		<from>^/index.jsp$</from>
-		<to type="passthrough">/website/main.jsp</to>
+		<to type="forward">/website/main.jsp</to>
 	</rule>
 	<outbound-rule>
-		<from>/website/main.jsp$</from>
-		<to>/website/main.html</to>
+		<from>^/website/main.jsp$</from>
+		<to>/main.html</to>
 	</outbound-rule>
 </urlrewrite>
 
