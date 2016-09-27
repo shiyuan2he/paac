@@ -10,15 +10,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>平台云-登陆</title>
-	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
-	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="<%=path %>/css/index/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="<%=path %>/css/index/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="<%=path %>/css/index/owl.carousel.css" rel="stylesheet" type="text/css" media="all" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="世远云平台 | 平台项目 | 云服务平台" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-	<script src="js/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="js/move-top.js"></script>
-	<script type="text/javascript" src="js/easing.js"></script>
+	<script src="<%=path %>/js/jquery.min.js"></script>
+	<script type="text/javascript" src="<%=path %>/js/index/move-top.js"></script>
+	<script type="text/javascript" src="<%=path %>/js/index/easing.js"></script>
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {
 			$(".scroll").click(function(event){
@@ -27,8 +28,8 @@
 			});
 		});
 	</script>
-	<link rel="stylesheet" href="css/swipebox.css">
-	<script src="js/jquery.swipebox.min.js"></script>
+	<link rel="stylesheet" href="<%=path %>/css/index/swipebox.css">
+	<script src="<%=path %>/js/index/jquery.swipebox.min.js"></script>
 	<script type="text/javascript">jQuery(function($){$(".swipebox").swipebox();});</script>
 </head>
 <body>
@@ -36,10 +37,10 @@
 	<div class="container">
 		<div class="header-top">
 			<div class="logo">
-				<a href="main.jsp">运动</a>
+				<a href="<%=path %>/website/index.jsp">运动</a>
 			</div>
 			<div class="top-menu">
-				<span class="menu"><img src="images/nav.png" alt=""/></span>
+				<span class="menu"><img src="<%=path %>/images/index/nav.png" alt=""/></span>
 				<ul>
 					<li><a class="active" href="#home" class="scroll">首页</a></li>
 					<li><a href="#about" class="scroll">关于我</a></li>
@@ -47,6 +48,12 @@
 					<li><a href="#portfolio" class="scroll">图片墙</a></li>
 					<li><a href="#news" class="scroll">动态</a></li>
 					<li><a href="#contact" class="scroll">联系我</a></li>
+					<li><h2 style="color:white">|</h2></li>
+					<li>
+						<a href="#contact" class="scroll">登陆</a>
+						-
+						<a href="#contact" class="scroll">注册</a>
+					</li>
 				</ul>
 			</div>
 			<script>
@@ -62,7 +69,7 @@
 		<!-- <div class="banner-bottom">
 			<div class="banner-grids">
 				<div class="col-md-5 left-grid">
-					<img src="images/img1.jpg" class="img-responsive" alt="/">
+					<img src="<%=path %>/images/index/img1.jpg" class="img-responsive" alt="/">
 				</div>
 				<div class="col-md-7 right-grid">
 					<h3> welcome !</h3>
@@ -83,22 +90,22 @@
 			</div>
 			<div class="about-grids">
 				<div class="col-md-3 about-grid">
-					<img src="images/p1.jpg" class="img-responsive" alt="/">
+					<img src="<%=path %>/images/index/p1.jpg" class="img-responsive" alt="/">
 					<h4>paris</h4>
 					<p>Lorem ipsum dolor sit amet consectetur adipisc elit Proin ultricies vestibulum.</p>
 				</div>
 				<div class="col-md-3 about-grid">
-					<img src="images/p2.jpg" class="img-responsive" alt="/">
+					<img src="<%=path %>/images/index/p2.jpg" class="img-responsive" alt="/">
 					<h4>maldives</h4>
 					<p>Lorem ipsum dolor sit amet consectetur adipisc elit Proin ultricies vestibulum.</p>
 				</div>
 				<div class="col-md-3 about-grid">
-					<img src="images/p4.jpg" class="img-responsive" alt="/">
+					<img src="<%=path %>/images/index/p4.jpg" class="img-responsive" alt="/">
 					<h4>thailand</h4>
 					<p>Lorem ipsum dolor sit amet consectetur adipisc elit Proin ultricies vestibulum.</p>
 				</div>
 				<div class="col-md-3 about-grid">
-					<img src="images/p3.jpg" class="img-responsive" alt="/">
+					<img src="<%=path %>/images/index/p3.jpg" class="img-responsive" alt="/">
 					<h4>everest</h4>
 					<p>Lorem ipsum dolor sit amet consectetur adipisc elit Proin ultricies vestibulum.</p>
 				</div>
@@ -117,21 +124,21 @@
 				<div class="ser-top">
 					<div class="col-md-4 ser-grid">
 						<div class="ser1">
-							<img src="images/icon1.png">
+							<img src="<%=path %>/images/index/icon1.png">
 						</div>
 						<h4>Route Selection</h4>
 						<p>Mauris fermentum tortor non enim aliquet condimentum. Nam aliquam pretium duis sem.</p>
 					</div>
 					<div class="col-md-4 ser-grid">
 						<div class="ser1">
-							<img src="images/icon2.png">
+							<img src="<%=path %>/images/index/icon2.png">
 						</div>
 						<h4>Route Selection</h4>
 						<p>Mauris fermentum tortor non enim aliquet condimentum. Nam aliquam pretium duis sem.</p>
 					</div>
 					<div class="col-md-4 ser-grid">
 						<div class="ser1">
-							<img src="images/icon3.png">
+							<img src="<%=path %>/images/index/icon3.png">
 						</div>
 						<h4>Wide Choice</h4>
 						<p>Mauris fermentum tortor non enim aliquet condimentum. Nam aliquam pretium duis sem.</p>
@@ -143,7 +150,7 @@
 				<div class="ser-bottom">
 					<div class="col-md-4 ser-grid">
 						<div class="ser1">
-							<img src="images/icon4.png">
+							<img src="<%=path %>/images/index/icon4.png">
 						</div>
 						<h4>Buy Tickets</h4>
 						<p>Mauris fermentum tortor non enim aliquet condimentum. Nam aliquam pretium duis sem.</p>
@@ -151,7 +158,7 @@
 					</div>
 					<div class="col-md-4 ser-grid">
 						<div class="ser1">
-							<img src="images/icon5.png">
+							<img src="<%=path %>/images/index/icon5.png">
 						</div>
 						<h4>Route Selection</h4>
 						<p>Mauris fermentum tortor non enim aliquet condimentum. Nam aliquam pretium duis sem.</p>
@@ -159,7 +166,7 @@
 					</div>
 					<div class="col-md-4 ser-grid">
 						<div class="ser1">
-							<img src="images/icon6.png">
+							<img src="<%=path %>/images/index/icon6.png">
 						</div>
 						<h4>Wide Choice</h4>
 						<p>Mauris fermentum tortor non enim aliquet condimentum. Nam aliquam pretium duis sem.</p>
@@ -179,27 +186,27 @@
 			</div>
 			<div class="team-grids">
 				<div class="col-md-4 team-grid">
-					<img src="images/t1.jpg" class="img-responsive" alt="/">
+					<img src="<%=path %>/images/index/t1.jpg" class="img-responsive" alt="/">
 					<div class="team-info">
 						<h4>Janey</h4>
 						<p>lectus </p>
-						<a href="#"><img src="images/facebook.png"></a>
+						<a href="#"><img src="<%=path %>/images/index/facebook.png"></a>
 					</div>
 				</div>
 				<div class="col-md-4 team-grid">
-					<img src="images/t3.jpg" class="img-responsive" alt="/">
+					<img src="<%=path %>/images/index/t3.jpg" class="img-responsive" alt="/">
 					<div class="team-info">
 						<h4>Janey</h4>
 						<p>lectus </p>
-						<a href="#"><img src="images/twitter.png"></a>
+						<a href="#"><img src="<%=path %>/images/index/twitter.png"></a>
 					</div>
 				</div>
 				<div class="col-md-4 team-grid">
-					<img src="images/t2.jpg" class="img-responsive" alt="/">
+					<img src="<%=path %>/images/index/t2.jpg" class="img-responsive" alt="/">
 					<div class="team-info">
 						<h4>janey</h4>
 						<p>lectus </p>
-						<a href="#"><img src="images/google-plus.png"></a>
+						<a href="#"><img src="<%=path %>/images/index/google-plus.png"></a>
 					</div>
 				</div>
 				<div class="clearfix"> </div>
@@ -216,52 +223,52 @@
 			<div class="Portfolio-grids">
 				<div class="col-md-3 Portfolio-grid">
 					<div class="Portfolio-grid1">
-						<a href="images/im2.jpg" class="swipebox"><img src="images/im2.jpg" class="img-responsive" alt="/"><span class="zoom-icon"></span></a>
+						<a href="<%=path %>/images/index/im2.jpg" class="swipebox"><img src="<%=path %>/images/index/im2.jpg" class="img-responsive" alt="/"><span class="zoom-icon"></span></a>
 					</div>
 					<div class="Portfolio-grid1 gr2">
-						<a href="images/im3.jpg" class="swipebox"><img src="images/im3.jpg" class="img-responsive" alt="/"><span class="zoom-icon"></span></a>
+						<a href="<%=path %>/images/index/im3.jpg" class="swipebox"><img src="<%=path %>/images/index/im3.jpg" class="img-responsive" alt="/"><span class="zoom-icon"></span></a>
 					</div>
 					<div class="Portfolio-grid1">
-						<a href="images/im4.jpg" class="swipebox"><img src="images/im4.jpg" class="img-responsive" alt="/"><span class="zoom-icon"></span></a>
+						<a href="<%=path %>/images/index/im4.jpg" class="swipebox"><img src="<%=path %>/images/index/im4.jpg" class="img-responsive" alt="/"><span class="zoom-icon"></span></a>
 					</div>
 				</div>
 				<div class="col-md-3 Portfolio-grid">
 					<div class="Portfolio-grid1">
-						<a href="images/im5.jpg" class="swipebox"><img src="images/im5.jpg" class="img-responsive" alt="/"><span class="zoom-icon"></span></a>
+						<a href="<%=path %>/images/index/im5.jpg" class="swipebox"><img src="<%=path %>/images/index/im5.jpg" class="img-responsive" alt="/"><span class="zoom-icon"></span></a>
 					</div>
 					<div class="Portfolio-grid1 gr2">
-						<a href="images/im6.jpg" class="swipebox"><img src="images/im6.jpg" class="img-responsive" alt="/"><span class="zoom-icon"></span></a>
+						<a href="<%=path %>/images/index/im6.jpg" class="swipebox"><img src="<%=path %>/images/index/im6.jpg" class="img-responsive" alt="/"><span class="zoom-icon"></span></a>
 					</div>
 					<div class="Portfolio-grid1">
-						<a href="images/im7.jpg" class="swipebox"><img src="images/im7.jpg" class="img-responsive" alt="/"><span class="zoom-icon"></span></a>
-
-					</div>
-				</div>
-				<div class="col-md-3 Portfolio-grid">
-					<div class="Portfolio-grid1">
-						<a href="images/im8.jpg" class="swipebox"><img src="images/im8.jpg" class="img-responsive" alt="/"><span class="zoom-icon"></span></a>
-
-					</div>
-					<div class="Portfolio-grid1 gr2">
-						<a href="images/im9.jpg" class="swipebox"><img src="images/im9.jpg" class="img-responsive" alt="/"><span class="zoom-icon"></span></a>
-
-					</div>
-					<div class="Portfolio-grid1">
-						<a href="images/im10.jpg"class="swipebox"><img src="images/im10.jpg" class="img-responsive" alt="/"><span class="zoom-icon"></span></a>
+						<a href="<%=path %>/images/index/im7.jpg" class="swipebox"><img src="<%=path %>/images/index/im7.jpg" class="img-responsive" alt="/"><span class="zoom-icon"></span></a>
 
 					</div>
 				</div>
 				<div class="col-md-3 Portfolio-grid">
 					<div class="Portfolio-grid1">
-						<a href="images/im11.jpg" class="swipebox"><img src="images/im11.jpg" class="img-responsive" alt="/"><span class="zoom-icon"></span></a>
+						<a href="<%=path %>/images/index/im8.jpg" class="swipebox"><img src="<%=path %>/images/index/im8.jpg" class="img-responsive" alt="/"><span class="zoom-icon"></span></a>
 
 					</div>
 					<div class="Portfolio-grid1 gr2">
-						<a href="images/im12.jpg" class="swipebox"><img src="images/im12.jpg" class="img-responsive" alt="/"><span class="zoom-icon"></span></a>
+						<a href="<%=path %>/images/index/im9.jpg" class="swipebox"><img src="<%=path %>/images/index/im9.jpg" class="img-responsive" alt="/"><span class="zoom-icon"></span></a>
 
 					</div>
 					<div class="Portfolio-grid1">
-						<a href="images/im13.jpg" class="swipebox"><img src="images/im13.jpg" class="img-responsive" alt="/"><span class="zoom-icon"></span></a>
+						<a href="<%=path %>/images/index/im10.jpg"class="swipebox"><img src="<%=path %>/images/index/im10.jpg" class="img-responsive" alt="/"><span class="zoom-icon"></span></a>
+
+					</div>
+				</div>
+				<div class="col-md-3 Portfolio-grid">
+					<div class="Portfolio-grid1">
+						<a href="<%=path %>/images/index/im11.jpg" class="swipebox"><img src="<%=path %>/images/index/im11.jpg" class="img-responsive" alt="/"><span class="zoom-icon"></span></a>
+
+					</div>
+					<div class="Portfolio-grid1 gr2">
+						<a href="<%=path %>/images/index/im12.jpg" class="swipebox"><img src="<%=path %>/images/index/im12.jpg" class="img-responsive" alt="/"><span class="zoom-icon"></span></a>
+
+					</div>
+					<div class="Portfolio-grid1">
+						<a href="<%=path %>/images/index/im13.jpg" class="swipebox"><img src="<%=path %>/images/index/im13.jpg" class="img-responsive" alt="/"><span class="zoom-icon"></span></a>
 
 					</div>
 				</div>
@@ -308,11 +315,8 @@
 
 				</div>
 
-				<!----sreen-gallery-cursual---->
 				<div class="sreen-gallery-cursual">
-					<!-- requried-jsfiles-for owl -->
-					<link href="css/owl.carousel.css" rel="stylesheet">
-					<script src="js/owl.carousel.js"></script>
+					<script src="<%=path %>/js/index/owl.carousel.js"></script>
 					<script>
 						$(document).ready(function() {
 							$("#owl-demo").owlCarousel({
@@ -325,7 +329,6 @@
 							});
 						});
 					</script>
-					<!-- //requried-jsfiles-for owl -->
 				</div>
 			</div>
 		</div>
