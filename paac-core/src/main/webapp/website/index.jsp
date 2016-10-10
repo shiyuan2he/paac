@@ -50,9 +50,9 @@
 					<li><a href="#contact" class="scroll">联系我</a></li>
 					<li><h2 style="color:white">|</h2></li>
 					<li>
-						<a href="#contact" class="scroll">登陆</a>
+						<a href="<%=path %>/manage/user/user_to_login_login.action" class="scroll">登陆</a>
 						-
-						<a href="#contact" class="scroll">注册</a>
+						<a href="<%=path %>/manage/user/user_to_login_register.action" class="scroll">注册</a>
 					</li>
 				</ul>
 			</div>

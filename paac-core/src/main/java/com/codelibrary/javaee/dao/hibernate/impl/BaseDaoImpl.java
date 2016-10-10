@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.codelibrary.javaee.dao.hibernate.BaseDao;
+import com.codelibrary.javaee.dao.hibernate.IBaseDao;
 
 /**
  * @description <p>hibernate公共dao曾方法</p>
@@ -19,7 +19,7 @@ import com.codelibrary.javaee.dao.hibernate.BaseDao;
  * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
  */
 @org.springframework.stereotype.Component("baseDao")
-public class BaseDaoImpl<O, S extends java.io.Serializable> implements BaseDao<O, S> {
+public class BaseDaoImpl<O, S extends java.io.Serializable> implements IBaseDao<O, S> {
 	private org.hibernate.SessionFactory sessionFactory;
 	private org.springframework.orm.hibernate4.HibernateTemplate hibernateTemplate ;
 	//private org.springframework.orm.hibernate4.support.HibernateDaoSupport hibernateDaoSupport ;

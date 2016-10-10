@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.codelibrary.javaee.dao.jdbc.BaseDao;
+import com.codelibrary.javaee.dao.jdbc.IBaseDao;
 import com.codelibrary.javaee.utils.JDBCUtils;
 
 /**
@@ -16,7 +16,7 @@ import com.codelibrary.javaee.utils.JDBCUtils;
  * @email shiyuan4work@sina.com
  * 
  */
-public class BaseDaoImpl<O extends Serializable> implements BaseDao<O> {
+public class BaseDaoImpl<O extends Serializable> implements IBaseDao<O> {
 	
 
 	public void save(O o) throws SQLException {

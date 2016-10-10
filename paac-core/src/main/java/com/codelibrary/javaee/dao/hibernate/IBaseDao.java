@@ -13,7 +13,7 @@ import java.util.List;
  * @email shiyuan4work@sina.com
  * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
  */
-public interface BaseDao<O,S extends java.io.Serializable> {
+public interface IBaseDao<O,S extends java.io.Serializable> {
 	
 	/*	增	***************************************************************************************/
 	public Serializable save(O o);
