@@ -7,7 +7,6 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 import org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter;
 
@@ -28,7 +27,7 @@ public class CoreStrutsFilter extends StrutsPrepareAndExecuteFilter {
 		try {
 			super.doFilter(req, res, chain);
 			/**
-			 * @not sure <p>搞明白doFilter两个参数和三个参数的区别</p>
+			 * @notSure <p>搞明白doFilter两个参数和三个参数的区别</p>
 			 * chain.doFilter(req, res);
 			 */
 		} catch (Exception ee) {

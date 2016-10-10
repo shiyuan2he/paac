@@ -57,8 +57,8 @@ public class SysBaseLog implements java.io.Serializable{
 
 	@Id
 	@Column(nullable=false,unique=true)
-	@GenericGenerator(name="paacID",strategy="com.codelibrary.javaee.utils.IDGeneratorHelper")
-	@GeneratedValue(generator="paacID")
+	@GenericGenerator(name="PAAC_ID",strategy="com.codelibrary.javaee.utils.IDGeneratorHelper")
+	@GeneratedValue(generator="PAAC_ID")
 	public String getId() {
 		return id;
 	}

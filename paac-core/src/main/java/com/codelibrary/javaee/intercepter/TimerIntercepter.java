@@ -16,7 +16,6 @@ import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
  * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
  */
 public class TimerIntercepter extends AbstractInterceptor {
-	//private static LoggerEx logger = LoggerEx.getInstance(TimerIntercepter.class.getName()) ;
 	private static Logger logger = Logger.getLogger(TimerIntercepter.class) ;
 	private static final long serialVersionUID = 1L;
 

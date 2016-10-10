@@ -22,8 +22,8 @@ public class MenuRights {
 	private Integer is_del ; // 是否删除 0.未删除 1.已删除
 	@Id
 	@Column(nullable=false,unique=true)
-	@GenericGenerator(name="paacID",strategy="com.codelibrary.javaee.utils.IDGeneratorHelper")
-	@GeneratedValue(generator="paacID")
+	@GenericGenerator(name="PAAC_ID",strategy="com.codelibrary.javaee.utils.IDGeneratorHelper")
+	@GeneratedValue(generator="PAAC_ID")
 	public String getId() {
 		return id;
 	}

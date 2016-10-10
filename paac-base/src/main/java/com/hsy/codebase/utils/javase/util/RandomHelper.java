@@ -46,7 +46,7 @@ public class RandomHelper {
 		while (timestamp <= lastTimestamp) {
 			 timestamp = timeGen();
 		}
-		idValue.append("PAAC").append(timestamp).append(Math.random()*10000) ;
+		idValue.append("PAAC").append(timestamp).append(Math.random()*100000) ;
 		return idValue.toString();
 	}
 }
