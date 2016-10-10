@@ -4,29 +4,54 @@
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>平台云-登陆</title>
+	<meta charset="UTF-8">
+	<title>后台管理页面</title>
+	<link rel="stylesheet" type="text/css" href="<%=path%>/css/easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="<%=path%>/css/easyui/themes/icon.css">
+	<script type="text/javascript" src="<%=path%>/js/jquery.min.js"></script>
+	<script type="text/javascript" src="<%=path%>/js/easyui//jquery.easyui.min.js"></script>
 </head>
 <body>
-	<div style="padding:3px 2px;border-bottom:1px solid #ccc">登陆</div>
-	<form id="ff" action="form1_proc.php" method="post">
-		<table>
-			<tr>
-				<td>用户名:</td>
-				<td><input name="name" type="text"></input></td>
-			</tr>
-			<tr>
-				<td>密码:</td>
-				<td><input name="email" type="text"></input></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><input type="submit" value="登陆"></input></td>
-			</tr>
-		</table>
-	</form>
+	<h2>Basic Tree</h2>
+	<p>Click the arrow on the left to expand or collapse nodes.</p>
+	<div style="margin:20px 0;"></div>
+	<div class="easyui-panel" style="padding:5px">
+		<ul class="easyui-tree">
+			<li>
+				<span>My Documents</span>
+				<ul>
+					<li data-options="state:'closed'">
+						<span>Photos</span>
+						<ul>
+							<li>
+								<span>Friend</span>
+							</li>
+							<li>
+								<span>Wife</span>
+							</li>
+							<li>
+								<span>Company</span>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span>Program Files</span>
+						<ul>
+							<li>Intel</li>
+							<li>Java</li>
+							<li>Microsoft Office</li>
+							<li>Games</li>
+						</ul>
+					</li>
+					<li>index.html</li>
+					<li>about.html</li>
+					<li>welcome.html</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
 </body>
 </html>

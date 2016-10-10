@@ -1,18 +1,10 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: sy.he
-  Date: 2016/9/8
-  Time: 10:16
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     //paac-core
-    String routePath = request.getContentPath() ;
+    String routePath = request.getContextPath()  ;
     //http://localhost:8080/paac-core/
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + routePath + "/" ;
 %>
-
 <html>
 <head>
     <title>平台云 | 平台服务 | 平台登录</title>

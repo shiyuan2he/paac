@@ -7,11 +7,9 @@
  */
 package com.codelibrary.javaee.dao.jdbc.impl;
 
-import java.sql.SQLException;
 import org.junit.Test;
 
 import com.codelibrary.javaee.UnitTestBaseSpring;
-import com.codelibrary.javaee.dao.jdbc.UserDao;
 import com.codelibrary.javaee.entry.jdbc.User;
 
 public class UserDaoImplTest extends UnitTestBaseSpring{
@@ -24,24 +22,16 @@ public class UserDaoImplTest extends UnitTestBaseSpring{
 		User user = new User() ;
 		user.setUsername("张三");
 		user.setPassword("admin");
-		try {
-			UserDao userDao = super.getBean("userDao");
-			userDao.saveUser(user);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+//			UserDao userDao = super.getBean("userDao");
+//			userDao.saveUser(user);
 	}
 	@Test
 	public void testFindUser(){
 		User user = new User() ;
 		user.setUsername("张三");
 		user.setPassword("admin");
-		try {
-			UserDao userDao = super.getBean("userDao");
-			userDao.findUser(user) ;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+//			UserDao userDao = super.getBean("userDao");
+//			userDao.findUser(user) ;
 	}
 }
 

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 2.6//EN"  
+"http://tuckey.org/res/dtds/urlrewrite2.6.dtd">
+<urlrewrite>
+	<!-- 首页转发 -->
+	<rule>
+		<from>^/index.html$</from>
+		<to type="passthrough">/website/index.jsp</to>
+	</rule>
+	<outbound-rule>
+		<from>^/website/index.jsp$</from>
+		<to>/index.html</to>
+	</outbound-rule>
+</urlrewrite>
+
