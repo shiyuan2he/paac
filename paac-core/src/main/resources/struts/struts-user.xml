@@ -3,7 +3,7 @@
  "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
   "http://struts.apache.org/dtds/struts-2.3.dtd" >
 <struts>
-	<package name="user" namespace="/manage/user" extends="struts-default">
+	<package name="user" namespace="manage/user" extends="struts-default">
 		<interceptors>
 			<!-- 自定义拦截器 -->
 			<interceptor name="myTimer" class="com.codelibrary.javaee.intercepter.TimerIntercepter"></interceptor>
@@ -33,12 +33,13 @@
 		</action>
 	
 		<!-- 处理业务的action配置 -->
-		<action name="user_do_*" method="do_{1}" class="com.codelibrary.javaee.action.user.UserAction">
+		<action name="user_do_*" method="{1}" class="com.codelibrary.javaee.action.user.UserAction">
 			<interceptor-ref name="myStack"></interceptor-ref>
 			<result name="failure">/error.jsp</result>
 			
 			<result name="login_ok">/WEB-INF/content/mainFrame.jsp</result>
-			
+			<result name="toMain">/WEB-INF/content/mainFrame.jsp</result>
+		
 			<result name="register_ok">/WEB-INF/content/login.jsp</result>
 		</action>
 		<!-- 跳转到视图层的页面 ｛1｝匹配文件夹 ｛2｝匹配文件名 -->

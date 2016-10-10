@@ -52,7 +52,11 @@ public class UserAction extends BaseAction implements ModelDriven<User>{
 	 *		<p>跳转到登陆页面</p>
 	 */
 	public String login_login(){
-		return "toView" ;
+		return "toView";
+	}
+	
+	public String toMain(){
+		return "toMain" ;
 	}
 	/**
 	 * 
