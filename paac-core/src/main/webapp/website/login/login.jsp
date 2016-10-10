@@ -24,7 +24,7 @@
     </div>
     <div class="Login-wrap">
         <div class="Login-Info">
-            <h3><a href="<%=rootPath%>/index.jsp"><img src="/website/skin/default/images/login/Login_logo.png"></a></h3>
+            <h3><a href="<%=routePath%>/index.jsp"><img src="/website/skin/default/images/login/Login_logo.png"></a></h3>
             <div class="Login-tab-wrap">
                 <div class="Login-tab">
                     <ul class="Login-tab-list clear">
@@ -63,8 +63,8 @@
                     <a href="javascript:void(0);" onclick="javascript:login();" >登录</a>
                 </div>
                 <div class="Login-Txt clear">
-                    <strong>还没有帐号<a href="<%=rootPath%><%=response.encodeUrl("/website/login/Reg_User.jsp")%>" target="_blank">立即注册</a></strong>
-                    <em><a href="<%=rootPath%><%=response.encodeUrl("/website/login/Reg_Password.jsp")%>">忘记密码</a></em>
+                    <strong>还没有帐号<a href="<%=routePath%><%=response.encodeUrl("/website/login/Reg_User.jsp")%>" target="_blank">立即注册</a></strong>
+                    <em><a href="<%=routePath%><%=response.encodeUrl("/website/login/Reg_Password.jsp")%>">忘记密码</a></em>
                 </div>
             </div>
         </div>
@@ -153,7 +153,7 @@
         $("body").loadingOverlay();
         var type = $(".active").attr("type");
         if (validateLogin()) {
-            var url = "<%=rootPath%>/login" + type + ".action?random=" + Math.round(Math.random() * 100);
+            var url = "<%=routePath%>/login" + type + ".action?random=" + Math.round(Math.random() * 100);
             $.ajax({
                 url : url,
                 type : 'post',
@@ -203,7 +203,7 @@
     function clientUserlogin(username,password,userType) {
         $("body").loadingOverlay();
         var type = $(".active").attr("type");
-        var url = "<%=rootPath%>/login" + type + ".action?random=" + Math.round(Math.random() * 100);
+        var url = "<%=routePath%>/login" + type + ".action?random=" + Math.round(Math.random() * 100);
         $.ajax({
             url : url,
             type : 'post',

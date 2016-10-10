@@ -1,4 +1,4 @@
-package com.codelibrary.javaee.entry.hibernate;
+package com.codelibrary.javaee.entry.hibernate.dependence;
 
 import java.io.Serializable;
 

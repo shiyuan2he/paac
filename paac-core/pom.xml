@@ -26,11 +26,11 @@
 			  <artifactId>paac-base</artifactId>
 			  <version>${version.base}</version>
   		</dependency>
-  		<!-- <dependency>
+  		<dependency>
 		    <groupId>javax.servlet</groupId>
 		    <artifactId>servlet-api</artifactId>
 		    <version>2.3</version>
-		</dependency> -->
+		</dependency>
 	     <dependency>
 		      <groupId>junit</groupId>
 		      <artifactId>junit</artifactId>

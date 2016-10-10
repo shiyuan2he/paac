@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.codelibrary.javaee.action.base.BaseAction;
 import com.codelibrary.javaee.entry.hibernate.User;
+import com.codelibrary.javaee.service.IUserService;
 import com.opensymphony.xwork2.ModelDriven;
 
 /**
@@ -21,7 +22,7 @@ public class UserAction extends BaseAction implements ModelDriven<User>{
 	private static final long serialVersionUID = 1L;
 	private User user ;
 	@Autowired
-	//private UserService userService ;
+	private IUserService userService ;
 	/**
 	 * 
 	 * @return
@@ -29,12 +30,19 @@ public class UserAction extends BaseAction implements ModelDriven<User>{
 	 * @description 
 	 *		<p>用户登录</p>
 	 */
-	public String login(){
+	public String do_login(){
 		if(user != null){
 			super.mapSession.put("user", user) ;
-			//userService.login(user) ;
+			userService.login(user) ;
 		}
 		return "login_ok" ;
+	}
+	public String do_register(){
+		boolean flag = userService.register(user) ;
+		if(flag){
+			return "register_ok" ;
+		}
+		return "failure" ;
 	}
 	/**
 	 * 

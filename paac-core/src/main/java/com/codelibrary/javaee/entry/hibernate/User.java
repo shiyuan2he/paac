@@ -12,6 +12,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.codelibrary.javaee.entry.hibernate.dependence.Address;
+
 /**
  * @description <p>请在此处输入类的描述</p>
  * @path paac-core/com.codelibrary.javaee.entry.hibernate.User.java	
@@ -82,8 +84,8 @@ public class User implements Serializable{
 	
 	@Id
 	@Column(nullable=false,unique=true)
-	@GenericGenerator(name="paacID",strategy="com.codelibrary.javaee.utils.IDGeneratorHelper")
-	@GeneratedValue(generator="paacID")
+	@GenericGenerator(name="PAAC_ID",strategy="com.codelibrary.javaee.utils.IDGeneratorHelper")
+	@GeneratedValue(generator="PAAC_ID")
 	public String getId() {
 		return id;
 	}
