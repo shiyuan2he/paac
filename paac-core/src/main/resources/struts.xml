@@ -30,4 +30,5 @@
     
 	<!-- 用户相关配置文件 -->
 	<include file="struts/struts-user.xml"></include>
+	<include file="struts/struts-menu.xml"></include>
 </struts>

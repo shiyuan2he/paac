@@ -56,12 +56,14 @@ public class User implements Serializable{
 	private String realname; //真实姓名
 	private String nickname; //用户昵称
 	private String password ; //用户密码
+	private String encryptionType ; //加密类型	base64，md5
 	private String certNo ; //身份证号码
 	private Date birth ;	//出生日期
 	private Address address ; // 住址
 	private Date createTime ;//创建账号日期
 	private Date upTime ;// 修改帐号日期
 	private String upUser ; //修改帐号人  本人或者管理员
+	private String is_del ;//是否物理删除 1 是 0 否
 	
 	public User() {}
 
@@ -77,11 +79,19 @@ public class User implements Serializable{
 	public String getCertNo() {
 		return certNo;
 	}
-
 	public void setCertNo(String certNo) {
 		this.certNo = certNo;
 	}
-	
+
+	@Column(name="encryptionType",nullable=false,length=10)
+	public String getEncryptionType() {
+		return encryptionType;
+	}
+
+	public void setEncryptionType(String encryptionType) {
+		this.encryptionType = encryptionType;
+	}
+
 	@Id
 	@Column(nullable=false,unique=true)
 	@GenericGenerator(name="PAAC_ID",strategy="com.codelibrary.javaee.utils.IDGeneratorHelper")
@@ -163,7 +173,14 @@ public class User implements Serializable{
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-	
+	@Column(length=10)
+	public String getIs_del() {
+		return is_del;
+	}
+
+	public void setIs_del(String is_del) {
+		this.is_del = is_del;
+	}
 
 	@Override
 	public int hashCode() {

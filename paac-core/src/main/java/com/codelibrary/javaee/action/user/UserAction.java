@@ -32,10 +32,12 @@ public class UserAction extends BaseAction implements ModelDriven<User>{
 	 */
 	public String do_login(){
 		if(user != null){
-			super.mapSession.put("user", user) ;
-			userService.login(user) ;
+			if(userService.login(user)){
+				super.mapSession.put("user", user) ;
+				return "login_ok" ;
+			}
 		}
-		return "login_ok" ;
+		return "failure" ;
 	}
 	public String do_register(){
 		boolean flag = userService.register(user) ;
@@ -51,7 +53,7 @@ public class UserAction extends BaseAction implements ModelDriven<User>{
 	 * @description 
 	 *		<p>跳转到登陆页面</p>
 	 */
-	public String login_login(){
+	public String to_login_login(){
 		return "toView";
 	}
 	
@@ -63,9 +65,9 @@ public class UserAction extends BaseAction implements ModelDriven<User>{
 	 * @return
 	 * @returnType String
 	 * @description 
-	 *		<p>跳转到添加用户页面</p>
+	 *		<p>跳转到用户注册页面</p>
 	 */
-	public String login_register(){
+	public String to_login_register(){
 		return "toView" ;
 	}
 	public User getModel() {

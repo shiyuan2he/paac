@@ -15,6 +15,9 @@ import java.util.Map;
  * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
  */
 public class BeanHelper{
+	public static boolean isNull(Object o){
+		return o.equals(null) ;
+	}
 	/**
 	 * 
 	 * @description <p>比较两个javabean属性不同</p>

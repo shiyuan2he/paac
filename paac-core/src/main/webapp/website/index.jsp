@@ -21,12 +21,12 @@
 	<script type="text/javascript" src="<%=path %>/js/index/move-top.js"></script>
 	<script type="text/javascript" src="<%=path %>/js/index/easing.js"></script>
 	<script type="text/javascript">
-		jQuery(document).ready(function($) {
+		/*jQuery(document).ready(function($) {
 			$(".scroll").click(function(event){
 				event.preventDefault();
 				$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
 			});
-		});
+		});*/
 	</script>
 	<link rel="stylesheet" href="<%=path %>/css/index/swipebox.css">
 	<script src="<%=path %>/js/index/jquery.swipebox.min.js"></script>

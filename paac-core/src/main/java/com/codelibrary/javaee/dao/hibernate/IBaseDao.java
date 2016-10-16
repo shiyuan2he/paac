@@ -62,10 +62,10 @@ public interface IBaseDao<O,S extends java.io.Serializable> {
 	public List<O> find(String hql,java.lang.Object[] param) ;
 	/**
 	 * 
-	 * @description 
+	 * @description
 	 *		<p>根据map列参数和hql查询结果集</p>
 	 * @time 2016年7月3日 下午8:27:43
-	 * @github 
+	 * @github
 	 * 		http://github.com/shiyuan2he
 	 * @author shiyuan2he
 	 * @email shiyuan4work@sina.com
@@ -78,7 +78,7 @@ public interface IBaseDao<O,S extends java.io.Serializable> {
 	 * @description 
 	 *		<p>根据list参数和hql查询结果集</p>
 	 * @time 2016年7月3日 下午8:27:49
-	 * @github 
+	 * @github
 	 * 		http://github.com/shiyuan2he
 	 * @author shiyuan2he
 	 * @email shiyuan4work@sina.com
