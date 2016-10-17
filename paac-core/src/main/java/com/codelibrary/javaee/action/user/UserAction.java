@@ -1,5 +1,7 @@
 package com.codelibrary.javaee.action.user;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.codelibrary.javaee.action.base.BaseAction;
@@ -21,7 +23,7 @@ import com.opensymphony.xwork2.ModelDriven;
 public class UserAction extends BaseAction implements ModelDriven<User>{
 	private static final long serialVersionUID = 1L;
 	private User user ;
-	@Autowired
+	@Resource
 	private IUserService userService ;
 	/**
 	 * 

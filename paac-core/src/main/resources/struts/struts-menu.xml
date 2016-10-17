@@ -28,22 +28,18 @@
 			<exception-mapping exception="java.lang.Exception" result="root"></exception-mapping>
 			<exception-mapping exception="com.hsy.codebase.utils.javase.exception.MyException" result="my"></exception-mapping>
 		</global-exception-mappings>
-		<action name="404" class="com.codelibrary.javaee.action.user.UserAction">
-			<result>/404.jsp</result>
-		</action>
 	
 		<!-- 处理业务的action配置 -->
-		<action name="menu_do_*" method="{1}" class="com.codelibrary.javaee.action.user.MenuAction">
+		<action name="menu_do_*" method="{1}" class="com.codelibrary.javaee.action.menu.MenuAction">
 			<interceptor-ref name="myStack"></interceptor-ref>
-		
 		</action>
 		<!-- 跳转到视图层的页面 ｛1｝匹配文件夹 ｛2｝匹配文件名 -->
-		<action name="menu_to_*_*" method="to_{1}_{2}" class="com.codelibrary.javaee.action.user.MenuAction">
+		<action name="menu_to_*_*" method="to_{1}_{2}" class="com.codelibrary.javaee.action.menu.MenuAction">
 			<interceptor-ref name="myStack"></interceptor-ref>
 			<result name="toView">/WEB-INF/content/{1}/{2}.jsp</result>
 		</action>
 		<!-- 跳转到视图层的页面 ｛1｝匹配文件夹 ｛2｝匹配文件名 -->
-		<action name="menu_to_main" method="to_main" class="com.codelibrary.javaee.action.user.MenuAction">
+		<action name="menu_to_main" method="to_main" class="com.codelibrary.javaee.action.menu.MenuAction">
 			<interceptor-ref name="myStack"></interceptor-ref>
 			<result name="toMain">/WEB-INF/content/mainFrame.jsp</result>
 		</action>

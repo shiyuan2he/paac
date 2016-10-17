@@ -33,8 +33,8 @@
 		</action>
 	
 		<!-- 处理业务的action配置 -->
-		<action name="user_do_*" method="{1}" class="com.codelibrary.javaee.action.user.UserAction">
-			<interceptor-ref name="myStack"></interceptor-ref>
+		<action name="user_do_*" method="do_{1}" class="com.codelibrary.javaee.action.user.UserAction">
+			<!-- <interceptor-ref name="myStack"></interceptor-ref> -->
 			<result name="failure">/error.jsp</result>
 			<result name="login_ok">/WEB-INF/content/mainFrame.jsp</result>
 			<result name="toMain">/WEB-INF/content/mainFrame.jsp</result>
@@ -42,7 +42,7 @@
 		</action>
 		<!-- 跳转到视图层的页面 ｛1｝匹配文件夹 ｛2｝匹配文件名 -->
 		<action name="user_to_*_*" method="to_{1}_{2}" class="com.codelibrary.javaee.action.user.UserAction">
-			<interceptor-ref name="myStack"></interceptor-ref>
+			<!-- <interceptor-ref name="myStack"></interceptor-ref> -->
 			<result name="toView">/WEB-INF/content/{1}/{2}.jsp</result>
 		</action>
 	</package>

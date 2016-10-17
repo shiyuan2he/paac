@@ -16,7 +16,7 @@ import com.hsy.codebase.utils.javase.bean.BeanHelper;
 import com.hsy.codebase.utils.javase.secure.Base64Helper;
 import com.hsy.codebase.utils.javase.string.StringHelper;
 @org.springframework.transaction.annotation.Transactional
-@org.springframework.stereotype.Service
+@org.springframework.stereotype.Service("userService")
 public class UserServiceImpl implements IUserService {
 	@org.springframework.beans.factory.annotation.Autowired
 	private IBaseDao<User,String> baseDao ;
