@@ -17,10 +17,11 @@ paac-core
 	 前台页面已经构建完成，目前架构  jsp + javascript + struts + hibernate + spring + mariadb + tomcat
 20161010 24:00
          登录注册模块完成
+20161017 24:00	登录注册模块完善
 
 
 
 
 将要完成
 	后台菜单列表	采用easyui实现
-
+	新建项目paac－medcal  一个专门纠正网络上不正确的言论及不科学的观点的一个平台项目
