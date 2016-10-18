@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.codelibrary.javaee.dao.hibernate.IBaseDao;
 
 /**
@@ -18,7 +21,7 @@ import com.codelibrary.javaee.dao.hibernate.IBaseDao;
  * @email shiyuan4work@sina.com
  * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
  */
-@org.springframework.stereotype.Component("baseDao")
+@Component("baseDao")
 public class BaseDaoImpl<O, S extends java.io.Serializable> implements IBaseDao<O, S> {
 	private org.hibernate.SessionFactory sessionFactory;
 	private org.springframework.orm.hibernate4.HibernateTemplate hibernateTemplate ;
@@ -124,7 +127,7 @@ public class BaseDaoImpl<O, S extends java.io.Serializable> implements IBaseDao<
 	 * @returnType void
 	 * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
 	 */
-	@org.springframework.beans.factory.annotation.Autowired
+	@Autowired
 	public void setSessionFactory(org.hibernate.SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
@@ -142,7 +145,7 @@ public class BaseDaoImpl<O, S extends java.io.Serializable> implements IBaseDao<
 	 * @returnType void
 	 * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
 	 */
-	@org.springframework.beans.factory.annotation.Autowired
+	@Autowired
 	public void setHibernateTemplate(org.springframework.orm.hibernate4.HibernateTemplate hibernateTemplate) {
 		this.hibernateTemplate = hibernateTemplate;
 	}

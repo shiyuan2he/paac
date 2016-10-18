@@ -1,8 +1,7 @@
 package com.codelibrary.javaee.action.user;
 
-import javax.annotation.Resource;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import com.codelibrary.javaee.action.base.BaseAction;
 import com.codelibrary.javaee.entry.hibernate.User;
@@ -19,11 +18,11 @@ import com.opensymphony.xwork2.ModelDriven;
  * @email shiyuan4work@sina.com
  * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
  */
-
+@Controller
 public class UserAction extends BaseAction implements ModelDriven<User>{
 	private static final long serialVersionUID = 1L;
 	private User user ;
-	@Resource
+	@Autowired
 	private IUserService userService ;
 	/**
 	 * 

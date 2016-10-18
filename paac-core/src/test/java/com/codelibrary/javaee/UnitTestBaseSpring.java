@@ -31,7 +31,7 @@ public class UnitTestBaseSpring {
 	public void before() {
 		// 如果初始化没有传递spring配置文件，默认加载所有spring配置文件
 		if (StringUtils.isEmpty(springXmlpath)) {
-			springXmlpath = "classpath*:spring/application*.xml";
+			springXmlpath = "classpath*:spring/spring-*.xml";
 		}
 		try {
 			context = new ClassPathXmlApplicationContext(springXmlpath.split("[,\\s]+"));

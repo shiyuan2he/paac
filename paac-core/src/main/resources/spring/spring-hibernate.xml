@@ -50,8 +50,8 @@
 	<!-- <bean id="hibernateDaoSupport" class="org.springframework.orm.hibernate4.support.HibernateDaoSupport" p:hibernateTemplate-ref="hibernateTemplate"/> -->
 	<!-- <bean id="sessionFactoryUtils" class="org.springframework.orm.hibernate4.SessionFactoryUtils"/> -->
 	<!-- 事务处理：配置声明式事务方法一>在serviece层的类上或者是方法名上添加@Transaction即可开启事务处理机制 		-->
-	<!-- <bean name="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager" p:sessionFactory-ref="sessionFactory"/>
-    <tx:annotation-driven transaction-manage="transactionManager"/> -->
+	<bean name="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager" p:sessionFactory-ref="sessionFactory"/>
+	<tx:annotation-driven transaction-manager="transactionManager"/>
 	<!-- 事务处理：配置声明式事务方法二>使用tx/aop命名空间的配置 -->
 	<!-- <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
 		<tx:attributes>

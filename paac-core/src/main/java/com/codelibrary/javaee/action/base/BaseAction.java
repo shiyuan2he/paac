@@ -12,6 +12,7 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.apache.struts2.util.ServletContextAware;
+import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -27,6 +28,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @email shiyuan4work@sina.com
  * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
  */
+@Controller
 public class BaseAction extends ActionSupport implements ServletRequestAware,ServletResponseAware,SessionAware,ServletContextAware{
 
 	protected HttpServletRequest request ;

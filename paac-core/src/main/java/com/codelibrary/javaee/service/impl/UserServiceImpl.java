@@ -8,6 +8,10 @@
 package com.codelibrary.javaee.service.impl;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.codelibrary.javaee.dao.hibernate.IBaseDao;
 import com.codelibrary.javaee.entry.hibernate.User;
 import com.codelibrary.javaee.service.IUserService;
@@ -15,14 +19,14 @@ import com.codelibrary.javaee.utils.Constant;
 import com.hsy.codebase.utils.javase.bean.BeanHelper;
 import com.hsy.codebase.utils.javase.secure.Base64Helper;
 import com.hsy.codebase.utils.javase.string.StringHelper;
-@org.springframework.transaction.annotation.Transactional
-@org.springframework.stereotype.Service("userService")
+@Transactional
+@Service("userService")
 public class UserServiceImpl implements IUserService {
-	@org.springframework.beans.factory.annotation.Autowired
+	@Autowired
 	private IBaseDao<User,String> baseDao ;
 	@Override
 	public boolean login(User user) {
-		String hql = "from User user where user.username=? and user.password=?" ;
+		String hql = "from User user where user.username=? and user.password=?" ;	
 		List<User> userList = baseDao.find(hql, new Object[]{user.getUsername(),user.getPassword()}) ;
 		if(BeanHelper.isNull(userList.get(0))){
 			return true ;
