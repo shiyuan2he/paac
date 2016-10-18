@@ -34,7 +34,7 @@ public class UnitTestBaseSpring {
 			springXmlpath = "classpath*:spring/spring-*.xml";
 		}
 		try {
-			context = new ClassPathXmlApplicationContext(springXmlpath.split("[,\\s]+"));
+			context = new ClassPathXmlApplicationContext(springXmlpath.split("[,\\s]+"));//匹配逗号或字符串
 			//文件 
 			//FileSystemXmlApplicationContext content = new FileSystemXmlApplicationContext("c:/workspace/applicationContext.xml") ;
 			context.start();

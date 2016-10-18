@@ -27,21 +27,21 @@ public class UnitTestBaseHibernate {
 	@Before
 	public void before(){
 		//创建hibernate配置对象
-		Configuration config = new Configuration().configure() ;
+		//Configuration config = new Configuration().configure() ;
 		//创建服务注册对象
-		ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(config.getProperties()).buildServiceRegistry() ;
+		//ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(config.getProperties()).buildServiceRegistry() ;
 		//生成sessionFactory
-		sessionFactory = config.buildSessionFactory(serviceRegistry) ;
-		session = sessionFactory.openSession() ;
-		transaction = session.beginTransaction();
-		SchemaExport export = new SchemaExport(config) ;
-		export.create(true, true);
+		//sessionFactory = config.buildSessionFactory(serviceRegistry) ;
+		//session = sessionFactory.openSession() ;
+		//transaction = session.beginTransaction();
+		//SchemaExport export = new SchemaExport(config) ;
+		//export.create(true, true);
 	}
 	@After
 	public void after(){
-		transaction.commit();
-		session.close() ;
-		sessionFactory.close();
+		//transaction.commit();
+		//session.close() ;
+		//sessionFactory.close();
 	}
 }
 

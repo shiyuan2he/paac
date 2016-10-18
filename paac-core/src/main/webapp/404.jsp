@@ -10,7 +10,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>平台云-登陆</title>
+	<title>平台云-404</title>
 </head>
 <body>
 	<h2>404</h2>

@@ -10,9 +10,9 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>平台云-500</title>
+	<title>平台云-错误</title>
 </head>
 <body>
-	<h2>500</h2>
+	<h2>error</h2>
 </body>
 </html>

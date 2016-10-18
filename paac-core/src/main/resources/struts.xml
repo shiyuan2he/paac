@@ -21,12 +21,77 @@
     <constant name="struts.serve.static.browserCache" value="false" /> 
 
     <!-- 指定由spring负责action对象的创建      --> 
-    <!-- <constant name="struts.objectFactory" value="spring" />  -->
+    <constant name="struts.objectFactory" value="spring" /> 
+    <!-- 由于Action没有由Spring控制，使用Spring AOP时会导致无法正常注入，固添加此句 -->
+	<constant name="struts.objectFactory.spring.autoWire.alwaysRespect" value="true" />
     
     <!-- 是否开启动态方法调用	使用于使用！调用action方法 --> 
     <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
     <!-- 该常量指定试图标签的默认主题，默认xhtml -->
     <constant name="struts.ui.theme" value="xhtml"/>
+    
+    <!-- 默认包，定义公共属性 -->
+	<!-- <package name="default" namespace="/" extends="struts-default">
+		<interceptors>
+			定义一个名为login_authority的拦截器
+			<interceptor name="login_authority" class="gov.cn.wch.login.interceptor.LoginInterceptor" />
+			<interceptor-stack name="defaultAll">
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+			定义一个包含权限检查的拦截器栈
+			<interceptor-stack name="manageDefault">
+				配置内建默认拦截器
+				<interceptor-ref name="defaultStack" />
+				配置自定义用户登陆的拦截器
+				<interceptor-ref name="login_authority" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="defaultAll" />
+
+		<default-action-ref name="indexPage" />
+
+		<global-results>
+			<result name="error">/error/error.jsp</result>
+			<result name="exceptionPage">/error/exceptionPage.jsp</result>
+			<result name="login" type="redirect">/login.jsp</result>
+			<result name="toIndex" type="redirect">/index.jsp</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping result="exceptionPage"
+				exception="java.lang.Exception" />
+		</global-exception-mappings>
+
+	</package> -->
+	<!-- <interceptors>
+			自定义拦截器
+			<interceptor name="myTimer" class="com.codelibrary.javaee.intercepter.TimerIntercepter"></interceptor>
+			<interceptor name="myAuth"  class="com.codelibrary.javaee.intercepter.AuthIntercepter"></interceptor>
+			自定义拦截器栈
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="myTimer"></interceptor-ref>
+				<interceptor-ref name="myAuth"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		默认action 当找不到需要的action，会进入此action处理
+		<default-action-ref name="404"></default-action-ref>
+		全局视图层
+		<global-results>
+			<result name="to404" type="">/404.jsp</result>
+			<result name="root" type="">/error.jsp</result>
+			<result name="my" type="">/exception.jsp</result>
+		</global-results>
+		全局异常处理	
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception" result="root"></exception-mapping>
+			<exception-mapping exception="com.hsy.codebase.utils.javase.exception.MyException" result="my"></exception-mapping>
+		</global-exception-mappings>
+		<action name="404" class="com.codelibrary.javaee.action.user.UserAction">
+			<result>/404.jsp</result>
+		</action> -->
+    
     
 	<!-- 用户相关配置文件 -->
 	<include file="struts/struts-user.xml"></include>
