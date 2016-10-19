@@ -53,6 +53,13 @@
 			<artifactId>struts2-core</artifactId>
 			<version>${version.struts2}</version>	
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.struts/struts2-spring-plugin 
+		<dependency>
+		    <groupId>org.apache.struts</groupId>
+		    <artifactId>struts2-spring-plugin</artifactId>
+		    <version>${version.struts2}</version>
+		</dependency>-->
+				
 		
 		<!-- spring package  -->
 		<dependency>

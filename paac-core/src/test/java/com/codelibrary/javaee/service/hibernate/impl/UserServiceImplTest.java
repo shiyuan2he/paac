@@ -1,10 +1,10 @@
 package com.codelibrary.javaee.service.hibernate.impl;
-import java.sql.SQLException;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.codelibrary.javaee.entry.hibernate.User;
 import com.codelibrary.javaee.service.IUserService;
 import com.hsy.codebase.utils.javase.bean.BeanHelper;

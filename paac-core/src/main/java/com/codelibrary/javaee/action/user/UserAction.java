@@ -1,6 +1,8 @@
 package com.codelibrary.javaee.action.user;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 import com.codelibrary.javaee.action.base.BaseAction;
@@ -23,6 +25,7 @@ public class UserAction extends BaseAction implements ModelDriven<User>{
 	private static final long serialVersionUID = 1L;
 	private User user ;
 	@Autowired
+	@Qualifier("userService")
 	private IUserService userService ;
 	/**
 	 * 

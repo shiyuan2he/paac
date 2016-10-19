@@ -18,8 +18,8 @@ public class TestUserAction {
 	private static UserAction userAction ;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		context = new ClassPathXmlApplicationContext("classpath*:spring/spring-*.xml");
-		userAction = (UserAction)context.getBean("userAction") ;
+//		context = new ClassPathXmlApplicationContext("classpath*:spring/spring-*.xml");
+//		userAction = (UserAction)context.getBean("userAction") ;
 	}
 
 	@AfterClass

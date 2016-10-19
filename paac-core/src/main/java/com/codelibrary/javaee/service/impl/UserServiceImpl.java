@@ -9,6 +9,7 @@ package com.codelibrary.javaee.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,8 +24,8 @@ import com.hsy.codebase.utils.javase.string.StringHelper;
 @Service("userService")
 public class UserServiceImpl implements IUserService {
 	@Autowired
+	@Qualifier("baseDao")
 	private IBaseDao<User,String> baseDao ;
-	@Override
 	public boolean login(User user) {
 		String hql = "from User user where user.username=? and user.password=?" ;	
 		List<User> userList = baseDao.find(hql, new Object[]{user.getUsername(),user.getPassword()}) ;
@@ -33,7 +34,6 @@ public class UserServiceImpl implements IUserService {
 		}
 		return false;
 	}
-	@Override
 	public boolean register(User user) {
 		if(user != null && StringHelper.isNotNullOrEmpty(user.getPassword())){
 			user.setPassword(Base64Helper.stringToBase64(user.getPassword()));

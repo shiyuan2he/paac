@@ -8,6 +8,7 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.codelibrary.javaee.dao.hibernate.IBaseDao;
 
@@ -21,7 +22,7 @@ import com.codelibrary.javaee.dao.hibernate.IBaseDao;
  * @email shiyuan4work@sina.com
  * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
  */
-@Component("baseDao")
+@Repository("baseDao")
 public class BaseDaoImpl<O, S extends java.io.Serializable> implements IBaseDao<O, S> {
 	private org.hibernate.SessionFactory sessionFactory;
 	private org.springframework.orm.hibernate4.HibernateTemplate hibernateTemplate ;
