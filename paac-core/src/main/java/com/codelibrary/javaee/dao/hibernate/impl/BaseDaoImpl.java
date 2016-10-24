@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import com.codelibrary.javaee.dao.hibernate.IBaseDao;
@@ -24,9 +22,10 @@ import com.codelibrary.javaee.dao.hibernate.IBaseDao;
  */
 @Repository("baseDao")
 public class BaseDaoImpl<O, S extends java.io.Serializable> implements IBaseDao<O, S> {
-	private org.hibernate.SessionFactory sessionFactory;
-	private org.springframework.orm.hibernate4.HibernateTemplate hibernateTemplate ;
+	//private org.hibernate.SessionFactory sessionFactory;
+	//private org.springframework.orm.hibernate4.HibernateTemplate hibernateTemplate ;
 	//private org.springframework.orm.hibernate4.support.HibernateDaoSupport hibernateDaoSupport ;
+	//private org.springframework.orm.hibernate4.SessionFactoryUtils sessionFactoryUtils ;
 	
 	private BaseDaoImpl(){}
 	
@@ -42,67 +41,72 @@ public class BaseDaoImpl<O, S extends java.io.Serializable> implements IBaseDao<
 	 * @returnType org.hibernate.Session 
 	 * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
 	 */
-	public org.hibernate.Session getSession(){
+	/*public org.hibernate.Session getSession(){
 		if(null == sessionFactory.getCurrentSession()){
 			return sessionFactory.openSession() ;
 		}
 		return sessionFactory.getCurrentSession() ;
-	}
+	}*/
 	/*	增	***************************************************************************************/
 	public java.io.Serializable save(O o){
-		return this.getSession().save(o);
+		//return this.getSession().save(o);
+		return null ;
 	}
 	
 	/*	删	***************************************************************************************/
 	public void delete(O o){
-		this.getSession().delete(o);
+		//this.getSession().delete(o);\
 	}
 	
 	/*	改	***************************************************************************************/
 	public void update(O o){
-		this.getSession().update(o);
+//		this.getSession().update(o);
 	}
 	public void saveOrUpdate(O o){
-		this.getSession().saveOrUpdate(o);
+//		this.getSession().saveOrUpdate(o);
 	}
 	public void merge(O o){
-		this.getSession().merge(o);
+//		this.getSession().merge(o);
 	}
 	/*	查	***************************************************************************************/
 	@SuppressWarnings("unchecked")
 	public O get(Class<O> c, Serializable s) {
-		return (O) this.getSession().get(c, s);
+//		return (O) this.getSession().get(c, s);
+		return null ;
 	}
 	
 	@SuppressWarnings("unchecked")
 	public List<O> find(String hql){
-		return this.getSession().createQuery(hql).list() ;
+//		return this.getSession().createQuery(hql).list() ;
+		return null ;
 	}
 	@SuppressWarnings("unchecked")
 	public List<O> find(String hql, Object[] param) {
-		org.hibernate.Query q = this.getSession().createQuery(hql);
+		/*org.hibernate.Query q = this.getSession().createQuery(hql);
 		if (param != null && param.length > 0) {
 			for (int i = 0; i < param.length; i++) {
 				q.setParameter(i, param[i]);
 			}
 		}
-		return q.list();
+		return q.list();*/
+		return null ;
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<O> find(String hql, List<Object> param) {
-		org.hibernate.Query q = this.getSession().createQuery(hql);
+		/*org.hibernate.Query q = this.getSession().createQuery(hql);
 		if (param != null && param.size() > 0) {
 			for (int i = 0; i < param.size(); i++) {
 				q.setParameter(i, param.get(i));
 			}
 		}
-		return q.list();
+		return q.list();*/
+		return null ;
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<O> find(String hql, Map<String,Object> param) {
-		org.hibernate.Query query = this.getSession().createQuery(hql);
+		/*org.hibernate.Query query = this.getSession().createQuery(hql);
 		if (param != null && param.size() > 0) {
 			Set<String> keySet = param.keySet();
 			for (Iterator<String> ite = keySet.iterator(); ite.hasNext();) {
@@ -110,12 +114,14 @@ public class BaseDaoImpl<O, S extends java.io.Serializable> implements IBaseDao<
 				query.setParameter(key, param.get(key));
 			}
 		}
-		return query.list();
+		return query.list();*/
+		return null ;
 	}
 	
-	public org.hibernate.SessionFactory getSessionFactory() {
+	/*public org.hibernate.SessionFactory getSessionFactory() {
 		return sessionFactory;
-	}
+		return null ;
+	}*/
 	/**
 	 * 
 	 * @description 
@@ -128,13 +134,12 @@ public class BaseDaoImpl<O, S extends java.io.Serializable> implements IBaseDao<
 	 * @returnType void
 	 * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
 	 */
-	@Autowired
-	public void setSessionFactory(org.hibernate.SessionFactory sessionFactory) {
+	/*public void setSessionFactory(org.hibernate.SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
-	}
-	public org.springframework.orm.hibernate4.HibernateTemplate getHibernateTemplate() {
+	}*/
+	/*public org.springframework.orm.hibernate4.HibernateTemplate getHibernateTemplate() {
 		return hibernateTemplate;
-	}
+	}*/
 	/**
 	 * @description 
 	 *		<p>从spring容器（spring－dao）注入hibernateTemplate</p>
@@ -146,13 +151,12 @@ public class BaseDaoImpl<O, S extends java.io.Serializable> implements IBaseDao<
 	 * @returnType void
 	 * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
 	 */
-	@Autowired
-	public void setHibernateTemplate(org.springframework.orm.hibernate4.HibernateTemplate hibernateTemplate) {
+	/*public void setHibernateTemplate(org.springframework.orm.hibernate4.HibernateTemplate hibernateTemplate) {
 		this.hibernateTemplate = hibernateTemplate;
-	}
-//	public org.springframework.orm.hibernate4.support.HibernateDaoSupport getHibernateDaoSupport() {
-//		return hibernateDaoSupport;
-//	}
+	}*/
+	/*public org.springframework.orm.hibernate4.support.HibernateDaoSupport getHibernateDaoSupport() {
+		return hibernateDaoSupport;
+	}*/
 	/**
 	 * @description 
 	 *		<p>从spring容器（spring－dao）注入hibernateDaoSupport</p>
@@ -164,9 +168,17 @@ public class BaseDaoImpl<O, S extends java.io.Serializable> implements IBaseDao<
 	 * @returnType void
 	 * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
 	 */
-//	@org.springframework.beans.factory.annotation.Autowired
-//	public void setHibernateDaoSupport(org.springframework.orm.hibernate4.support.HibernateDaoSupport hibernateDaoSupport) {
-//		this.hibernateDaoSupport = hibernateDaoSupport;
-//	}
+	/*public void setHibernateDaoSupport(org.springframework.orm.hibernate4.support.HibernateDaoSupport hibernateDaoSupport) {
+		this.hibernateDaoSupport = hibernateDaoSupport;
+	}
+
+	public org.springframework.orm.hibernate4.SessionFactoryUtils getSessionFactoryUtils() {
+		return sessionFactoryUtils;
+	}
+
+	public void setSessionFactoryUtils(
+			org.springframework.orm.hibernate4.SessionFactoryUtils sessionFactoryUtils) {
+		this.sessionFactoryUtils = sessionFactoryUtils;
+	}*/
 }
 

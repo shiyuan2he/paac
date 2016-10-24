@@ -4,8 +4,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import com.codelibrary.javaee.entry.hibernate.User;
 import com.codelibrary.javaee.service.IUserService;
 import com.hsy.codebase.utils.javase.bean.BeanHelper;
 /**
@@ -34,21 +32,15 @@ public class UserServiceImplTest{
 
 	@Test
 	public void testLogin(){
-		User user = new User() ;
-		user.setUsername("张三");
-		user.setPassword("admin");
 		if(!BeanHelper.isNull(userService)){
-			boolean flag = userService.login(user) ;
+			boolean flag = userService.login("张三","admin") ;
 			System.out.println(flag);
 		}
 	}
 	@Test
 	public void testRegister(){
-		User user = new User() ;
-		user.setUsername("张三");
-		user.setPassword("admin");
 		if(!BeanHelper.isNull(userService)){
-			boolean flag = userService.register(user) ;
+			boolean flag = userService.register("张三","admin") ;
 			System.out.println(flag);
 		}
 	}

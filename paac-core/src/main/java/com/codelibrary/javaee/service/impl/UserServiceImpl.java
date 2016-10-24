@@ -8,8 +8,8 @@
 package com.codelibrary.javaee.service.impl;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,20 +23,20 @@ import com.hsy.codebase.utils.javase.string.StringHelper;
 @Transactional
 @Service("userService")
 public class UserServiceImpl implements IUserService {
-	@Autowired
-	@Qualifier("baseDao")
+	@Resource
 	private IBaseDao<User,String> baseDao ;
-	public boolean login(User user) {
+	public boolean login(String username,String password) {
 		String hql = "from User user where user.username=? and user.password=?" ;	
-		List<User> userList = baseDao.find(hql, new Object[]{user.getUsername(),user.getPassword()}) ;
+		List<User> userList = baseDao.find(hql, new Object[]{username,password}) ;
 		if(BeanHelper.isNull(userList.get(0))){
 			return true ;
 		}
 		return false;
 	}
-	public boolean register(User user) {
-		if(user != null && StringHelper.isNotNullOrEmpty(user.getPassword())){
-			user.setPassword(Base64Helper.stringToBase64(user.getPassword()));
+	public boolean register(String username,String password) {
+		User user = new User() ;
+		if(StringHelper.isNotNullOrEmpty(password) && StringHelper.isNotNullOrEmpty(username)){
+			user.setPassword(Base64Helper.stringToBase64(password));
 			user.setEncryptionType(Constant.ENCRYPTIONTYPE_BASE64);
 			user.setIs_del("0"); //未物理删除
 			baseDao.save(user) ;
@@ -46,6 +46,12 @@ public class UserServiceImpl implements IUserService {
 			}
 		}
 		return false ;
+	}
+	public IBaseDao<User, String> getBaseDao() {
+		return baseDao;
+	}
+	public void setBaseDao(IBaseDao<User, String> baseDao) {
+		this.baseDao = baseDao;
 	}
 }
 

@@ -23,7 +23,7 @@ public interface IUserService {
 	 * @copyright	此方法版权归本人所有，复制或者剪切请通知本人或者捐赠 通知方式：shiyuan4work@sina.com
 	 * @callnumber 15003828090
 	 */
-	boolean login(com.codelibrary.javaee.entry.hibernate.User user);
+	boolean login(String username,String password);
 	/**
 	 * 
 	 * @description <p>注册</p>
@@ -39,6 +39,6 @@ public interface IUserService {
 	 * @copyright	此方法版权归本人所有，复制或者剪切请通知本人或者捐赠 通知方式：shiyuan4work@sina.com
 	 * @callnumber 15003828090
 	 */
-	boolean register(com.codelibrary.javaee.entry.hibernate.User user);
+	boolean register(String username,String password);
 }
 

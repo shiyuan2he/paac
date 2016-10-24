@@ -19,14 +19,14 @@
 
     <!-- 设置浏览器是否缓存静态内容。默认值为true(生产环境下使用),开发阶段最好关闭  --> 
     <constant name="struts.serve.static.browserCache" value="false" /> 
-
-    <!-- 指定由spring负责action对象的创建     
-    <constant name="struts.objectFactory" value="spring" />  --> 
+    <!-- 指定由spring负责action对象的创建 -->    
+	<!-- <constant name="struts.objectFactory" value="spring" /> -->
+    
     <!-- 由于Action没有由Spring控制，使用Spring AOP时会导致无法正常注入，固添加此句 -->
-	<constant name="struts.objectFactory.spring.autoWire.alwaysRespect" value="true" />
+	<!-- <constant name="struts.objectFactory.spring.autoWire.alwaysRespect" value="true" /> -->
     
     <!-- 是否开启动态方法调用	使用于使用！调用action方法 --> 
-    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+    <!-- <constant name="struts.enable.DynamicMethodInvocation" value="false"/> -->
     <!-- 该常量指定试图标签的默认主题，默认xhtml -->
     <constant name="struts.ui.theme" value="xhtml"/>
     
