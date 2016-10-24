@@ -1,13 +1,13 @@
 package com.codelibrary.javaee.action.user;
+import javax.annotation.Resource;
 
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 import com.codelibrary.javaee.action.base.BaseAction;
 import com.codelibrary.javaee.entry.hibernate.User;
 import com.codelibrary.javaee.service.IUserService;
+import com.codelibrary.javaee.service.impl.UserServiceImpl;
+import com.hsy.codebase.utils.javase.bean.BeanHelper;
 import com.opensymphony.xwork2.ModelDriven;
 
 /**
@@ -24,19 +24,18 @@ import com.opensymphony.xwork2.ModelDriven;
 public class UserAction extends BaseAction implements ModelDriven<User>{
 	private static final long serialVersionUID = 1L;
 	private User user ;
-	@Autowired
-	@Qualifier("userService")
+	@Resource
 	private IUserService userService ;
 	/**
 	 * 
 	 * @return
 	 * @returnType String
-	 * @description 
+	 * @description
 	 *		<p>用户登录</p>
 	 */
 	public String do_login(){
 		if(user != null){
-			if(userService.login(user)){
+			if(userService.login(user.getUsername(),user.getPassword())){
 				super.mapSession.put("user", user) ;
 				return "login_ok" ;
 			}
@@ -44,9 +43,16 @@ public class UserAction extends BaseAction implements ModelDriven<User>{
 		return "failure" ;
 	}
 	public String do_register(){
-		boolean flag = userService.register(user) ;
-		if(flag){
-			return "register_ok" ;
+		try{
+			if(null == userService){
+				userService = new UserServiceImpl();
+			}
+			boolean flag = userService.register(user.getUsername(),user.getPassword()) ;
+			if(flag){
+				return "register_ok" ;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
 		}
 		return "failure" ;
 	}
@@ -79,6 +85,12 @@ public class UserAction extends BaseAction implements ModelDriven<User>{
 			user = new User() ;
 		}
 		return user;
+	}
+	public IUserService getUserService() {
+		return userService;
+	}
+	public void setUserService(IUserService userService) {
+		this.userService = userService;
 	}
 }
 
