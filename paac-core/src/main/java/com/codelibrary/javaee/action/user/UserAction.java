@@ -3,11 +3,10 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 
-import com.codelibrary.javaee.action.base.BaseAction;
 import com.codelibrary.javaee.entry.hibernate.User;
 import com.codelibrary.javaee.service.IUserService;
 import com.codelibrary.javaee.service.impl.UserServiceImpl;
-import com.hsy.codebase.utils.javase.bean.BeanHelper;
+import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 /**
@@ -21,7 +20,7 @@ import com.opensymphony.xwork2.ModelDriven;
  * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
  */
 @Controller
-public class UserAction extends BaseAction implements ModelDriven<User>{
+public class UserAction extends ActionSupport implements ModelDriven<User>{
 	private static final long serialVersionUID = 1L;
 	private User user ;
 	@Resource
@@ -36,7 +35,7 @@ public class UserAction extends BaseAction implements ModelDriven<User>{
 	public String do_login(){
 		if(user != null){
 			if(userService.login(user.getUsername(),user.getPassword())){
-				super.mapSession.put("user", user) ;
+				//super.mapSession.put("user", user) ;
 				return "login_ok" ;
 			}
 		}

@@ -15,7 +15,7 @@
            http://www.springframework.org/schema/tx/spring-tx-4.2.xsd ">
 
 	<!-- Database config -->
-	<!-- <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="${driverClassName}"/>
         <property name="jdbcUrl" value="${jdbc_url}" />
 		<property name="user" value="${jdbc_username}" />
@@ -31,9 +31,9 @@
 		<property name="idleConnectionTestPeriod" value="60" />
 		<property name="acquireRetryAttempts" value="30" />
 		<property name="breakAfterAcquireFailure" value="true" />
-    </bean>	 -->
+    </bean>
 	<!-- config hibernate session factory -->
-	<!-- <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
 		p:dataSource-ref="dataSource" p:packagesToScan="com.codelibrary.javaee.entry.hibernate">
 		<property name="hibernateProperties">
 			<props>
@@ -44,7 +44,7 @@
 				<prop key="hibernate.current_session_context_class">${hibernate.current_session_context_class}</prop>
 			</props>
 		</property>
-	</bean> -->
+	</bean>
 	<!-- 以下三个配置可有可无，sessionFactory下的方法基本上已经够用，但是配置后提供了更多的dao曾封装方法，丰富baseDaoImpl 底层工具类 -->
 	<!-- <bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate" p:sessionFactory-ref="sessionFactory" /> -->
     <!-- <bean id="hibernateDaoSupport" class="org.springframework.orm.hibernate4.support.HibernateDaoSupport">
