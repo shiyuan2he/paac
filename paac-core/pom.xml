@@ -67,6 +67,22 @@
 			<artifactId>spring-core</artifactId>
 			<version>${version.spring}</version>
 		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-beans</artifactId>
+		    <version>${version.spring}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context</artifactId>
+		    <version>${version.spring}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-expression</artifactId>
+		    <version>${version.spring}</version>
+		</dependency>
+				
 		<dependency> 
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
