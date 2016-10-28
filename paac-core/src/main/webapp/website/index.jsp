@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.Date"%>
 <%
 	//paac-core
 	String path = request.getContextPath();
@@ -29,7 +30,7 @@
 			<div class="contentD"></div>
 		</div>
 		<div class="bottom">
-			<div>©2016-now Platform As a Cloud(127.0.0.1) All rights reserved.</div>
+			<div>©2016-<%=(new Date()).toString().substring(24)%> Platform As a Cloud(127.0.0.1) All rights reserved.</div>
 		</div>
 </body>
 </html>

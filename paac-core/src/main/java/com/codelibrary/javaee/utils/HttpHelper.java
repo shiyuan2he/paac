@@ -35,7 +35,7 @@ public class HttpHelper {
 	 * @copyright	此方法版权归本人所有，复制或者剪切请通知本人或者捐赠 通知方式：shiyuan4work@sina.com
 	 * @callnumber 15003828090
 	 */
-	public static Map<String,Object> setSerachByRequest(HttpServletRequest request,String paras) {
+	public static Map<String,Object> requestParametersToMap(HttpServletRequest request,String paras) {
 		Enumeration<?> enu = request.getParameterNames();
 		Map<String,Object> map = new HashMap<String,Object>();
 		while (enu.hasMoreElements()) {
