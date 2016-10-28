@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.codelibrary.javaee.dao.hibernate.IBaseDao;
@@ -22,7 +25,7 @@ import com.codelibrary.javaee.dao.hibernate.IBaseDao;
  */
 @Repository("baseDao")
 public class BaseDaoImpl<O, S extends java.io.Serializable> implements IBaseDao<O, S> {
-	private org.hibernate.SessionFactory sessionFactory;
+	private SessionFactory sessionFactory;
 	//private org.springframework.orm.hibernate4.HibernateTemplate hibernateTemplate ;
 	//private org.springframework.orm.hibernate4.support.HibernateDaoSupport hibernateDaoSupport ;
 	//private org.springframework.orm.hibernate4.SessionFactoryUtils sessionFactoryUtils ;
@@ -41,7 +44,7 @@ public class BaseDaoImpl<O, S extends java.io.Serializable> implements IBaseDao<
 	 * @returnType org.hibernate.Session 
 	 * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
 	 */
-	public org.hibernate.Session getSession(){
+	public Session getSession(){
 		if(null == sessionFactory.getCurrentSession()){
 			return sessionFactory.openSession() ;
 		}
@@ -68,7 +71,6 @@ public class BaseDaoImpl<O, S extends java.io.Serializable> implements IBaseDao<
 		this.getSession().merge(o);
 	}
 	/*	查	***************************************************************************************/
-	@SuppressWarnings("unchecked")
 	public O get(Class<O> c, Serializable s) {
 		return (O) this.getSession().get(c, s);
 	}
@@ -112,7 +114,7 @@ public class BaseDaoImpl<O, S extends java.io.Serializable> implements IBaseDao<
 		return query.list();
 	}
 	
-	public org.hibernate.SessionFactory getSessionFactory() {
+	public SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}
 	/**
@@ -127,7 +129,8 @@ public class BaseDaoImpl<O, S extends java.io.Serializable> implements IBaseDao<
 	 * @returnType void
 	 * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
 	 */
-	public void setSessionFactory(org.hibernate.SessionFactory sessionFactory) {
+	@Autowired
+	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
 	/*public org.springframework.orm.hibernate4.HibernateTemplate getHibernateTemplate() {

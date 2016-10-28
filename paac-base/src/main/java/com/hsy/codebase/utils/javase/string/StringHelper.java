@@ -153,6 +153,22 @@ public class StringHelper extends StringUtils{
 	
 	private static String _FromEncode_ = "GBK";
 	private static String _ToEncode_ = "GBK";
+	/**
+	 * 
+	 * @description <p>将中文字符转化成相同的编码比较大小</p>
+	 * @param str1
+	 * @param str2
+	 * @return
+	 * @returnType int
+	 * 方法名:compare
+	 * 类名:StringHelper
+	 * @author heshiyuan
+	 * @email sy.he@jiankangyun.com.cn
+	 * @date 2016年10月28日 下午3:04:20
+	 * @price ￥:三毛三
+	 * @copyright	此方法版权归本人所有，复制或者剪切请通知本人或者捐赠 通知方式：shiyuan4work@sina.com
+	 * @callnumber 15003828090
+	 */
 	public static int compare(String str1, String str2) {
 		int result = 0;
 		String m_s1 = null;
@@ -167,7 +183,7 @@ public class StringHelper extends StringUtils{
 		return result;
 	}
 	/**
-	 * @description <p>请在这里输入方法的作用</p>
+	 * @description <p>比较中文字符是否相等</p>
 	 * @param s1
 	 * @param s2
 	 * @return
@@ -220,14 +236,19 @@ public class StringHelper extends StringUtils{
 		return value;
 	}
 	/**
-	 * 获取文字首字母
 	 * 
-	 * date: 2015年4月15日 上午10:15:41
-	 * 
-	 * @author 高新刚
+	 * @description <p>获取文字首字母</p>
 	 * @param res
 	 * @return
-	 * @since JDK 1.8
+	 * @returnType String
+	 * 方法名:getBeginCharacter
+	 * 类名:StringHelper
+	 * @author heshiyuan
+	 * @email sy.he@jiankangyun.com.cn
+	 * @date 2016年10月28日 下午3:05:13
+	 * @price ￥:三毛三
+	 * @copyright	此方法版权归本人所有，复制或者剪切请通知本人或者捐赠 通知方式：shiyuan4work@sina.com
+	 * @callnumber 15003828090
 	 */
 	public static String getBeginCharacter(String res) {
 		String a = res;
@@ -285,17 +306,22 @@ public class StringHelper extends StringUtils{
 				else if (compare(current, "\u554A ") >= 0)
 					result = result + "a";
 		}
-
 		return result;
 	}
-
 	/**
-	 * 将中文字符串转化为首字母组合 如果字符串中有字母直接输出字母 如果字符串中有数字输出数字 date: 2015年4月15日 上午10:20:59
 	 * 
-	 * @author 高新刚
+	 * @description <p>将中文字符串转化为首字母组合 如果字符串中有字母直接输出字母 如果字符串中有数字输出数字</p>
 	 * @param str
 	 * @return
-	 * @since JDK 1.8
+	 * @returnType String
+	 * 方法名:getFirstStr
+	 * 类名:StringHelper
+	 * @author heshiyuan
+	 * @email sy.he@jiankangyun.com.cn
+	 * @date 2016年10月28日 下午3:06:37
+	 * @price ￥:三毛三
+	 * @copyright	此方法版权归本人所有，复制或者剪切请通知本人或者捐赠 通知方式：shiyuan4work@sina.com
+	 * @callnumber 15003828090
 	 */
 	public static String getFirstStr(String str) {
 		String result = "";

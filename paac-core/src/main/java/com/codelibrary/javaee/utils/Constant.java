@@ -12,5 +12,7 @@ package com.codelibrary.javaee.utils;
 public class Constant {
 	public static String ENCRYPTIONTYPE_BASE64 = "BASE64" ; //加密类型
 	public static String ENCRYPTIONTYPE_MD5 = "MD5" ; //加密类型
+	public static String KEY_LOG_ERROR = "key_log_error" ;
+	public static String KEY_LOG_SUCCESS = "key_log_success" ;
 }
 

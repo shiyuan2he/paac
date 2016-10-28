@@ -15,8 +15,41 @@ import java.util.Map;
  * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
  */
 public class BeanHelper{
+	/**
+	 * 
+	 * @description <p>判断JavaBean对象是否为null</p>
+	 * @param o
+	 * @return
+	 * @returnType boolean
+	 * 方法名:isNull
+	 * 类名:BeanHelper
+	 * @author heshiyuan
+	 * @email sy.he@jiankangyun.com.cn
+	 * @date 2016年10月28日 下午2:09:18
+	 * @price ￥:三毛三
+	 * @copyright	此方法版权归本人所有，复制或者剪切请通知本人或者捐赠 通知方式：shiyuan4work@sina.com
+	 * @callnumber 15003828090
+	 */
 	public static boolean isNull(Object o){
 		return o.equals(null) ;
+	}
+	/**
+	 * 
+	 * @description <p>判断JavaBean对象是否不为null</p>
+	 * @param o
+	 * @return
+	 * @returnType boolean
+	 * 方法名:isNotNull
+	 * 类名:BeanHelper
+	 * @author heshiyuan
+	 * @email sy.he@jiankangyun.com.cn
+	 * @date 2016年10月28日 下午2:10:27
+	 * @price ￥:三毛三
+	 * @copyright	此方法版权归本人所有，复制或者剪切请通知本人或者捐赠 通知方式：shiyuan4work@sina.com
+	 * @callnumber 15003828090
+	 */
+	public static boolean isNotNull(Object o){
+		return !isNull(o) ;
 	}
 	/**
 	 * 
@@ -35,9 +68,7 @@ public class BeanHelper{
 	 * @copyright	此方法版权归本人所有，复制或者剪切请通知本人或者捐赠 通知方式：shiyuan4work@sina.com
 	 * @callnumber 15003828090
 	 */
-	public static <T> Map<String, String> compare(T obj1, T Obj2)
-            throws Exception {
-
+	public static <T> Map<String, String> compare(T obj1, T Obj2) throws Exception {
         Map<String, String> result = new HashMap<String, String>();
 
         Field[] fs = obj1.getClass().getDeclaredFields();

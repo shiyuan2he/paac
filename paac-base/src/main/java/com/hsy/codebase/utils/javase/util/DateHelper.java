@@ -5,7 +5,7 @@
  *     http://githob.com/shiyuan2he
  * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
  */
-package com.codelibrary.javaee.utils;
+package com.hsy.codebase.utils.javase.util;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

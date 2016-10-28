@@ -1,12 +1,15 @@
 package com.codelibrary.javaee.action.user;
-import javax.annotation.Resource;
 
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import com.codelibrary.javaee.action.base.BaseAction;
+import com.codelibrary.javaee.annotation.MethodException;
 import com.codelibrary.javaee.entry.hibernate.User;
 import com.codelibrary.javaee.service.IUserService;
-import com.codelibrary.javaee.service.impl.UserServiceImpl;
-import com.opensymphony.xwork2.ActionSupport;
+import com.hsy.codebase.utils.javase.bean.BeanHelper;
+import com.hsy.codebase.utils.javase.string.StringHelper;
 import com.opensymphony.xwork2.ModelDriven;
 
 /**
@@ -20,10 +23,11 @@ import com.opensymphony.xwork2.ModelDriven;
  * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
  */
 @Controller
-public class UserAction extends ActionSupport implements ModelDriven<User>{
+public class UserAction extends BaseAction implements ModelDriven<User>{
+	private static Logger _logger = Logger.getLogger(UserAction.class);
 	private static final long serialVersionUID = 1L;
 	private User user ;
-	@Resource
+	@Autowired
 	private IUserService userService ;
 	/**
 	 * 
@@ -32,23 +36,39 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	 * @description
 	 *		<p>用户登录</p>
 	 */
+	@MethodException(remark="select",description="用户登陆")
 	public String do_login(){
-		if(user != null){
+		if(BeanHelper.isNotNull(user)&&StringHelper.isNotNullOrEmpty(user.getPassword())&&StringHelper.isNotNullOrEmpty(user.getPassword())){
 			if(userService.login(user.getUsername(),user.getPassword())){
-				//super.mapSession.put("user", user) ;
 				return "login_ok" ;
 			}
+		}else{
+			_logger.error("【--用户登录--】传递参数失败：用户名或者用户密码传递失败。。");
 		}
 		return "failure" ;
 	}
+	/**
+	 * 
+	 * @description <p>注册</p>
+	 * @return
+	 * @returnType String
+	 * 方法名:do_register
+	 * 类名:UserAction
+	 * @author heshiyuan
+	 * @email sy.he@jiankangyun.com.cn
+	 * @date 2016年10月27日 下午1:22:22
+	 * @price ￥:三毛三
+	 * @copyright	此方法版权归本人所有，复制或者剪切请通知本人或者捐赠 通知方式：shiyuan4work@sina.com
+	 * @callnumber 15003828090
+	 */
+	@MethodException(remark="add",description="用户注册")
 	public String do_register(){
 		try{
-			if(null == userService){
-				userService = new UserServiceImpl();
-			}
-			boolean flag = userService.register(user.getUsername(),user.getPassword()) ;
-			if(flag){
-				return "register_ok" ;
+			if(!BeanHelper.isNull(userService)){
+				boolean flag = userService.register(user.getUsername(),user.getPassword()) ;
+				if(flag){
+					return "register_ok" ;
+				}
 			}
 		}catch(Exception e){
 			e.printStackTrace();
@@ -79,17 +99,12 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	public String to_login_register(){
 		return "toView" ;
 	}
+	@Override
 	public User getModel() {
 		if(user == null){
 			user = new User() ;
 		}
 		return user;
-	}
-	public IUserService getUserService() {
-		return userService;
-	}
-	public void setUserService(IUserService userService) {
-		this.userService = userService;
 	}
 }
 

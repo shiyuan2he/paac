@@ -21,40 +21,24 @@ import org.hibernate.annotations.GenericGenerator;
  * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
  */
 @Entity
-@Table(name="wt_sys_base_log",schema="paac")
-public class SysBaseLog implements java.io.Serializable{
-	/**
-	 * @description <p></p>
-	 */
+@Table(name="wt_system_log",schema="paac")
+public class SystemLog implements java.io.Serializable{
 	private static final long serialVersionUID = 1L;
 	private String id ; // 系统日志表主键
 	private java.util.Date createTime ; //请求时间
 	private String createUserId ;// 请求用户id
 	private String createUserName ;// 请求人名字	游客，系统用户
 	private String requestUrl ;// 请求操作地址
+	private String requestMethod ;//请求方法
 	private String requestRemark ;// 请求操作描述
 	private String requestIP ;// 请求机器ip
 	private String requestMac ;// 请求机器物理地址
 	private String requestTime ;// 请求花费时间
-	
-	public SysBaseLog() {
-		super();
-	}
-	
-	public SysBaseLog(String id, Date createTime, String createUserId, String createUserName, String requestUrl,
-			String requestRemark, String requestIP, String requestMac, String requestTime) {
-		super();
-		this.id = id;
-		this.createTime = createTime;
-		this.createUserId = createUserId;
-		this.createUserName = createUserName;
-		this.requestUrl = requestUrl;
-		this.requestRemark = requestRemark;
-		this.requestIP = requestIP;
-		this.requestMac = requestMac;
-		this.requestTime = requestTime;
-	}
-
+	private String moduleId;//操作对象id
+	private String objectId;//成功失败的状态，操作成功或者失败
+	private Boolean isDel; //逻辑删除	0未删除 1 已删除
+	private String delUser; //逻辑删除者
+	private Date delTime; //删除时间
 	@Id
 	@Column(nullable=false,unique=true)
 	@GenericGenerator(name="PAAC_ID",strategy="com.codelibrary.javaee.utils.IDGeneratorHelper")
@@ -65,60 +49,103 @@ public class SysBaseLog implements java.io.Serializable{
 	public void setId(String id) {
 		this.id = id;
 	}
-	@Column(nullable=false,unique=true,length=64)
+	@Column(nullable=false,length=20)
 	public java.util.Date getCreateTime() {
 		return createTime;
 	}
 	public void setCreateTime(java.util.Date createTime) {
 		this.createTime = createTime;
 	}
-	@Column(nullable=false,unique=true)
+	@Column(nullable=false)
 	public String getCreateUserId() {
 		return createUserId;
 	}
 	public void setCreateUserId(String createUserId) {
 		this.createUserId = createUserId;
 	}
-	@Column(nullable=false,unique=true)
+	@Column(nullable=false)
 	public String getCreateUserName() {
 		return createUserName;
 	}
 	public void setCreateUserName(String createUserName) {
 		this.createUserName = createUserName;
 	}
-	@Column
+	@Column(nullable=false)
 	public String getRequestUrl() {
 		return requestUrl;
 	}
 	public void setRequestUrl(String requestUrl) {
 		this.requestUrl = requestUrl;
 	}
-	@Column
+	@Column(nullable=false)
 	public String getRequestRemark() {
 		return requestRemark;
 	}
 	public void setRequestRemark(String requestRemark) {
 		this.requestRemark = requestRemark;
 	}
-	@Column(nullable=false,length=24)
+	@Column(length=24)
 	public String getRequestIP() {
 		return requestIP;
 	}
 	public void setRequestIP(String requestIP) {
 		this.requestIP = requestIP;
 	}
-	@Column(nullable=false,length=64)
+	@Column(length=20)
 	public String getRequestMac() {
 		return requestMac;
 	}
 	public void setRequestMac(String requestMac) {
 		this.requestMac = requestMac;
 	}
-	@Column(nullable=false)
+	@Column(nullable=false,length=20)
 	public String getRequestTime() {
 		return requestTime;
 	}
 	public void setRequestTime(String requestTime) {
 		this.requestTime = requestTime;
+	}
+	@Column(nullable=false)
+	public String getRequestMethod() {
+		return requestMethod;
+	}
+	public void setRequestMethod(String requestMethod) {
+		this.requestMethod = requestMethod;
+	}
+	@Column(nullable=false)
+	public String getModuleId() {
+		return moduleId;
+	}
+	public void setModuleId(String moduleId) {
+		this.moduleId = moduleId;
+	}
+	@Column(nullable=false)
+	public String getObjectId() {
+		return objectId;
+	}
+	public void setObjectId(String objectId) {
+		this.objectId = objectId;
+	}
+	@Column(nullable=false)
+	public Boolean getIsDel() {
+		return isDel;
+	}
+	public void setIsDel(Boolean isDel) {
+		this.isDel = isDel;
+	}
+	@Column
+	public String getDelUser() {
+		return delUser;
+	}
+
+	public void setDelUser(String delUser) {
+		this.delUser = delUser;
+	}
+	@Column
+	public Date getDelTime() {
+		return delTime;
+	}
+	public void setDelTime(Date delTime) {
+		this.delTime = delTime;
 	}
 }

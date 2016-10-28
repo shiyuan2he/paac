@@ -61,6 +61,7 @@ public class User implements Serializable{
 	private Date birth ;	//出生日期
 	private Address address ; // 住址
 	private Date createTime ;//创建账号日期
+	private String creater ;//创建账号日期
 	private Date upTime ;// 修改帐号日期
 	private String upUser ; //修改帐号人  本人或者管理员
 	private String is_del ;//是否物理删除 1 是 0 否
@@ -75,23 +76,6 @@ public class User implements Serializable{
 		this.birth = birth;
 		this.address = address;
 	}
-	@Column(name="certNo",nullable=false,unique=true,length=18)
-	public String getCertNo() {
-		return certNo;
-	}
-	public void setCertNo(String certNo) {
-		this.certNo = certNo;
-	}
-
-	@Column(name="encryptionType",nullable=false,length=10)
-	public String getEncryptionType() {
-		return encryptionType;
-	}
-
-	public void setEncryptionType(String encryptionType) {
-		this.encryptionType = encryptionType;
-	}
-
 	@Id
 	@Column(nullable=false,unique=true)
 	@GenericGenerator(name="PAAC_ID",strategy="com.codelibrary.javaee.utils.IDGeneratorHelper")
@@ -103,7 +87,7 @@ public class User implements Serializable{
 	public void setId(String id) {
 		this.id = id;
 	}
-	@Column(length=8)
+	@Column(nullable=false,unique=true,length=32)
 	public String getUsername() {
 		return username;
 	}
@@ -141,9 +125,12 @@ public class User implements Serializable{
 	public void setRealname(String realname) {
 		this.realname = realname;
 	}
-	@Column(nullable=false,unique=true,length=64)
+	@Column(unique=true,length=64)
 	public String getNickname() {
 		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 	@Column(nullable=false)
 	public Date getCreateTime() {
@@ -154,14 +141,20 @@ public class User implements Serializable{
 		this.createTime = createTime;
 	}
 	@Column(nullable=false)
+	public String getCreater() {
+		return creater;
+	}
+	public void setCreater(String creater) {
+		this.creater = creater;
+	}
+	@Column
 	public Date getUpTime() {
 		return upTime;
 	}
-
 	public void setUpTime(Date upTime) {
 		this.upTime = upTime;
 	}
-	@Column(nullable=false)
+	@Column()
 	public String getUpUser() {
 		return upUser;
 	}
@@ -169,17 +162,26 @@ public class User implements Serializable{
 	public void setUpUser(String upUser) {
 		this.upUser = upUser;
 	}
-
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
-	}
-	@Column(length=10)
+	@Column(length=1,nullable=false)
 	public String getIs_del() {
 		return is_del;
 	}
-
 	public void setIs_del(String is_del) {
 		this.is_del = is_del;
+	}
+	@Column(name="certNo",unique=true,length=18)
+	public String getCertNo() {
+		return certNo;
+	}
+	public void setCertNo(String certNo) {
+		this.certNo = certNo;
+	}
+	@Column(name="encryptionType",nullable=false,length=10)
+	public String getEncryptionType() {
+		return encryptionType;
+	}
+	public void setEncryptionType(String encryptionType) {
+		this.encryptionType = encryptionType;
 	}
 
 	@Override

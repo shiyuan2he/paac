@@ -39,7 +39,7 @@ public class Address {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	@Column(name="phone",nullable=false,unique=true,length=11)
+	@Column(name="phone",unique=true,length=11)
 	public String getPhone() {
 		return phone;
 	}
