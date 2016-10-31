@@ -31,7 +31,7 @@ public class BeanHelper{
 	 * @callnumber 15003828090
 	 */
 	public static boolean isNull(Object o){
-		return o.equals(null) ;
+		return o.equals(null);
 	}
 	/**
 	 * 

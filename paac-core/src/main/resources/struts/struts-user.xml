@@ -9,7 +9,7 @@
 			<result name="failure">/error.jsp</result>
 			<result name="login_ok">/WEB-INF/content/mainFrame.jsp</result>
 			<result name="toMain">/WEB-INF/content/mainFrame.jsp</result>
-			<result name="register_ok">/WEB-INF/content/login.jsp</result>
+			<result name="register_ok">/WEB-INF/content/login/login.jsp</result>
 		</action>
 		<!-- 跳转到视图层的页面 ｛1｝匹配文件夹 ｛2｝匹配文件名 -->
 		<action name="user_to_*_*" method="to_{1}_{2}" class="com.codelibrary.javaee.action.user.UserAction">

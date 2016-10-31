@@ -14,4 +14,12 @@ import com.codelibrary.javaee.service.IBaseService;
 public class BaseServiceImpl implements IBaseService {
 	@Autowired
 	private IBaseDao<Object,Serializable> baseDao ;
+
+	/* (non-Javadoc)
+	 * @see com.codelibrary.javaee.service.IBaseService#save(java.lang.Object)
+	 */
+	@Override
+	public Serializable save(Object o) {
+		return baseDao.save(o);
+	}
 }

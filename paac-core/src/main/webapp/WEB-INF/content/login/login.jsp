@@ -19,11 +19,11 @@
 	<div style="margin:400px 700px">
 		<div class="easyui-panel" title="登陆面板" style="width:400px;">
 		<div style="padding:10px 60px 20px 60px">
-	    <form id="login" method="post" action="<%=basePath%>manage/user/user_login.action">
+	    <form id="login" method="post" action="<%=basePath%>manage/user/user_do_login.action">
 	    	<table>
 	    		<tr>
 	    			<td colspan="2" align="right">
-						<a href="<%=basePath%>manage/user/user_toRegisterView.action">尚未注册?</a>	    			
+						<a href="<%=basePath%>manage/user/user_to_login_register.action">尚未注册?</a>	    			
 	    			</td>
 	    		</tr>
 			<tr>

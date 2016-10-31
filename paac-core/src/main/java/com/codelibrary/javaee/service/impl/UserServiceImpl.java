@@ -25,17 +25,33 @@ import com.hsy.codebase.utils.javase.string.StringHelper;
 public class UserServiceImpl implements IUserService {
 	@Autowired
 	private IBaseDao<User,String> baseDao ;
+	/**
+	 * 
+	 * @description <p>登陆</p>
+	 * @param username 登陆用户名
+	 * @param password 登陆密码
+	 * @return
+	 * @returnType boolean 登陆成功标识
+	 * 方法名:register
+	 * 类名:UserServiceImpl
+	 * @author heshiyuan
+	 * @email sy.he@jiankangyun.com.cn
+	 * @date 2016年10月10日 下午4:11:06
+	 * @price ￥:三毛三
+	 * @copyright	此方法版权归本人所有，复制或者剪切请通知本人或者捐赠 通知方式：shiyuan4work@sina.com
+	 * @callnumber 15003828090
+	 */
 	@Override
-	public boolean login(String username,String password) {
+	public User login(String username,String password) {
 		String encryptionPassword = Base64Helper.stringToBase64(password);
 		String hql = "from User user where user.username=? and user.password=?" ;	
 		List<User> userList = baseDao.find(hql, new Object[]{username,encryptionPassword}) ;
-		if(BeanHelper.isNotNull(userList)&&userList.size()==1
+		if(userList.size()==1&&BeanHelper.isNotNull(userList.get(0))
 				&&StringHelper.equals(username, userList.get(0).getUsername())
-				&&StringHelper.equals(password, Base64Helper.base64ToString(userList.get(0).getUsername()))){
-			return true ;
+				&&StringHelper.equals(encryptionPassword, userList.get(0).getPassword())){
+			return userList.get(0) ;
 		}
-		return false;
+		return null;
 	}
 	/**
 	 * 
@@ -58,10 +74,10 @@ public class UserServiceImpl implements IUserService {
 		String encryptionPassword = Base64Helper.stringToBase64(password);
 		String hql = "from User user where user.username=? and user.password=?" ;	
 		List<User> userList = baseDao.find(hql, new Object[]{username,encryptionPassword}) ;
-		if(BeanHelper.isNotNull(userList.get(0))&&StringHelper.equals(username, userList.get(0).getUsername())){
+		if(userList.size()>0&&BeanHelper.isNotNull(userList.get(0))&&StringHelper.equals(username, userList.get(0).getUsername())){
 			return false ;
 		}
-		if(BeanHelper.isNotNull(userList.get(0))&&StringHelper.equals(password, Base64Helper.base64ToString(userList.get(0).getUsername()))){
+		if(userList.size()>0&&BeanHelper.isNotNull(userList.get(0))&&StringHelper.equals(password, Base64Helper.base64ToString(userList.get(0).getUsername()))){
 			return false ;
 		}
 		User user = new User() ;
@@ -71,8 +87,8 @@ public class UserServiceImpl implements IUserService {
 			user.setEncryptionType(Constant.ENCRYPTIONTYPE_BASE64);
 			user.setCreateTime(new Date());
 			user.setCreater(username);
-			user.setIs_del("0"); //未物理删除
-			baseDao.save(user) ;//id PAAC147755041671328146.609555849267
+			user.setIsDel(0); //未物理删除
+			baseDao.save(user) ;
 			if(StringHelper.isNotNullOrEmpty(user.getId())){
 				return true;
 			}

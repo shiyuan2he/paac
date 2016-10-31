@@ -25,7 +25,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class SystemLog implements java.io.Serializable{
 	private static final long serialVersionUID = 1L;
 	private String id ; // 系统日志表主键
-	private java.util.Date createTime ; //请求时间
+	private Date createTime ; //请求时间
 	private String createUserId ;// 请求用户id
 	private String createUserName ;// 请求人名字	游客，系统用户
 	private String requestUrl ;// 请求操作地址
@@ -36,7 +36,7 @@ public class SystemLog implements java.io.Serializable{
 	private String requestTime ;// 请求花费时间
 	private String moduleId;//操作对象id
 	private String objectId;//成功失败的状态，操作成功或者失败
-	private Boolean isDel; //逻辑删除	0未删除 1 已删除
+	private Integer isDel; //逻辑删除	0未删除 1 已删除
 	private String delUser; //逻辑删除者
 	private Date delTime; //删除时间
 	@Id
@@ -127,10 +127,10 @@ public class SystemLog implements java.io.Serializable{
 		this.objectId = objectId;
 	}
 	@Column(nullable=false)
-	public Boolean getIsDel() {
+	public Integer getIsDel() {
 		return isDel;
 	}
-	public void setIsDel(Boolean isDel) {
+	public void setIsDel(Integer isDel) {
 		this.isDel = isDel;
 	}
 	@Column

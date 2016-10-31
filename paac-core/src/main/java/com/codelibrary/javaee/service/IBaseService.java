@@ -1,5 +1,8 @@
 package com.codelibrary.javaee.service;
 
-public interface IBaseService {
+import java.io.Serializable;
 
+public interface IBaseService {
+	
+	public Serializable save(Object o) ;
 }

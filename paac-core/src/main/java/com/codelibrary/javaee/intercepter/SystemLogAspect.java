@@ -1,6 +1,7 @@
 package com.codelibrary.javaee.intercepter;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,23 +13,30 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.alibaba.fastjson.JSONObject;
 import com.codelibrary.javaee.annotation.MethodException;
+import com.codelibrary.javaee.entry.bean.UserInfoBean;
 import com.codelibrary.javaee.entry.hibernate.SystemLog;
+import com.codelibrary.javaee.service.IBaseService;
 import com.codelibrary.javaee.utils.Constant;
+import com.codelibrary.javaee.utils.JarUtils;
+import com.hsy.codebase.utils.javase.string.StringHelper;
 
 
 
 @Aspect
 public class SystemLogAspect {
+	@Autowired
+	private IBaseService baseService ;
 	@Pointcut("@annotation(com.codelibrary.javaee.intercepter.MethodException)")
 	public void methodCachePointcut() {}
 
 	@Around("methodCachePointcut() && @annotation(methodException)")
-	public Object methodCacheHold(ProceedingJoinPoint joinPoint, MethodException methodException) {
+	public Object methodCacheHold(ProceedingJoinPoint joinPoint,MethodException methodException) {
 		Object result = null;
 		String remark = "";
 		long state = 1;
@@ -39,7 +47,7 @@ public class SystemLogAspect {
 			state = 2;
 			e1.printStackTrace();
 		} catch (Throwable e2) {//抛异常进这里
-			state = 2;
+			state = 3;
 			e2.printStackTrace();
 		}
 		if (state == 1) {
@@ -56,10 +64,11 @@ public class SystemLogAspect {
 					remark = remark + "_suc";
 			}
 		} else {
-			if (remark.equals("json"))
+			if (remark.equals("json")){
 				remark = "{\"json\":\"err\"}";
-			else
+			} else {
 				remark = remark + "_err";
+			}
 		}
 		if (remark.length() > 4){
 			printWriter(remark); //返回前台
@@ -72,11 +81,29 @@ public class SystemLogAspect {
 	public void doBeAfter(ProceedingJoinPoint joinPoint, long state, String description) {
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 		HttpSession session = request.getSession();
-		String ip = request.getRemoteAddr();
+		UserInfoBean userinfo = (UserInfoBean)session.getAttribute("userinfo") ;
+		//String ip = request.getRemoteAddr();
+		String ip =JarUtils.getIP(request);
 		String code=(String) request.getAttribute(Constant.KEY_LOG_SUCCESS);
 		request.removeAttribute(Constant.KEY_LOG_SUCCESS);
-		//接下来是入库操作
-		SystemLog log = new SystemLog() ;
+		if(StringHelper.isNotNullOrEmpty(description) && null != userinfo){
+			//接下来是入库操作
+			SystemLog log = new SystemLog() ;
+			log.setCreateTime(new Date());
+			log.setCreateUserId(userinfo.getUserId());
+			log.setCreateUserName(userinfo.getUsername());
+			log.setIsDel(0);
+			if(StringHelper.isNotNullOrEmpty(code)){
+				log.setModuleId(code);
+			}
+			log.setObjectId(String.valueOf(state));
+			log.setRequestIP(ip);
+			log.setRequestMethod(joinPoint.getTarget().getClass().getName() + "." + joinPoint.getSignature().getName()+ "()");
+			log.setRequestRemark(description);
+			//log.setRequestTime("");
+			log.setRequestUrl(request.getRequestURI());
+			baseService.save(log) ;
+		}
 	}
 	protected void printWriter(String str) {
 		HttpServletResponse response = ServletActionContext.getResponse();
