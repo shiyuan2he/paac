@@ -1,13 +1,16 @@
 package com.codelibrary.javaee.action.user;
 
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.codelibrary.javaee.action.base.BaseAction;
 import com.codelibrary.javaee.annotation.MethodException;
+import com.codelibrary.javaee.entry.bean.UserInfoBean;
 import com.codelibrary.javaee.entry.hibernate.User;
 import com.codelibrary.javaee.service.IUserService;
+import com.codelibrary.javaee.utils.Constant;
 import com.hsy.codebase.utils.javase.bean.BeanHelper;
 import com.hsy.codebase.utils.javase.string.StringHelper;
 import com.opensymphony.xwork2.ModelDriven;
@@ -39,13 +42,57 @@ public class UserAction extends BaseAction implements ModelDriven<User>{
 	@MethodException(remark="select",description="用户登陆")
 	public String do_login(){
 		if(BeanHelper.isNotNull(user)&&StringHelper.isNotNullOrEmpty(user.getPassword())&&StringHelper.isNotNullOrEmpty(user.getPassword())){
-			if(userService.login(user.getUsername(),user.getPassword())){
+			user = userService.login(user.getUsername(),user.getPassword()) ;
+			if(BeanHelper.isNotNull(user)){
+				setSessionBean(user) ;
 				return "login_ok" ;
 			}
 		}else{
 			_logger.error("【--用户登录--】传递参数失败：用户名或者用户密码传递失败。。");
 		}
 		return "failure" ;
+	}
+	/**
+	 * @description <p>推出登录</p>
+	 * @return
+	 * @returnType String
+	 * 方法名:logout
+	 * 类名:UserAction
+	 * @author heshiyuan
+	 * @email sy.he@jiankangyun.com.cn
+	 * @date 2016年10月31日 下午5:18:21
+	 * @price ￥:三毛三
+	 * @copyright	此方法版权归本人所有，复制或者剪切请通知本人或者捐赠 通知方式：shiyuan4work@sina.com
+	 * @callnumber 15003828090
+	 */
+	@MethodException(remark = "",description = "退出登录")
+	public String logout() {
+		UserInfoBean uesrinfo = (UserInfoBean) this.mapSession.get("userinfo") ;
+		if (uesrinfo != null) {
+			this.mapSession.remove("userinfo") ;
+			this.request.getSession().invalidate();
+			this.request.setAttribute(Constant.KEY_LOG_SUCCESS, "退出登录");
+		}
+		return "logout_ok";
+	}
+	/**
+	 * @description <p>将用户信息放入session中</p>
+	 * @param user2
+	 * @returnType void
+	 * 方法名:setSessionBean
+	 * 类名:UserAction
+	 * @author heshiyuan
+	 * @email sy.he@jiankangyun.com.cn
+	 * @date 2016年10月31日 下午2:12:58
+	 * @price ￥:三毛三
+	 * @copyright	此方法版权归本人所有，复制或者剪切请通知本人或者捐赠 通知方式：shiyuan4work@sina.com
+	 * @callnumber 15003828090
+	 */
+	private void setSessionBean(User user2) {
+		UserInfoBean userinfo = new UserInfoBean() ;
+		userinfo.setUserId(user2.getId());
+		userinfo.setUsername(user2.getUsername());
+		this.mapSession.put("userinfo", userinfo);
 	}
 	/**
 	 * 

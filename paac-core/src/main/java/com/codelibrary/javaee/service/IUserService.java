@@ -7,6 +7,8 @@
  */
 package com.codelibrary.javaee.service;
 
+import com.codelibrary.javaee.entry.hibernate.User;
+
 public interface IUserService {
 	/**
 	 * 
@@ -23,7 +25,7 @@ public interface IUserService {
 	 * @copyright	此方法版权归本人所有，复制或者剪切请通知本人或者捐赠 通知方式：shiyuan4work@sina.com
 	 * @callnumber 15003828090
 	 */
-	boolean login(String username,String password);
+	User login(String username,String password);
 	/**
 	 * 
 	 * @description <p>注册</p>

@@ -7,21 +7,31 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.log4j.Logger;
 import org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter;
-
 public class CoreStrutsFilter extends StrutsPrepareAndExecuteFilter {
 	private static Logger logger = Logger.getLogger(CoreStrutsFilter.class);
 
 	@Override
-	public void doFilter(ServletRequest req, ServletResponse res,
-			FilterChain chain) throws IOException, ServletException {
+	public void doFilter(ServletRequest req, ServletResponse res,FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest request = (HttpServletRequest) req;
-		//HttpServletResponse response = (HttpServletResponse) res;
+		HttpServletResponse response = (HttpServletResponse) res;
 		String url = request.getRequestURI();
-		logger.info("拦截器拦截的地址：" + url);
-		/*if (request.getSession().getAttribute("userinfo") == null) {
-			response.sendRedirect(request.getContextPath() + response.encodeURL("/website/main.jsp"));
+		logger.info("struts拦截器拦截的请求地址：" + url);
+		/**
+		 * 以下地址放行
+		 * "/paac-core/manage/user/user_to_login_register.action"
+		 * "/paac-core/WEB-INF/content/login/register.jsp"
+		 * "/paac-core/css/easyui/themes/default/images/blank.gif"
+		 * "/paac-core/manage/user/user_do_register.action"
+		 * "/paac-core/WEB-INF/content/login/login.jsp"
+		 */
+		/*if (!(url.contains("register.action")||url.contains("register.jsp")||url.contains("easyui")||url.contains("login.jsp")||url.contains("login.action"))
+				&&request.getSession().getAttribute("userinfo") == null) {
+			logger.error("用户未登录，此请求将重定向到后台登陆页面。。。");
+			response.sendRedirect(request.getContextPath() + response.encodeURL("/manage/user/user_to_login_login.action"));
 			return;
 		}*/
 		try {
@@ -31,7 +41,7 @@ public class CoreStrutsFilter extends StrutsPrepareAndExecuteFilter {
 			 * chain.doFilter(req, res);
 			 */
 		} catch (Exception ee) {
-			logger.info("struts拦截器捕获到异常，异常信息：" + ee.getMessage());
+			logger.error("struts拦截器捕获到异常，异常信息：" + ee.getMessage());
 		}
 	}
 }

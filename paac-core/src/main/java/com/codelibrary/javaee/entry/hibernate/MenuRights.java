@@ -17,9 +17,9 @@ public class MenuRights {
 	private String menuParent ; //父菜单
 	private Integer menuOrder ; //菜单排序
 	private String menuUrl ; //菜单地址
-	private char menuType ; //菜单类型
+	private Character menuType ; //菜单类型
 	private Integer menuLevel ; //菜单级别
-	private Integer is_del ; // 是否删除 0.未删除 1.已删除
+	private Integer isDel ; // 是否删除
 	@Id
 	@Column(nullable=false,unique=true)
 	@GenericGenerator(name="PAAC_ID",strategy="com.codelibrary.javaee.utils.IDGeneratorHelper")
@@ -44,14 +44,14 @@ public class MenuRights {
 	public void setMenuName(String menuName) {
 		this.menuName = menuName;
 	}
-	@Column(nullable=false,unique=true,length=30)
+	@Column(nullable=false,length=30)
 	public String getMenuParent() {
 		return menuParent;
 	}
 	public void setMenuParent(String menuParent) {
 		this.menuParent = menuParent;
 	}
-	@Column(nullable=false,unique=true,length=64)
+	@Column(nullable=false,length=64)
 	public Integer getMenuOrder() {
 		return menuOrder;
 	}
@@ -65,25 +65,25 @@ public class MenuRights {
 	public void setMenuUrl(String menuUrl) {
 		this.menuUrl = menuUrl;
 	}
-	@Column(nullable=false,unique=true,length=1)
-	public char getMenuType() {
+	@Column(nullable=false,length=1)
+	public Character getMenuType() {
 		return menuType;
 	}
-	public void setMenuType(char menuType) {
+	public void setMenuType(Character menuType) {
 		this.menuType = menuType;
 	}
-	@Column(nullable=false,unique=true,length=1)
+	@Column(nullable=false,length=1)
 	public Integer getMenuLevel() {
 		return menuLevel;
 	}
 	public void setMenuLevel(Integer menuLevel) {
 		this.menuLevel = menuLevel;
 	}
-	@Column(nullable=false,unique=true,length=1)
-	public Integer getIs_del() {
-		return is_del;
+	@Column(nullable=false,length=1)
+	public Integer getIsDel() {
+		return isDel;
 	}
-	public void setIs_del(Integer is_del) {
-		this.is_del = is_del;
+	public void setIsDel(Integer isDel) {
+		this.isDel = isDel;
 	}
 }

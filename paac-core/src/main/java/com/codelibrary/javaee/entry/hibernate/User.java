@@ -9,9 +9,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.codelibrary.javaee.annotation.NameColumn;
+import com.codelibrary.javaee.annotation.VerifyColumn;
 import com.codelibrary.javaee.entry.hibernate.dependence.Address;
 
 /**
@@ -64,7 +69,10 @@ public class User implements Serializable{
 	private String creater ;//创建账号日期
 	private Date upTime ;// 修改帐号日期
 	private String upUser ; //修改帐号人  本人或者管理员
-	private String is_del ;//是否物理删除 1 是 0 否
+	private Integer isDel ;//是否物理删除 1 是 0 否
+	private String email ;//用户邮箱
+	private Integer gender ;//用户性别 1 男 2女
+	private String genderValue ;//用户性别-中文
 	
 	public User() {}
 
@@ -117,6 +125,8 @@ public class User implements Serializable{
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+	@NameColumn(value = "真实姓名")
+	@VerifyColumn(value = "(^[\\u4e00-\\u9fa5]{2,10}$)")
 	@Column(length=10)
 	public String getRealname() {
 		return realname;
@@ -132,6 +142,7 @@ public class User implements Serializable{
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
+	@Temporal(TemporalType.TIMESTAMP)//格式化时间格式
 	@Column(nullable=false)
 	public Date getCreateTime() {
 		return createTime;
@@ -140,7 +151,7 @@ public class User implements Serializable{
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
-	@Column(nullable=false)
+	@Column(nullable=false,length=24)
 	public String getCreater() {
 		return creater;
 	}
@@ -154,7 +165,7 @@ public class User implements Serializable{
 	public void setUpTime(Date upTime) {
 		this.upTime = upTime;
 	}
-	@Column()
+	@Column(length=24)
 	public String getUpUser() {
 		return upUser;
 	}
@@ -163,11 +174,11 @@ public class User implements Serializable{
 		this.upUser = upUser;
 	}
 	@Column(length=1,nullable=false)
-	public String getIs_del() {
-		return is_del;
+	public Integer getIsDel() {
+		return isDel;
 	}
-	public void setIs_del(String is_del) {
-		this.is_del = is_del;
+	public void setIsDel(Integer isDel) {
+		this.isDel = isDel;
 	}
 	@Column(name="certNo",unique=true,length=18)
 	public String getCertNo() {
@@ -182,6 +193,36 @@ public class User implements Serializable{
 	}
 	public void setEncryptionType(String encryptionType) {
 		this.encryptionType = encryptionType;
+	}
+	@NameColumn(value = "邮箱")
+	@Column(name = "email", length = 50)
+	@VerifyColumn(value = "(^[0-9a-zA-Z_\\.]+@\\w+\\.\\w+\\.?\\w+$)")
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	@Column(name = "gender", length = 1)
+	@VerifyColumn(value = "(^[12]{1,1}$)")
+	public Integer getGender() {
+		return gender;
+	}
+
+	public void setGender(Integer gender) {
+		this.gender = gender;
+	}
+	@Transient
+	public String getGenderValue() {
+		if (gender == 1)
+			genderValue = "男";
+		else if (gender == 2)
+			genderValue = "女";
+		return genderValue;
+	}
+	public void setGenderValue(String genderValue) {
+		this.genderValue = genderValue;
 	}
 
 	@Override
