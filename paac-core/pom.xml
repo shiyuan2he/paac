@@ -21,7 +21,7 @@
   </properties> 
 
   <dependencies>
-  		<dependency>
+  		<dependency> 
   		 	  <groupId>com.hsy.codebase.utils.javase</groupId>
 			  <artifactId>paac-base</artifactId>
 			  <version>${version.base}</version>
@@ -91,7 +91,7 @@
 		    <artifactId>spring-aop</artifactId>
 		    <version>${version.spring}</version>
 		</dependency>
-		<dependency>
+		<dependency> 
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-aspects</artifactId>
 		    <version>${version.spring}</version>
@@ -126,6 +126,12 @@
 		      <artifactId>log4j</artifactId>
 		      <version>${version.log4j}</version>
 	    </dependency>
+	    
+	    <dependency>
+		    <groupId>aopalliance</groupId>
+		    <artifactId>aopalliance</artifactId>
+		    <version>1.0</version>
+		</dependency>
 
 		<!-- mariadb 驱动包 -->
 		<dependency>
