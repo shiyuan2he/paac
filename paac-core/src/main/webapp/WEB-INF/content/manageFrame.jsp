@@ -11,8 +11,8 @@
 	<title>后台管理页面</title>
 	<link rel="stylesheet" type="text/css" href="<%=path%>/css/easyui/themes/default/easyui.css">
 	<link rel="stylesheet" type="text/css" href="<%=path%>/css/easyui/themes/icon.css">
-	<script type="text/javascript" src="<%=path%>/js/jquery.min.js"></script>
-	<script type="text/javascript" src="<%=path%>/js/easyui//jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="<%=path%>/js/jquery/jquery1.11.3.min.js"></script>
+	<script type="text/javascript" src="<%=path%>/js/easyui/jquery.easyui1.4.5.min.js"></script>
 </head>
 <body>
 	<h2>Basic Tree</h2>

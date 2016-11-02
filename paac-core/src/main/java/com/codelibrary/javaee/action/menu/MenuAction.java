@@ -1,5 +1,7 @@
 package com.codelibrary.javaee.action.menu;
 
+import org.springframework.stereotype.Controller;
+
 import com.codelibrary.javaee.action.base.BaseAction;
 
 /**
@@ -12,6 +14,7 @@ import com.codelibrary.javaee.action.base.BaseAction;
  * @email shiyuan4work@sina.com
  * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
  */
+@Controller
 public class MenuAction extends BaseAction{
 
 	/**
@@ -31,8 +34,7 @@ public class MenuAction extends BaseAction{
 	 * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
 	 */
 	public String to_main(){
-		
-		return "toMain" ;
+		return "to_main" ;
 	}
 	
 }

@@ -40,14 +40,17 @@ public class SystemLogAspect {
 		Object result = null;
 		String remark = "";
 		long state = 1;
+		String exceptionMsg = "" ;
 		try {
 			remark = methodException.remark();
 			result = joinPoint.proceed();
 		} catch (Exception e1) {//捕获异常进这里
 			state = 2;
+			exceptionMsg = e1.getMessage();
 			e1.printStackTrace();
 		} catch (Throwable e2) {//抛异常进这里
-			state = 3;
+			state = 2;
+			exceptionMsg = e2.getMessage();
 			e2.printStackTrace();
 		}
 		if (state == 1) {
@@ -73,8 +76,12 @@ public class SystemLogAspect {
 		if (remark.length() > 4){
 			printWriter(remark); //返回前台
 		}
-		if(StringUtils.isNotEmpty(methodException.description())){
-			doBeAfter(joinPoint, state, methodException.description()); //写入数据库
+		if(StringHelper.isNotNullOrEmpty(methodException.description())){
+			if(StringHelper.isNotNullOrEmpty(exceptionMsg)){
+				doBeAfter(joinPoint, state, methodException.description()+";捕获异常，异常信息："+exceptionMsg);
+			}else{
+				doBeAfter(joinPoint, state, methodException.description()); //写入数据库
+			}
 		}
 		return result;
 	}
@@ -86,7 +93,7 @@ public class SystemLogAspect {
 		String ip =JarUtils.getIP(request);
 		String code=(String) request.getAttribute(Constant.KEY_LOG_SUCCESS);
 		request.removeAttribute(Constant.KEY_LOG_SUCCESS);
-		if(StringHelper.isNotNullOrEmpty(description) && null != userinfo){
+		if(null != userinfo){
 			//接下来是入库操作
 			SystemLog log = new SystemLog() ;
 			log.setCreateTime(new Date());

@@ -7,9 +7,18 @@
 		<from>^/index.html$</from>
 		<to type="passthrough">/website/index.jsp</to>
 	</rule>
+	<!-- 后台首页地址重写 -->
+	<rule>
+		<from>^/mainFrame/mainFrame.html$</from>
+		<to type="passthrough">/manage/user/user_to_mainView.action</to>
+	</rule>
 	<outbound-rule>
 		<from>^/website/index.jsp$</from>
 		<to>/index.html</to>
+	</outbound-rule>
+	<outbound-rule>
+		<from>^/manage/user/user_to_mainView.action$</from>
+		<to>/mainFrame/mainFrame.html</to>
 	</outbound-rule>
 </urlrewrite>
 

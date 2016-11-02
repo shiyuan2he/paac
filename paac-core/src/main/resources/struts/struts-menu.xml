@@ -3,45 +3,17 @@
  "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
   "http://struts.apache.org/dtds/struts-2.3.dtd" >
 <struts>
-	<package name="menu" namespace="manage/menu" extends="struts-default">
-		<interceptors>
-			<!-- 自定义拦截器 -->
-			<interceptor name="myTimer" class="com.codelibrary.javaee.intercepter.TimerIntercepter"></interceptor>
-			<interceptor name="myAuth"  class="com.codelibrary.javaee.intercepter.AuthIntercepter"></interceptor>
-			<!--自定义拦截器栈 -->
-			<interceptor-stack name="myStack">
-				<interceptor-ref name="myTimer"></interceptor-ref>
-				<interceptor-ref name="myAuth"></interceptor-ref>
-				<interceptor-ref name="defaultStack"></interceptor-ref>
-			</interceptor-stack>
-		</interceptors>
-		<!--默认action 当找不到需要的action，会进入此action处理-->
-		<default-action-ref name="404"></default-action-ref>
-		<!-- 全局视图层 -->
-		<global-results>
-			<result name="to404" type="">/404.jsp</result>
-			<result name="root" type="">/error.jsp</result>
-			<result name="my" type="">/exception.jsp</result>
-		</global-results>
-		<!-- 全局异常处理 -->	
-		<global-exception-mappings>
-			<exception-mapping exception="java.lang.Exception" result="root"></exception-mapping>
-			<exception-mapping exception="com.hsy.codebase.utils.javase.exception.MyException" result="my"></exception-mapping>
-		</global-exception-mappings>
-	
+	<package name="menu" namespace="/mainFrame/menu" extends="struts-default">
 		<!-- 处理业务的action配置 -->
 		<action name="menu_do_*" method="{1}" class="com.codelibrary.javaee.action.menu.MenuAction">
-			<interceptor-ref name="myStack"></interceptor-ref>
 		</action>
 		<!-- 跳转到视图层的页面 ｛1｝匹配文件夹 ｛2｝匹配文件名 -->
 		<action name="menu_to_*_*" method="to_{1}_{2}" class="com.codelibrary.javaee.action.menu.MenuAction">
-			<interceptor-ref name="myStack"></interceptor-ref>
 			<result name="toView">/WEB-INF/content/{1}/{2}.jsp</result>
 		</action>
 		<!-- 跳转到视图层的页面 ｛1｝匹配文件夹 ｛2｝匹配文件名 -->
 		<action name="menu_to_main" method="to_main" class="com.codelibrary.javaee.action.menu.MenuAction">
-			<interceptor-ref name="myStack"></interceptor-ref>
-			<result name="toMain">/WEB-INF/content/mainFrame.jsp</result>
+			<result name="to_main">/WEB-INF/content/mainFrame.jsp</result>
 		</action>
 	</package>
 </struts>

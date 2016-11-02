@@ -10,10 +10,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>平台云-登陆</title>
-	<link rel="stylesheet" type="text/css" href="<%=path%>/css/easyui/themes/default/easyui.css">
-	<link rel="stylesheet" type="text/css" href="<%=path%>/css/easyui/themes/icon.css">
-	<script type="text/javascript" src="<%=path%>/js/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="<%=path%>/js/easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="<%=path%>/js/jquery/jquery1.11.3.min.js"></script>
+	<script type="text/javascript" src="<%=path%>/js/easyui/jquery.easyui1.4.5.min.js"></script>
 </head>
 <body>
 	<div style="margin:400px 700px">
