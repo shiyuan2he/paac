@@ -19,7 +19,7 @@
     <version.jdk>1.8</version.jdk>
     <version.mariadb>1.4.4</version.mariadb> 
   </properties> 
-
+ 
   <dependencies>
   		<dependency> 
   		 	  <groupId>com.hsy.codebase.utils.javase</groupId>
@@ -101,7 +101,7 @@
 			<artifactId>spring-test</artifactId>
 			<version>${version.spring}</version>
 			<scope>test</scope>
-		</dependency>
+		</dependency> 
 		<!-- hibernate package -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -132,7 +132,11 @@
 		    <artifactId>aopalliance</artifactId>
 		    <version>1.0</version>
 		</dependency>
-
+		<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>servlet-api</artifactId>
+		    <version>3.0.1</version>
+		</dependency>
 		<!-- mariadb 驱动包 -->
 		<dependency>
 			<groupId>org.mariadb.jdbc</groupId>
