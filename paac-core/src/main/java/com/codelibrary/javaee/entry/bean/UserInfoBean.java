@@ -1,4 +1,7 @@
 package com.codelibrary.javaee.entry.bean;
+
+import java.util.List;
+
 /**
  * @author heshiyuan @date 2016年10月31日 上午9:48:31
  * @description <p>存放在session中的javabean</p>
@@ -8,6 +11,10 @@ package com.codelibrary.javaee.entry.bean;
 public class UserInfoBean {
 	private String userId ;//用户信息表主键
 	private String username ;//用户名
+	private String userLastLoginIp ;//用户上次登陆ip
+	private String userCurrentLoginIp ;//用户本次登陆ip
+	private List<MenuRightsTree> rightsTreeList; //菜单树
+	
 	public String getUserId() {
 		return userId;
 	}
@@ -19,5 +26,23 @@ public class UserInfoBean {
 	}
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	public String getUserLastLoginIp() {
+		return userLastLoginIp;
+	}
+	public void setUserLastLoginIp(String userLastLoginIp) {
+		this.userLastLoginIp = userLastLoginIp;
+	}
+	public List<MenuRightsTree> getRightsTreeList() {
+		return rightsTreeList;
+	}
+	public void setRightsTreeList(List<MenuRightsTree> rightsTreeList) {
+		this.rightsTreeList = rightsTreeList;
+	}
+	public String getUserCurrentLoginIp() {
+		return userCurrentLoginIp;
+	}
+	public void setUserCurrentLoginIp(String userCurrentLoginIp) {
+		this.userCurrentLoginIp = userCurrentLoginIp;
 	}
 }

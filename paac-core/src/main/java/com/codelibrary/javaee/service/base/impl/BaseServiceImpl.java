@@ -1,4 +1,4 @@
-package com.codelibrary.javaee.service.impl;
+package com.codelibrary.javaee.service.base.impl;
 
 import java.io.Serializable;
 
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.codelibrary.javaee.dao.hibernate.IBaseDao;
-import com.codelibrary.javaee.service.IBaseService;
+import com.codelibrary.javaee.service.base.IBaseService;
 
 @Transactional
 @Service("baseService")

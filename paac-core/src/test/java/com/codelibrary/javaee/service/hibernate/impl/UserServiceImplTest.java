@@ -6,7 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.codelibrary.javaee.entry.hibernate.User;
-import com.codelibrary.javaee.service.IUserService;
+import com.codelibrary.javaee.service.user.IUserService;
 import com.hsy.codebase.utils.javase.bean.BeanHelper;
 /**
  * @description <p>请在此处输入类的描述</p>

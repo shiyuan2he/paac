@@ -9,15 +9,15 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name="wt_menu_rights",schema="paac")
-public class MenuRights {
+@Table(name="wt_rights_menu",schema="paac")
+public class RightsMenu {
 	private String id ; //主键
 	private String menuCode ; //菜单编码
 	private String menuName ; //菜单名称
 	private String menuParent ; //父菜单
 	private Integer menuOrder ; //菜单排序
 	private String menuUrl ; //菜单地址
-	private Character menuType ; //菜单类型
+	private Character menuType ; //菜单类型0菜单1菜单项2功能按钮
 	private Integer menuLevel ; //菜单级别
 	private Integer isDel ; // 是否删除
 	@Id

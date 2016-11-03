@@ -1,11 +1,4 @@
-/**
- * @path paac-core/com.codelibrary.javaee.service.impl/UserServiceImpl.java	
- * @time May 2, 2016 5:20:15 PM
- * @githob 
- *     http://githob.com/shiyuan2he
- * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
- */
-package com.codelibrary.javaee.service.impl;
+package com.codelibrary.javaee.service.user.impl;
 import java.util.Date;
 import java.util.List;
 
@@ -15,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.codelibrary.javaee.dao.hibernate.IBaseDao;
 import com.codelibrary.javaee.entry.hibernate.User;
-import com.codelibrary.javaee.service.IUserService;
+import com.codelibrary.javaee.service.user.IUserService;
 import com.codelibrary.javaee.utils.Constant;
 import com.hsy.codebase.utils.javase.bean.BeanHelper;
 import com.hsy.codebase.utils.javase.secure.Base64Helper;

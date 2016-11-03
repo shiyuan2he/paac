@@ -1,4 +1,4 @@
-package com.codelibrary.javaee.service;
+package com.codelibrary.javaee.service.base;
 
 import java.io.Serializable;
 

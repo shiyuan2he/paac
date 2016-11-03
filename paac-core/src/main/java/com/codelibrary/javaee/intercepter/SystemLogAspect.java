@@ -21,7 +21,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.codelibrary.javaee.annotation.MethodException;
 import com.codelibrary.javaee.entry.bean.UserInfoBean;
 import com.codelibrary.javaee.entry.hibernate.SystemLog;
-import com.codelibrary.javaee.service.IBaseService;
+import com.codelibrary.javaee.service.base.IBaseService;
 import com.codelibrary.javaee.utils.Constant;
 import com.codelibrary.javaee.utils.JarUtils;
 import com.hsy.codebase.utils.javase.string.StringHelper;
