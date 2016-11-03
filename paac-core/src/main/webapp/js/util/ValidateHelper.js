@@ -1,542 +1,445 @@
 /**
- * 说　明：AJAX Post请求
- * 创建人：yzchina
- *   url：Action处理路径
- *   postvalue：url参数，改参数可以是XML格式或json格式
- *   formname：表单名称
- *   gridname：执行成功之后调用的JS方法，一般情况用于添加，修改，删除之后刷新显示内容。
- *   divname:需要关闭的div名称
+ * 说 明：调查问卷JS公共方法 创建人：yzchina 日 期：2015年02月15日
  */
-function AjaxSubmit(url,postvalue,formname, gridname,divname) {
-	AjaxSubmitSystem(url,postvalue,formname, gridname,divname,"1","","");
-}
-
-function AjaxSubmitSystem(url,postvalue,formname, gridname,divname,msgtype,sucmsg,errmsg) {
-	AjaxSubmitSystemV1(url,postvalue,formname, gridname,divname,msgtype,sucmsg,errmsg,"");
-}
-/**
- * 说　明：AJAX Post请求,可以显示自定义弹出信息，也可以显示系统固定弹出信息
- * 创建人：yzchina
- *   url：Action处理路径
- *   postvalue：url参数，改参数可以是XML格式或json格式
- *   formname：表单名称
- *   gridname：执行成功之后调用的JS方法，一般情况用于添加，修改，删除之后刷新显示内容。
- *   divname:需要关闭的div名称
- *   msgtype:是否显示提示信息　1显示 2不显示
- *   sucmsg:正确的弹出信息
- *   errmsg:错误的弹出信息
- */
-function AjaxSubmitSystemV2(url,postvalue,formname, gridname,divname,msgtype,sucmsg,errmsg,callback){
-	var params = $("#"+formname).serialize(); // http request parameters.  
- 	params = decodeURIComponent(params,true);   
- 	var jsonStr = '{"'
-		+params.replaceAll('=', '":"')
-				.replaceAll('&', '","') + '"}';
- 	var json = JSON.parse(jsonStr);
-	if(validate(formname)){
-		var pathurl = (url.indexOf("?") == -1 ? url + "?random=" + Math.round(Math.random() * 100) : url);
-		if (postvalue.length > 0) {
-			pathurl += "&postvalue=" + postvalue + "";
-		}
-		if (formname != ""){
-			$('body').loadingOverlay();
-		}
-		$.ajax({
-			type : "post",
-			url : encodeURI(pathurl),
-			data :json,
-			success : function(data) {
-				var msg="";//弹出信息
-				var msgstate="";//弹出框状态
-				if (data.split("_").length >= 2){
-					if(msgtype=="1"){
-						if(data.split("_")[1]=="err"){
-							msgstate="error";
-							if(errmsg.length>0){
-								msg=errmsg;
-								WTAlertTip(msg, msgstate,divname);
-							}else{
-								WTAlert(data.split("_")[0], data.split("_")[1],divname);
-							}		
-						}else if(data.split("_")[1]=="suc"){
-							msgstate="info";
-							if(sucmsg.length>0){
-								msg=sucmsg;
-								WTAlertTip(msg, msgstate,divname);
-							}else{
-								WTAlert(data.split("_")[0], data.split("_")[1],divname);
-							}
-						}
-					}
-				}
-			},
-			complete : function(msg) {
-				if (gridname != undefined && gridname.length > 0){
-					if (getId(gridname).attr('class') == "easyui-datagrid"){
-						getId(gridname).datagrid('reload');
-					}else if (getId(gridname).attr('class') == "easyui-treegrid") {
-						getId(gridname).treegrid('reload');
-					}else if (getId(gridname).attr('class') == "easyui-tree") {
-						getId(gridname).tree('reload');
-					}else if(getId(gridname).attr('easytype')=="treegrid"){
-						getId(gridname).treegrid('reload');
-					}else if(getId(gridname).attr('easytype')=="datagrid" || getId(gridname).attr('easytype')=="easyui-datagrid"){
-						getId(gridname).datagrid('reload');
-					}
-				}
-				if(callback != undefined && callback.length > 0){
-					eval(callback);
-				}
-				$('body').loadingOverlay('remove');
-			},
-			error : function(XMLHttpRequest, textStatus, errorThrown) {
-				WTAlertTip('发生错误，请联系客服！', 'error','');
+$.extend($.fn.validatebox.defaults.rules, {
+	empty : {
+		validator : function(value) {
+			value = value.replace(/(^\s+)|(\s+$)/g, "");
+			return value.length > 0;
+		},
+		message : "请填写内容"
+	},
+	userName : {
+		validator : function(value) {
+			return userNameValidate(value);
+		},
+		message : "登录账号由3-20个字符组成，中文2-10个汉字"
+	},
+	mobile : {
+		validator : function(value) {
+			return /^1[3|4|5|6|7|8|9][0-9]{9}$/.test(value);
+		},
+		message : "请正确输入移动电话"
+	},
+	userPwd : {
+		validator : function(value) {
+			var re = new RegExp(/(^.{6,50}$)/);
+			return !(!re.test(value) || validateLength(value,6,50));
+		},
+		message : "密码由6-50位任意字符组成"
+	},
+	tel : {
+		validator : function(value) {
+			return /^(\d{3,4}-?)?\d{7,8}(-\d{1,4})?$/.test(value);
+		},
+		message : "请正确输入联系电话"
+	},
+	content : {
+		validator : function(value) {
+			return !/^(\+?\d{2,3}-?)?\d{7,8}(-\d*)?$/.test(value);
+		},
+		message : "请不要输入特殊字符"
+	},
+	realInt : {
+		validator : function(value) {
+			if (!isNaN(value) && value > 0) {
+				return true;
+			} else {
+				return false;
 			}
-		});
-	}else{
-		WTAlertTip('请正确填写内容!', 'error','');
-	}
-}
-/**
- * 说　明：AJAX Post请求,可以显示自定义弹出信息，也可以显示系统固定弹出信息
- * 创建人：yzchina
- *   url：Action处理路径
- *   postvalue：url参数，改参数可以是XML格式或json格式
- *   formname：表单名称
- *   gridname：执行成功之后调用的JS方法，一般情况用于添加，修改，删除之后刷新显示内容。
- *   divname:需要关闭的div名称
- *   msgtype:是否显示提示信息　1显示 2不显示
- *   sucmsg:正确的弹出信息
- *   errmsg:错误的弹出信息
- */
-function AjaxSubmitSystemV1(url,postvalue,formname, gridname,divname,msgtype,sucmsg,errmsg,callback,callbackParam,loading){	
-	var flag = "";
-	if(validate(formname)){
-		var pathurl = (url.indexOf("?") == -1 ? url + "?random=" + Math.round(Math.random() * 100) : url);
-		if (postvalue.length > 0) {
-			pathurl += "&postvalue=" + postvalue + "";
-		}
-		//添加遮罩
-		if(loading != false)
-			$('body').loadingOverlay();
-		
-		$.ajax({
-			type : "post",
-			url : encodeURI(pathurl),
-			data :getId(formname).serialize(),
-			success : function(data) {
-				var msg="";//弹出信息
-				var msgstate="";//弹出框状态
-				if (data.split("_").length >= 2){
-					flag = data.split("_")[1];
-					if(msgtype=="1"){
-						if(flag=="err"){
-							msgstate="error";
-							if(errmsg.length>0){
-								msg=errmsg;
-								WTAlertTip(msg, msgstate,divname);
-							}else{
-								WTAlert(data.split("_")[0], data.split("_")[1],divname);
-							}		
-						}else if(flag=="suc"){
-							msgstate="info";
-							if(sucmsg.length>0){
-								msg=sucmsg;
-								WTAlertTip(msg, msgstate,divname);
-							}else{
-								WTAlert(data.split("_")[0], data.split("_")[1],divname);
-							}
-						}
-					}
+		},
+		message : "请输入大于0的数字"
+	},
+	equals : {
+		validator : function(value, param) {
+			return value == $(param[0]).val();
+		},
+		message : '两次输入密码不一致'
+	},
+	//后台远程，必须设定delay属性，防止定时器过快调用后台，不建议使用
+	checkSignCode : {
+		validator : function(value, url) {
+			var checkR = $.ajax({
+				async : true,
+				cache : false,
+				type : 'post',
+				url : url,
+				data : {
+					'unique' : value
+
 				}
-			},
-			complete : function(msg) {
-				if (gridname != undefined && gridname.length > 0){
-					if (getId(gridname).attr('class') == "easyui-datagrid"){
-						getId(gridname).datagrid('reload');
-					}else if (getId(gridname).attr('class') == "easyui-treegrid") {
-						getId(gridname).treegrid('reload');
-					}else if (getId(gridname).attr('class') == "easyui-tree") {
-						getId(gridname).tree('reload');
-					}else if(getId(gridname).attr('easytype')=="treegrid"){
-						getId(gridname).treegrid('reload');
-					}else if(getId(gridname).attr('easytype')=="datagrid" || getId(gridname).attr('easytype')=="easyui-datagrid"){
-						getId(gridname).datagrid('reload');
-					}
-				}
-				if(callback != undefined && callback.length > 0){
-					var callbackIndex = callback.indexOf("(");
-					if(callbackIndex != -1)
-						callback = callback.substring(0,callbackIndex);
-					eval("("+callback+"('"+flag+"'"+(callbackParam!=undefined?","+callbackParam:"")+"))");
-				}
-				//移除遮罩
-				if(loading != false)
-					$('body').loadingOverlay('remove');
-			},
-			error : function(XMLHttpRequest, textStatus, errorThrown) {
-				WTAlertTip('发生错误，请联系客服！', 'error','');
+			}).responseText;
+			return checkR === "true";
+		},
+		message : '登陆名已存在'
+	},
+	//身份证验证
+	idcard : {
+		validator : function(value, param) {
+			var cerType = $(param[0]).combobox('getValue');
+			if (cerType == 1) {//如果是身份证
+				return isIdCardNo(value)
+			} else if (cerType == 2) {
+				var flag = (!isNaN(value)) && value.length == 8;
+				return flag == true ? true : false;
 			}
-		});
-	}else{
-		WTAlertTip('请正确填写内容!', 'error','');
-	}
-}
-/**
- * 负责不需要表单验证的请求处理
- * @param url
- */
-function AjaxSubmitUrl(url,win,gridname){
-	AjaxSubmitForm(url,"",win,gridname,"1","");
-}
-
-/**
- * 说　明：AJAX Post请求,可以显示自定义弹出信息，也可以显示系统固定弹出信息
- * 创建人：yzchina
- *   url：Action处理路径
- *   formname：表单名称
- *   win:需要关闭的div名称
- *   grid：执行成功之后调用的JS方法，一般情况用于添加，修改，删除之后刷新显示内容 
- *   isalert:是否显示提示信息　1显示 0不显示       
- *   postvalue：url参数，改参数可以是XML格式或json格式
- *   callback:回调函数（字符串）
- */
-function AjaxSubmitForm(url, formname, win, grid, isalert,callback,hasparam,postvalue) {
-	if(validate(formname)){
-		if(url.indexOf("?") == -1){
-			url = url + "?random=" + Math.round(Math.random() * 100);
-		}else{
-			url = url + "&random=" + Math.round(Math.random() * 100);
-		}
-		if (postvalue!=null&&postvalue.length > 0) {
-			url += "&postvalue=" + postvalue + "";
-		}
-		var flag=-1;//0成功，1失败
-		var alldata="";
-		$.ajax({
-			type : "post",
-			url : url,
-			data : getId(formname).serialize(),
-			success : function(data) {
-				flag=0;
-				alldata=data+'';
-				if (isalert == "1" && data.split("_").length >= 2) {
-					WTAlert(data.split("_")[0], data.split("_")[1], "");
-				}
-				
-				if (win.length > 0) {
-					getId(win).window('destroy');
-				}
-			},
-			error : function(XMLHttpRequest, textStatus, errorThrown) {
-				flag=1;
-				alldata=errorThrown+'';	
-				WTAlertTip('发生错误，请联系客服！', 'error','');
-			},
-			complete : function(msg) {	
-				if (grid.length > 0) {
-					if (getId(grid).attr('class') == "easyui-datagrid") {
-						getId(grid).datagrid('reload');
-					} else if (getId(grid).attr('class') == "easyui-treegrid") {
-						getId(grid).treegrid('reload');
-					}else if(getId(grid).attr('easytype')=="treegrid"){
-						getId(grid).treegrid('reload');
-					}else if(getId(grid).attr('easytype')=="datagrid"){
-						getId(grid).datagrid('reload');
-					}else if(getId(grid).attr('easytype')=="easyui-datagrid"){
-						getId(grid).datagrid('reload');
-					}
-				}
-				
-				if (callback!=null&&callback.length > 0) {				
-					if (hasparam!=null&&hasparam=="1"){					
-						if (flag==0){
-							try{
-							    eval("("+callback+"("+flag+","+alldata+"))");	
-							} catch(err) {
-								flag=1;
-								eval("("+callback+"("+flag+",'"+err+"'))");
-							}
-						}else{
-							  alert("错误信息！");
-						}												
-					}else{
-						eval(callback);
-					}					
-				}		
+		},
+		message : '身份证/军官证号码不合法'
+	},
+	legalIdentity:{// 验证身份证
+		validator : function(value) {
+			return isIdCardNo(value);
+		},
+		message : '身份证号输入不合法'
+	},
+	//汉字验证
+	chinese : {// 验证中文
+		validator : function(value) {
+			 return /^[\u0391-\uFFE5]+$/.test(value);  
+		},
+		message : '请输入中文'
+	},
+	chinese_ : {// 验证中文含其他类型
+		validator : function(value) {
+			return /[\u4E00-\u9FA5]|[\uFE30-\uFFA0]/gi.test(value);
+		},
+		message : '输入中文'
+	},
+	eaChinese_ : {// 验证中文含其他类型
+		validator : function(value) {
+			return /[\u4E00-\u9FA5]|[\uFE30-\uFFA0]/gi.test(value);
+		},
+		message : '必须包含中文字符'
+	},
+	// 验证用户名
+	username : {
+		validator : function(value) {
+			return /^[a-zA-Z][a-zA-Z0-9]{5,15}$/i.test(value);
+		},
+		message : '用户名不合法（字母开头，允许6-16字节，允许字母数字）'
+	},
+	english : {// 验证英语
+		validator : function(value) {
+			return /^[A-Za-z]+$/i.test(value);
+		},
+		message : '请输入英文'
+	},
+	ip : {// 验证IP地址
+		validator : function(value) {
+			return /\d+\.\d+\.\d+\.\d+/.test(value);
+		},
+		message : 'IP地址格式不正确'
+	},
+	ZIP : {
+		validator : function(value, param) {
+			return /^[0-9]\d{5}$/.test(value);
+		},
+		message : '邮政编码不存在'
+	},
+	QQ : {
+		validator : function(value, param) {
+			return /^[1-9]\d{4,11}$/.test(value);
+		},
+		message : 'QQ号码不正确'
+	},
+	 length: { validator: function (value, param) {
+         var len = strLens(value);
+         return len >= param[0] && len <= param[1];
+     },
+         message: "输入内容字符长度必须介于{0}和{1}之间."
+     },
+     sellLength: { validator: function (value, param) {
+         var len = value.length;
+         return len >= param[0] && len <= param[1];
+     },
+         message: "输入内容字符长度必须介于{0}和{1}之间."
+     },
+	range : {
+		validator : function(value, param) {
+			if (/^[0-9]\d*$/.test(value)) {				
+				return  value >= param[0] && value <= param[1];
+			} else {
+				return false;
 			}
-		});
-	}else{
-		WTAlertTip('请您填写规范内容!', 'error','');
-	}
-}
-
-/**
- * 说　明：提交数据，然后在DIV显示返回信息。目前该函数设计用于健康工具
- * 创建人：lzchina
- * 日　期：2015年04月30日
- *   url:action请求
- *   formname：表单名称
- *   divname:显示返回请求数据的容器名称
- *   callback:回调函数名称
- *   sucmsg:成功提示
- *   errmsg:错误提示
- */
-function AjaxSubmitDiv(url, formname, divname, callback){
-    AjaxSubmitDivV1(url, formname, divname, callback, "", "");
-}
-
-function AjaxSubmitDivV1(url, formname, divname, callback, sucmsg, errmsg) {
-    if (formname!=""){
-        $('body').loadingOverlay();
-    }
-    $.ajax({
-        type : "post",
-        url : url,
-        data : getId(formname).serialize(),
-        success : function(data) {
-        	if(data == -1){
-        		getId(divname).attr("onClick","");
-        	}else{
-        		if (divname.length > 0 && (getId(divname).attr("class")==undefined || getId(divname).attr("class").indexOf("easyui-window") == -1)) {
-        			getId(divname).html(eval("("+data+")"));
-        		}
-        		if(sucmsg.length>0 && data.split("_")[1]=="suc"){
-        			WTAlertTip(sucmsg, "info",divname);
-        		}
-        		if(errmsg.length>0 && data.split("_")[1]=="err"){
-        			WTAlertTip(errmsg, "error","");
-        		}
-        	}
-        },
-        complete : function(msg) {
-            if(callback != undefined){
-                if (callback.length > 0) {
-                    eval(callback);
-                }
-            }
-            $('body').loadingOverlay('remove');
-        }
-    });
-}
-
-function AjaxSubmitDivAppend(url, formname, divname, callback) {
-    $.ajax({
-        type : "post",
-        url : url,
-        data : getId(formname).serialize(),
-        dataType : "json",
-        success : function(data) {
-            if (divname.length > 0) {
-                getId(divname).append(data); 
-            }
-        },
-        complete : function(msg) {
-            if(callback!='undefined'){
-                if (callback.length > 0) {
-                    eval(callback);
-                }
-            }
-        }
-    });
-}
-/**
- * 获取后台数据
- * @param url
- * @param param
- */
-function AjaxSubmitGetData(url,param,callback,callbackParam,loading) {
-	var callbackParam = callbackParam == undefined || callbackParam == "" ? "''" : callbackParam;
-	var loading = loading == undefined ? false : loading;
-	//开启遮罩
-	if(loading){
-		if(typeof loading == "boolean"){
-			$('body').loadingOverlay();
-		}else{
-			$('#'+loading).loadingOverlay();
-		}
-	}
-    $.ajax({
-        type : "post",
-        url : url,
-        data : param,
-        dataType : "json",
-        success : function(data) {
-        	eval(callback+"(data,"+callbackParam+")");
-        },complete : function(msg) {
-			//移除遮罩
-			if(loading){
-				if(typeof loading == "boolean"){
-					$('body').loadingOverlay('remove');
-				}else{
-					$('#'+loading).loadingOverlay('remove');
-				}
+		},
+		message : '输入的数字在{0}到{1}之间'
+	},
+	minLength : {
+		validator : function(value, param) {
+			return strLens(value) >= param[0]
+		},
+		message : '至少输入{0}个字符'
+	},
+	maxLength : {
+		validator : function(value, param) {
+			return strLens(value) <= param[0]
+		},
+		message : '最多{0}个字符'
+	},
+	//select即选择框的验证
+	selectValid : {
+		validator : function(value, param) {
+			if (value == param[0]) {
+				return false;
+			} else {
+				return true;
 			}
-		}
-    });
-}
-/**
- * 说　明：公共提示方法
- * 创建人：cwc
- * message 提示消息
- * statetype　提示框类型 info 成功样式 error 失败样式
- * divname:需要关闭的div名称
- */
-function WTAlertTip(message, statetype,divname) {
-	if (statetype=="error"){
-		$.messager.alert("系统提示", message, statetype,function(){
-			if(divname.length>0 && statetype.indexOf("error") == -1)
-				$("#" + divname + "").dialog('destroy');
+		},
+		message : '请选择'
+	},
+	// 只能输入英文和数字
+	englishOrNum : {
+		validator : function(value) {
+			return /^[a-zA-Z0-9_ ]{1,}$/.test(value);
+		},
+		message : '请输入英文、数字、下划线或者空格'
+	},
+	//小数
+	xiaoshu : {
+		validator : function(value) {
+			return  /^\d{0,3}.\d{0,2}$/g.test(value);
+		},
+		message : '最多保留两位小数！'
+	},
+	// 增加了一个真实金额的校验规则    修改人：张爽    修改时间：2016/04/29    版本：无
+	//小数最多保留两位
+	realPrice: {
+		validator : function(value) {
+			//return  /^\d{0,3}.\d{0,2}$/g.test(value);
+			return /^(0|[1-9][0-9]{0,6})(\.[0-9]{1,2})?$/g.test(value);
+		},
+		message : '输入的金额最多7位整数，两位小数！'
+	},
+	ddPrice : {
+		validator : function(value, param) {
+			if (/^[1-9]\d*$/.test(value)) {
+				return value >= param[0] && value <= param[1];
+			} else {
+				return false;
+			}
+		},
+		message : '请输入1到100之间正整数'
+	},
+	
+	jretailUpperLimit : {
+		validator : function(value, param) {
+			if (/^[0-9]+([.]{1}[0-9]{1,2})?$/.test(value)) {
+				return parseFloat(value) > parseFloat(param[0])
+						&& parseFloat(value) <= parseFloat(param[1]);
+			} else {
+				return false;
+			}
+		},
+		message : '请输入0到100之间的最多俩位小数的数字'
+	},
+	//百分数
+	rateCheck : {
+		validator : function(value, param) {
+			if (/^[0-9]+([.]{1}[0-9]{1,2})?$/.test(value)) {
+				return parseFloat(value) > parseFloat(param[0])
+						&& parseFloat(value) <= parseFloat(param[1]);
+			} else {
+				return false;
+			}
+		},
+		message : '请输入0到1000之间的最多俩位小数的数字'
+	},
+	//是否存在
+	//例子：	data-options="validType:['email','existsValue[\'电子邮箱\',\'email\',\'WtBaseUserinfo\',\'${wtDoctorRfqVerify.wtDoctorRfq.userId}\']']"
+	existsValue : {
+		validator : function(value, param) {
+			var state = true;
+			$.ajaxSettings.async = false;
+			var params = param[1] + "=" + value + "&type=" + param[2] + "&dataId=" + (param[3]==undefined?"":param[3])+"&eaId="+(param[4]==undefined?"":param[4]);
+			var url=encodeURI(__rootPath__+"/registerFindExist.action?"+params+"&random=" + Math.round(Math.random() * 100));
+			$.getJSON(url, function(data) {
+				if (data.state == "true") {
+					state = false;
+				}
 			});
-	}else{
-		messagerShow( message);{
-			if(divname.length>0 && statetype.indexOf("error") == -1){
-				$("#" + divname + "").dialog('destroy');				
+			$.ajaxSettings.async = true;
+			return state;
+		},
+		message : ' {0}已存在，请重新输入'
+	},
+	//是否存在通用
+	//例子：	data-options="validType:['email','publicExistsValue[\'项目编号\',\'WtServiceDict\',\'serviceCode\',\'serviceId\',\'${wtServiceDict.serviceId}\',\'isDel=0 and eaId=`${sessionScope.userinfo.eaId }`\']']"
+	publicExistsValue : {
+		validator : function(value, param) {
+			if(param[6] != undefined)
+				value = $("[name='"+param[6]+"']").val();
+			if(param[1] == "WtServiceDict")
+				value = "F"+value;
+			if(value.length != 0)
+				value =$.trim(value);
+			//多个value拼接获取值
+			var paramValues = param[2].split(",");
+			if(paramValues.length > 1){
+				param[2] = paramValues[0];
+				for(var i = 1; i < paramValues.length; i++){
+					value = $("#"+paramValues[i]).val() + "" + value;
+				}
 			}
-		}
+			//如果主键值为ID，那么取value值
+			if(param[4].indexOf("Id") != -1){
+				param[4] = $("#"+param[4]).val();
+			}
+			var state = true;
+			$.ajaxSettings.async = false;
+			var params = "table="+param[1] + "&field=" + param[2] + "&value="+ value + "&idField=" + param[3]+ "&idValue=" + param[4]+"&other=" + param[5];
+			var url=encodeURI(__rootPath__+"/manageFrame/userInfo/userPublicFindExist.action?"+params+"&random=" + Math.round(Math.random() * 100));
+			$.getJSON(url, function(data) {
+				if (data.state == "true") {
+					state = false;
+				}
+			});
+			$.ajaxSettings.async = true;
+			return state;
+		},
+		message : ' {0}已存在，请重新输入'
+	},
+	number : {
+		validator : function(value, param) {
+			if (/^\-?[0-9]\d*$/.test(value)) {	
+				return  true;
+			} else {
+				return false;
+			}
+		},
+		message : '输入的整数数字'
+	},
+	productTextLength:{ //校验新增修改商品广告的文字输入项的长度
+		validator : function(value,param) {
+			  var lenth=param[0]- getByteLen(value);
+             // lenth=lenth>0?lenth:0;
+              if(param[1]==0){
+            	  //商品名称            
+            	   $('#prodNameSurplusChar').html(lenth>0?lenth:0);	
+              }
+              if(param[1]==1){
+            	  //广告
+            	  $('#prodAdSurplusChar').html(lenth>0?lenth:0);
+              }   
+              if(param[1]==2){
+            	  //服务地址
+            	  $('#serviceAddressSurplusChar').html(lenth>0?lenth:0);
+              } 
+              if(lenth<0) return false; else return true;       
+		},
+		message : '输入文字超长'
+	},
+	productName:{
+		validator : function(value) {
+			return /^(\w|\.|\+|\-|[\u4E00-\u9FA5]|-|[（]|[）]|[(]|[)]|（|）|\s){1,100}$/.test(value);
+		},
+		message : '商品名称只能输入数字，字母，中文，减号，小括号，空格，中划线，小数点，加号'
+	}
+});
+
+//字符长度（按字节）  
+function strLens(str) {
+    var len = 0;
+    for (var i = 0; i < str.length; i++) {
+        var c = str.charCodeAt(i);
+        //单字节加1，回车为2字符数(10位回车)
+        if (((c >= 0x0001 && c <= 0x007e) || (0xff60 <= c && c <= 0xff9f)) && c != 10) {
+            len++;
+        }else {
+            len += 2;
+        }
+    }
+    return len;
+}
+
+//登录名验证
+function userNameValidate(val) {
+	var re = new RegExp(/(^[A-Za-z0-9_]{3,20}$)|(^[\u4E00-\u9FA5]{2,10}$)/);
+	return re.test(val);
+	//return validateAddress(val) || validateLength(val,3,20);
+}
+//是否包含特殊字符
+function validateAddress(val) {
+	var address = val;
+	var containSpecial = new RegExp(
+			/[(\ )(\~)(\!)(\@)(\#)(\$)(\%)(\^)(\&)(\*)(\()(\))(\-)(\_)(\+)(\=)(\[)(\])(\{)(\})(\|)(\\)(\;)(\:)(\')(\")(\,)(\.)(\/)(\<)(\>)(\?)(\)]+/);
+	if (containSpecial.test(address)) {
+		return true;
+	}
+	return false;
+}
+//是否超过指定长度中文2字符
+function validateLength(val,minLength,maxLength){
+		return val.replace(/[^\x00-\xff]/g, 'xx').length < minLength || val.replace(/[^\x00-\xff]/g, 'xx').length > maxLength;
+}
+//--身份证号码验证-支持新的带x身份证
+function isIdCardNo(num) {
+	//身份证正则表达式(15位) 
+	var isIDCard1=/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$/; 
+	//身份证正则表达式(18位) 
+	var isIDCard2=/^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/;
+	return isIDCard1.test(num) || isIDCard2.test(num);
+}
+function ValidRadio(radioname) {
+	var radiovalue = $('input[type="radio"][name="' + radioname + '"]:checked')
+			.val();
+	if (radiovalue == undefined)
+		return false;
+	else
+		return true;
+}
+function GetRadioValue(radioname) {
+	var radiovalue = $('input[type="radio"][name=' + radioname + ']:checked')
+			.val();
+	return radiovalue;
+}
+
+function ValidVisble(name, type) {
+	if (type == 1) {
+		//$("#img" + name).attr({'src' : '../images/ico_err.gif'});
+		$("#img" + name).attr('class' , 'ztIco-Err');
+	} else if (type == 2) {
+		//$("#img" + name).attr({'src' : '../images/ico_ok.gif'});
+		$("#img" + name).attr('class' , 'ztIco-Ok');
+	} else if (type == 3) {
+		//$("#img" + name).attr({'src' : '../images/ico_info.gif'});
+		$("#img" + name).attr('class' , 'ztIco');
+	} else if (type == 4) {
+		//$("#img" + name).attr({'src' : '../images/ico_gray.gif'});
+		$("#img" + name).attr('class' , 'ztIco-Gray');
 	}
 }
-/**end 提示消息结束**/
 /**
-* @param urlAction action的地址
-* @param fname 回调的方法名字符串,如有回调回调应该有两个参数flag（0成功，1失败），result结果数据
-*/
-function getAjaxData(formname, urlAction, fname) {
-    var flag = 0;//提交状态
-    var result;
-    $.ajax({
-        url : urlAction,
-        async : false,
-        data : getId(formname).serialize(),
-        type : "post",
-        dataType : "json",
-        success : function(data) {
-
-            result = data;
-        },
-        error : function(XMLHttpRequest, textStatus, errorThrown) {
-
-            flag = 1;
-            result = errorThrown + '';
-        },
-        complete : function(msg) {
-            if (flag == 0) {
-                try {
-                    if (fname) {
-                        eval(fname + "(flag,result)");
-                    } else {
-                        return result;
-                    }
-                } catch (err) {
-                    WTAlertTip('发生错误，请联系客服！', 'error', '');
-                }
-            } else {
-                WTAlertTip('发生错误，请联系客服！', 'error', '');
-            }
-        }
-    });
-}
-/**end 提示消息结束**/
-/**
-*by yatoo 2015-8-14
-* @param param 参数
-* @param urlAction action的地址
-* @param fname 回调的方法名字符串,如有回调回调应该有两个参数flag（0成功，1失败），result结果数据
-*/
-function submitAjaxData(param, urlAction, fname) {
-    var flag = 0;//提交状态
-    var result;
-    $.ajax({
-        url : urlAction,
-        async : false,
-        data :param,
-        type : "post",
-        dataType : "json",
-        success : function(data) {
-            result = data;
-        },
-        error : function(XMLHttpRequest, textStatus, errorThrown) {
-            flag = 1;
-            result = errorThrown + '';
-        },
-        complete : function(msg) {
-            if (flag == 0) {
-                try {
-                    if (fname) {
-                        eval(fname + "(flag,result)");
-                    } else {
-                        return result;
-                    }
-                } catch (err) {
-                    WTAlertTip('发生错误，请联系客服！', 'error', '');
-                }
-            } else {
-                WTAlertTip('发生错误，请联系客服！', 'error', '');
-            }
-        }
-    });
-}
-
-function AjaxSubmitFormIntervene(url, formname, win, grid, isalert,callback, hasparam, postvalue) {
-    if (validate(formname)) {
-        if (url.indexOf("?") == -1){
-        	url = url + "?random=" + Math.round(Math.random() * 100);
-        }else{
-        	url = url + "&random=" + Math.round(Math.random() * 100);        	
-        }
-
-        if (postvalue != null && postvalue.length > 0) {
-            url += "&postvalue=" + postvalue + "";
-        }
-        var flag = -1;//0成功，1失败
-        var alldata = "";
-        $.ajax({
-            type : "post",
-            url : url,
-            data : getId(formname).serialize(),
-            success : function(data) {
-                flag = 0;
-                alldata = data + '';
-                if (isalert == "1" && data.split("_").length >= 2) {
-                    if (callback != null && callback.length > 0) {
-                        if (hasparam != null && hasparam == "1") {
-                            if (flag == 0) {
-                                try {
-                                    eval("(" + callback + "(" + flag + "," + alldata  + "))");
-                                } catch (err) {
-                                    flag = 1;
-                                    eval("(" + callback + "(" + flag + ",'" + err + "'))");
-                                }
-                            } else {
-                                alert("错误信息！");
-                            }
-                        } else {
-                            eval(callback);
-                        }
-                    }
-                    WTAlert(data.split("_")[0], data.split("_")[1], win);
-                }
-            },
-            error : function(XMLHttpRequest, textStatus, errorThrown) {
-                flag = 1;
-                alldata = errorThrown + '';
-                WTAlertTip('发生错误，请联系客服！', 'error', '');
-            },
-            complete : function(msg) {
-                if (grid.length > 0) {
-                    if (getId(grid).attr('class') == "easyui-datagrid") {
-                        getId(grid).datagrid('reload');
-                    } else if (getId(grid).attr('class') == "easyui-treegrid") {
-                        getId(grid).treegrid('reload');
-                    } else if (getId(gridname).attr('easytype') == "treegrid") {
-                        getId(gridname).treegrid('reload');
-                    } else if (getId(gridname).attr('easytype') == "datagrid") {
-                        getId(gridname).datagrid('reload');
-                    }
-                }
-            }
-        });
-    } else{
-    	WTAlertTip('请您填写规范内容!', 'error', '');
-    }
+ * 设置问卷验证范围
+ * @param typeVal 单位类型
+ * @param tipName 控件名称
+ * @param typeMin1 类型1 小值
+ * @param typeMax1 类型1 大值
+ * @param typeMin2 类型2 小值
+ * @param typeMax2 类型2 大值
+ */
+function setRangeCheck(typeVal, tipName, typeMin1, typeMax1, typeMin2,
+		typeMax2, prec) {
+	var tip = "";
+	var vMin = 0, vMax = 0;
+	if (typeVal == 1) {
+		tip = "取值范围[" + typeMin1 + "," + typeMax1 + "]";
+		vMin = typeMin1;
+		vMax = typeMax1;
+	} else {
+		tip = "取值范围[" + typeMin2 + "," + typeMax2 + "]";
+		vMin = typeMin2;
+		vMax = typeMax2;
+		prec = 0;
+	}
+	//设置范围
+	getId(tipName).numberbox({
+		min : vMin,
+		max : vMax,
+		precision : prec
+	});
+	//设置提示
+	getId("td" + tipName).tooltip({
+		position : 'right',
+		content : tip
+	});
 }

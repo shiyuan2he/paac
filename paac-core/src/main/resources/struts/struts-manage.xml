@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+ "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+  "http://struts.apache.org/dtds/struts-2.3.dtd" >
+<struts>
+	<package name="manage" namespace="/mainFrame/manage" extends="struts-default">
+		<!-- 处理业务的action配置 -->
+		<action name="manage_do_*" method="{1}" class="com.codelibrary.javaee.action.manage.ManageAction">
+		</action>
+		<!-- 跳转到视图层的页面 ｛1｝匹配文件夹 ｛2｝匹配文件名 -->
+		<action name="manage_to_*_*" method="to_{1}_{2}" class="com.codelibrary.javaee.action.manage.ManageAction">
+			<result name="toView">/WEB-INF/content/{1}/{2}.jsp</result>
+		</action>
+		<!-- 跳转到后台主页面-->
+		<action name="manage_toMainView" method="toMainView" class="com.codelibrary.javaee.action.manage.ManageAction">
+			<result name="toMainView">/WEB-INF/content/mainFrame.jsp</result>
+		</action>
+		<!-- 跳转到后台欢迎页-->
+		<action name="manage_toWelcome" method="toWelcome" class="com.codelibrary.javaee.action.manage.ManageAction">
+			<result name="toWelcome">/WEB-INF/content/welcome.jsp</result>
+		</action>
+	</package>
+</struts>

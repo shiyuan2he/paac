@@ -44,8 +44,9 @@ public class UserAction extends BaseAction implements ModelDriven<User>{
 		if(BeanHelper.isNotNull(user)&&StringHelper.isNotNullOrEmpty(user.getPassword())&&StringHelper.isNotNullOrEmpty(user.getPassword())){
 			user = userService.login(user.getUsername(),user.getPassword()) ;
 			if(BeanHelper.isNotNull(user)){
+				//向session里面放入用户基本信息
 				setSessionBean(user) ;
-				return "login_ok" ;
+				return "do_login_ok" ;
 			}
 		}else{
 			_logger.error("【--用户登录--】传递参数失败：用户名或者用户密码传递失败。。");
@@ -133,7 +134,7 @@ public class UserAction extends BaseAction implements ModelDriven<User>{
 		return "toView";
 	}
 	
-	public String toMain(){
+	public String to_mainView(){
 		return "toMain" ;
 	}
 	/**

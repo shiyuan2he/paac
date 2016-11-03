@@ -44,4 +44,5 @@ public class CoreStrutsFilter extends StrutsPrepareAndExecuteFilter {
 			logger.error("struts拦截器捕获到异常，异常信息：" + ee.getMessage());
 		}
 	}
+	
 }

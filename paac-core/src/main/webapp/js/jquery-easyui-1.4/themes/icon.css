@@ -1,0 +1,806 @@
+
+/*by yucl*/
+.icon-send-msg{
+	background:url('icons/send-msg.png') no-repeat center center;
+}
+.icon-send-mail{
+	background:url('icons/send-mail.png') no-repeat center center;
+}
+.icon-import{/*锟斤拷锟斤拷锟斤拷锟斤拷*/
+	background:url('icons/y-import.png') no-repeat center center;
+}
+.icon-deletes{/*鎵归噺鍒犻櫎*/
+	background:url('icons/deletes.png') no-repeat center center;
+}
+.icon-more{
+	background:url('icons/more.png') no-repeat center center;
+}
+.icon-xinxicaiji{
+	background:url('icons/xinxicaiji.png') no-repeat center center;
+}
+.icon-call{
+	background:url('icons/call.png') no-repeat center center;
+}
+/*锟揭碉拷锟绞硷拷*/
+.icon-mymail{
+	background:url('icons/sqn/mymail.png') no-repeat 15px center;
+}
+/*锟剿筹拷*/
+.icon-topout{
+	background:url('icons/sqn/sqn-topout.png') no-repeat 15px center;
+}
+
+.icon-sqkkgl{/*锟斤拷锟斤拷突锟斤拷锟斤拷锟�*/
+	background:url('icons/wxl-sqkhgl.png') no-repeat center center;
+}
+.icon-tjjtcy{/*锟斤拷蛹锟酵ワ拷锟皆�*/
+	background:url('icons/wxl-tjjtcy.png') no-repeat center center;
+}
+.icon-yjsz{/*预锟斤拷锟斤拷锟斤拷*/
+	background:url('icons/wxl-yjsz.png') no-repeat center center;
+}
+.icon-jcfwry{/*瑙ｉ櫎鏈嶅姟浜哄憳*/
+	background:url('icons/wxl-jcfwry.png') no-repeat center center;
+}
+.icon-zdfwry{/*指锟斤拷锟斤拷锟斤拷锟斤拷员*/
+	background:url('icons/wxl-zdfwry.png') no-repeat center center;
+}
+.icon-bdsb{/*锟斤拷锟借备*/
+	background:url('icons/wxl-bdsb.png') no-repeat center center;
+}
+.icon-bdsb_white{/*锟斤拷锟借备锟斤拷色*/
+	background:url('icons/sqn/sqn-sbbd_white.png') no-repeat center center;
+}
+.icon-bgdw{/*锟斤拷锟斤拷锟轿�*/
+	background:url('icons/wxl-bgdw.png') no-repeat center center;
+}
+.icon-ggjg{/*锟斤拷锟侥伙拷锟斤拷*/
+	background:url('icons/wxl-ggjg.png') no-repeat center center;
+}
+.icon-ggkhlx{/*锟斤拷锟侥客伙拷锟斤拷锟斤拷*/
+	background:url('icons/wxl-ggkhlx.png') no-repeat center center;
+}
+.icon-fxpgwj{/*锟斤拷锟斤拷锟斤拷锟斤拷锟绞撅拷*/
+	background:url('icons/wxl-fxpgwj.png') no-repeat center center;
+}
+.icon-jljkdw{/*锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷*/
+	background:url('icons/wxl-jljkdw.png') no-repeat center center;
+}
+.icon-xlpgb{/*锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷*/
+	background:url('icons/wxl-xlpgb.png') no-repeat center center;
+}
+
+.icon-zytzb{/*锟斤拷医锟斤拷锟绞憋拷*/
+	background:url('icons/wxl-zytzb.png') no-repeat center center;
+}
+
+.icon-p-ylwj{/*锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷-压锟斤拷锟绞撅拷*/
+	background:url('icons/wxl-p-ylwj.png') no-repeat center center;
+}
+
+.icon-p-axxg{/*锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷-A锟斤拷锟皆革拷*/
+	background:url('icons/wxl-p-axxg.png') no-repeat center center;
+}
+.icon-cjdw{/*鍒涘缓鍗曚綅*/
+	background:url('icons/wxl-cjdw.png') no-repeat center center;
+}
+.icon-hjglq{/*锟斤拷锟叫癸拷锟斤拷锟斤拷*/
+	background:url('icons/wxl-hjglq.png') no-repeat center center;
+}
+
+.icon-tjsx{/*锟斤拷锟斤拷筛选*/
+	background:url('icons/wxl-tjsx.png') no-repeat center center;
+}
+
+/*锟斤拷锟斤拷台*/
+.icon-gzt-zdtc{/*指锟斤拷锟阶诧拷*/
+	background:url('icons/sqn/sqn-zdtc.png') no-repeat center center;
+}
+.icon-gzt-sxtj{/*筛选_24.png*/
+	background:url('icons/sqn/sqn-sxtj.png') no-repeat center center;
+}
+.icon-gzt-tjdfz{/*锟斤拷拥锟斤拷锟斤拷锟絖22.png*/
+	background:url('icons/sqn/sqn-tjdfz.png') no-repeat center center;
+}
+.icon-gzt-cxpg{/*锟斤拷锟斤拷锟斤拷锟斤拷*/
+	background:url('icons/sqn/sqn-cxpg.png') no-repeat center center;
+}
+.icon-gzt-pldc{/*鎵归噺瀵煎嚭*/
+	background:url('icons/sqn/sqn-pldc.png') no-repeat center center;
+}
+.icon-gzt-pldy{/*锟斤拷锟斤拷锟斤拷印*/
+	background:url('icons/sqn/sqn-pldy.png') no-repeat center center;
+}
+.icon-gzt-pldy{/*锟斤拷锟斤拷锟斤拷印*/
+	background:url('icons/sqn/sqn-pldy.png') no-repeat center center;
+}
+.icon-gzt-tjjh{/*锟斤拷蛹苹锟�*/
+	background:url('icons/sqn/sqn-tjjh.png') no-repeat center center;
+}
+.icon-gzt-tjjh_blue{/*锟斤拷蛹苹锟�*/
+	background:url('icons/sqn/sqn-tjjh_blue.png') no-repeat center center;
+}
+.icon-gzt-xgjh{/*锟睫改计伙拷*/
+	background:url('icons/sqn/sqn-xgjh.png') no-repeat center center;
+}
+.icon-gzt-xgjh_blue{/*锟睫改计伙拷*/
+	background:url('icons/sqn/sqn-xgjh_blue.png') no-repeat center center;
+}
+.icon-gzt-scjh{/*删锟斤拷锟狡伙拷*/
+	background:url('icons/sqn/sqn-scjh.png') no-repeat center center;
+}
+.icon-gzt-scjh_blue{/*删锟斤拷锟狡伙拷*/
+	background:url('icons/sqn/sqn-scjh_blue.png') no-repeat center center;
+}
+.icon-gzt-zzjh_blue{/*锟斤拷止锟狡伙拷*/
+	background:url('icons/sqn/sqn-zzjh_blue.png') no-repeat center center;
+}
+.icon-gzt-zzjh{/*锟斤拷止锟狡伙拷*/
+	background:url('icons/sqn/sqn-zzjh.png') no-repeat center center;
+}
+.icon-gzt-qyjh{/*锟斤拷锟斤拷锟狡伙拷*/
+	background:url('icons/sqn/sqn-qdjh.png') no-repeat center center;
+}
+.icon-gzt-qyjh_blue{/*锟斤拷锟斤拷锟狡伙拷*/
+	background:url('icons/sqn/sqn-qdjh_blue.png') no-repeat center center;
+}
+.icon-gzt-ganyjh{/*锟斤拷锟斤拷锟狡伙拷*/
+	background:url('icons/sqn/sqn-gyjh.png') no-repeat center center;
+}
+.icon-gzt-plscfz{/*锟斤拷锟斤拷删锟斤拷锟斤拷锟斤拷*/
+	background:url('icons/sqn/sqn-plscfz.png') no-repeat center center;
+}
+.icon-gzt-plgbfz{/*锟斤拷锟斤拷删锟斤拷锟斤拷锟斤拷*/
+	background:url('icons/sqn/sqn-plgbfz.png') no-repeat center center;
+}
+.icon-gzt-tjfz{/*锟斤拷臃锟斤拷锟�*/
+	background:url('icons/sqn/sqn-tjfz.png') no-repeat center center;
+}
+.icon-gzt-tjmb{/*锟斤拷锟侥ｏ拷锟�*/
+	background:url('icons/sqn/sqn-tjmb.png') no-repeat center center;
+}
+.icon-gzt-tjcffl{/*锟斤拷哟锟斤拷锟斤拷锟斤拷锟�*/
+	background:url('icons/sqn/sqn-tjcffl.png') no-repeat center center;
+}
+.icon-gzt-yjzt{/*预锟斤拷状态*/
+	background:url('icons/sqn/sqn-yjzt.png') no-repeat center center;
+}
+.icon-gzt-cjfw{/*锟斤拷锟斤拷锟斤拷锟斤拷*/
+	background:url('icons/sqn/sqn-cjfw.png') no-repeat center center;
+}
+.icon-gzt-cjjt{/*锟斤拷锟斤拷锟斤拷锟斤拷*/
+	background:url('icons/sqn/sqn-cjjt.png') no-repeat center center;
+}
+
+.icon-pl-plkt{/*锟斤拷锟斤拷锟斤拷锟斤拷*/
+	background:url('icons/fwgl/fwgl-plkt.png') no-repeat center center;
+}
+.icon-pl-plzt{/*锟斤拷锟斤拷锟斤拷停*/
+	background:url('icons/fwgl/fwgl-plzt.png') no-repeat center center;
+}
+
+
+.icon-gzt-qtsy{/*前台锟斤拷页*/
+	background:url('icons/sqn/sqn-qtsy_blue.png') no-repeat 15px center;
+}
+.icon-gzt-xgmm{/*锟睫革拷锟斤拷锟斤拷_18.png*/
+	background:url('icons/sqn/sqn-xgmm_blue.png') no-repeat 15px center;
+}
+.icon-gzt-hjzx{/*锟斤拷锟斤拷锟斤拷锟斤拷_01.png*/
+	background:url('icons/call.png') no-repeat 15px center;
+}
+.icon-gzt-xxtx{/*锟斤拷息锟斤拷锟斤拷_17.png*/
+	background:url('icons/sqn/sqn-xxtx_blue.png') no-repeat 15px center;
+}
+.icon-gzt-jsxx{/*锟斤拷时锟斤拷息_16.png*/
+	background:url('icons/sqn/sqn-jsxx_blue.png') no-repeat 15px center;
+}
+.icon-gzt-jbxx{/*锟斤拷锟斤拷锟斤拷息_16.png*/
+	background:url('icons/sqn/sqn-jbxx_blue.png') no-repeat 15px center;
+}
+
+
+.icon-gzt-sxtj{/*筛选锟斤拷锟斤拷*/
+	background:url('icons/sqn/sqn-sxtj.png') no-repeat center center;
+}
+
+.icon-gzt-bbfx{/*锟斤拷锟斤拷锟斤拷锟�*/
+	background:url('icons/sqn/sqn-bbfx.png') no-repeat center center;
+}
+
+.icon-gzt-tbtj{/*图锟斤拷统锟斤拷*/
+	background:url('icons/sqn/sqn-tbtj.png') no-repeat center center;
+}
+.icon-gzt-sctp{/*删锟斤拷图片*/
+	background:url('icons/sqn/sqn-sctp.png') no-repeat center center;
+}
+.icon-gzt-bcdpxx{/*锟斤拷锟斤拷锟斤拷锟斤拷锟较01.png*/
+	background:url('icons/sqn/sqn-bcdpxx.png') no-repeat center center;
+}
+.icon-gzt-ckdpxx{/*锟介看锟斤拷锟斤拷锟斤拷息_03.png*/
+	background:url('icons/sqn/sqn-ckdpxx.png') no-repeat center center;
+}
+
+/*---------------骞冲彴绠＄悊------------------------*/
+.icon-ptgl-plsc{/*停鎵归噺鍒犻櫎*/
+	background:url('icons/ptgl/sqn-plsc1.png') no-repeat center center;
+}
+.icon-ptgl-bjyd{/*停鏍囪宸茶*/
+	background:url('icons/ptgl/sqn-bjyd.png') no-repeat center center;
+}
+.icon-ptgl-jstdyl{/*停瑙ｆ暎鍥㈤槦棰勮*/
+	background:url('icons/ptgl/sqn-jstdyl.png') no-repeat center center;
+}
+.icon-ptgl-cjhd{/*停鍒涘缓娲诲姩*/
+	background:url('icons/ptgl/sqn-cjhd.png') no-repeat center center;
+}
+.icon-ptgl-cjtd{/*停鍒涘缓鍥㈤槦*/
+	background:url('icons/ptgl/sqn-cjtd.png') no-repeat center center;
+}
+.icon-ptgl-tjxj{/*停娣诲姞缁泦*/
+	background:url('icons/ptgl/sqn-tjxj.png') no-repeat center center;
+}
+.icon-ptgl-plsh{/*停鎵归噺瀹℃牳*/
+	background:url('icons/ptgl/sqn-plsh.png') no-repeat center center;
+}
+.icon-ptgl-tj{/*停娣诲姞*/
+	background:url('icons/ptgl/sqn-tj.png') no-repeat center center;
+}
+.icon-ptgl-bgfl{/*鍙樻洿鍒嗙被*/
+	background:url('icons/ptgl/sqn-bgfl.png') no-repeat center center;
+}
+.icon-ptgl-plfb{/*鎵归噺鍙戝竷*/
+	background:url('icons/ptgl/sqn-plfb.png') no-repeat center center;
+}
+.icon-ptgl-scfl{/*删锟斤拷锟斤拷锟斤拷_02.png*/
+	background:url('icons/ptgl/sqn-scfl.png') no-repeat center center;
+}
+.icon-ptgl-sczfl{/*删锟斤拷锟接凤拷锟斤拷_02.png*/
+	background:url('icons/ptgl/sqn-sczfl.png') no-repeat center center;
+}
+.icon-ptgl-cjfl{/*锟斤拷锟斤拷锟斤拷锟斤拷*/
+	background:url('icons/ptgl/sqn-cjfl.png') no-repeat center center;
+}
+.icon-ptgl-cjzfl{/*锟斤拷锟斤拷锟接凤拷锟斤拷*/
+	background:url('icons/ptgl/sqn-cjzfl.png') no-repeat center center;
+}
+.icon-ptgl-tjwz{/*锟斤拷锟斤拷锟斤拷锟�*/
+	background:url('icons/ptgl/sqn-tjwz.png') no-repeat center center;
+}
+.icon-ptgl-tjxx{/*锟斤拷锟斤拷锟较�*/
+	background:url('icons/ptgl/sqn-tjxx.png') no-repeat center center;
+}
+.icon-ptgl-tjjkd{/*锟斤拷咏锟斤拷锟斤拷锟�*/
+	background:url('icons/ptgl/sqn-tjjkd.png') no-repeat center center;
+}
+.icon-ptgl-tjrw{/*锟斤拷锟斤拷锟斤拷锟�*/
+	background:url('icons/ptgl/sqn-tjrw.png') no-repeat center center;
+}
+.icon-ptgl-ty{/*停锟斤拷*/
+	background:url('icons/ptgl/sqn-qy.png') no-repeat center center;
+}
+.icon-ptgl-qy{/*锟斤拷锟斤拷*/
+	background:url('icons/ptgl/sqn-ty.png') no-repeat center center;
+}
+.icon-ptgl-xzcp{/*锟斤拷锟斤拷锟斤拷品*/
+	background:url('icons/ptgl/sqn-xzcp.png') no-repeat center center;
+}
+.icon-ptgl-cjdx{/*锟斤拷锟斤拷锟斤拷锟斤拷_*/
+	background:url('icons/ptgl/sqn-cjdx.png') no-repeat center center;
+}
+.icon-ptgl-scdx{/*删锟斤拷锟斤拷锟斤拷_*/
+	background:url('icons/ptgl/sqn-scdx.png') no-repeat center center;
+}
+/*----------系统锟斤拷锟斤拷-----------------------------*/
+.icon-xtgl-cjjg{/*锟斤拷锟斤拷锟斤拷锟斤拷*/
+	background:url('icons/xtgl/sqn-cjjg.png') no-repeat center center;
+}
+.icon-xtgl-cjzjg{/*锟斤拷锟斤拷锟接伙拷锟斤拷*/
+	background:url('icons/xtgl/sqn-cjzjg.png') no-repeat center center;
+}
+.icon-xtgl-fpjs{/*锟斤拷锟斤拷锟缴�*/
+	background:url('icons/xtgl/sqn-fpjs.png') no-repeat center center;
+}
+.icon-xtgl-cjry{/*锟斤拷锟斤拷锟斤拷员*/
+	background:url('icons/xtgl/sqn-cjry.png') no-repeat center center;
+}
+.icon-xtgl-jrfwtd{/*锟斤拷锟斤拷锟斤拷锟斤拷哦锟�*/
+	background:url('icons/xtgl/sqn-jrfwtd.png') no-repeat center center;
+}
+.icon-xtgl-rzdc{/*锟斤拷志锟斤拷锟斤拷_25.png*/
+	background:url('icons/xtgl/sqn-rzdc.png') no-repeat center center;
+}
+.icon-xtgl-cjgd{/*锟斤拷志锟介档_24.png*/
+	background:url('icons/xtgl/sqn-rzgd.png') no-repeat center center;
+}
+.icon-xtgl-szfz{/*锟斤拷锟矫凤拷锟斤拷_09.png*/
+	background:url('icons/xtgl/sqn-szfz.png') no-repeat center center;
+}
+.icon-xtgl-tjpp{/*锟斤拷锟狡凤拷锟絖13.png*/
+	background:url('icons/xtgl/sqn-tjpp.png') no-repeat center center;
+}
+.icon-xtgl-tjsb{/*锟斤拷锟斤拷璞竉21.png*/
+	background:url('icons/xtgl/sqn-tjsb.png') no-repeat center center;
+}
+.icon-xtgl-xjsh{/*锟铰斤拷锟教伙拷_05.png*/
+	background:url('icons/xtgl/sqn-xjsh.png') no-repeat center center;
+}
+.icon-xtgl-yl{/*预锟斤拷_26.png*/
+	background:url('icons/xtgl/sqn-yl.png') no-repeat center center;
+}
+.icon-xtgl-zjjk{/*锟斤拷锟接接匡拷_23.png*/
+	background:url('icons/xtgl/sqn-zjjk.png') no-repeat center center;
+}
+.icon-xtgl-zjxm{/*锟斤拷锟斤拷锟斤拷目_22.png*/
+	background:url('icons/xtgl/sqn-zjxm.png') no-repeat center center;
+}
+.icon-xtgl-zwjg{/*转为锟斤拷锟斤拷_13.png*/
+	background:url('icons/xtgl/sqn-zwjg.png') no-repeat center center;
+}
+.icon-xtgl-zwqtkh{/*转为前台锟酵伙拷_15.png*/
+	background:url('icons/xtgl/sqn-zwqtkh.png') no-repeat center center;
+}
+.icon-xtgl-tjsx{/*锟斤拷锟斤拷锟斤拷锟�*/
+	background:url('icons/xtgl/sqn-tjsx.png') no-repeat center center;
+}
+.icon-xtgl-tjkcsb{/*锟斤拷涌锟斤拷锟借备_07.png*/
+	background:url('icons/xtgl/sqn-tjkcsb.png') no-repeat center center;
+}
+.icon-xtgl-cjfwzy{/*锟斤拷锟斤拷锟斤拷源锟斤拷锟斤拷权锟斤拷*/
+	background:url('icons/xtgl/sqn-cjfwzy.png') no-repeat center center;
+}
+.icon-xtgl-cjzfwzy{/*锟斤拷锟斤拷锟斤拷锟斤拷源锟斤拷锟斤拷权锟斤拷*/
+	background:url('icons/xtgl/sqn-cjzfwzy.png') no-repeat center center;
+}
+.icon-xtgl-fwzyyh{/*锟斤拷源锟斤拷锟斤拷锟矫伙拷*/
+	background:url('icons/xtgl/sqn-fwzyyh.png') no-repeat center center;
+}
+.icon-xtgl-cjfwry{/*锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷员*/
+	background:url('icons/xtgl/sqn-cjfwry.png') no-repeat center center;
+}
+.icon-xtgl-jcsb{/*锟斤拷锟斤拷璞�*/
+	background:url('icons/xtgl/sqn-jcsb.png') no-repeat center center;
+}
+.icon-xtgl-xjtc{/*锟铰斤拷锟阶诧拷*/
+	background:url('icons/xtgl/sqn-xjtc.png') no-repeat center center;
+}
+.icon-xtgl-cjfz{/*锟斤拷锟斤拷锟斤拷锟斤拷*/
+	background:url('icons/xtgl/sqn-cjfz.png') no-repeat center center;
+}
+.icon-xtgl-cjzfz{/*锟斤拷锟斤拷锟接凤拷锟斤拷*/
+	background:url('icons/xtgl/sqn-cjzfz.png') no-repeat center center;
+}
+/*-------锟节诧拷维锟斤拷--------------------------------*/
+.icon-nbwh-ggcj{/*锟斤拷锟侥层级*/
+	background:url('icons/nbwh/sqn-ggcj.png') no-repeat center center;
+}
+.icon-nbwh-hfqy{/*锟街革拷锟斤拷锟斤拷_23.png*/
+	background:url('icons/nbwh/sqn-hfqy.png') no-repeat center center;
+}
+.icon-nbwh-scqy{/*删锟斤拷锟斤拷锟斤拷_22.png*/
+	background:url('icons/nbwh/sqn-scqy.png') no-repeat center center;
+}
+.icon-nbwh-tjqx{/*锟斤拷锟饺拷锟絖07.png*/
+	background:url('icons/nbwh/sqn-tjqx.png') no-repeat center center;
+}
+.icon-nbwh-wysc{/*锟斤拷要锟较达拷_24.png*/
+	background:url('icons/nbwh/sqn-wysc.png') no-repeat center center;
+}
+.icon-nbwh-xgqy{/*锟睫革拷锟斤拷锟斤拷_21.png*/
+	background:url('icons/nbwh/sqn-xgqy.png') no-repeat center center;
+}
+.icon-nbwh-xgqx{/*锟睫革拷权锟斤拷_05.png*/
+	background:url('icons/nbwh/sqn-xgqx.png') no-repeat center center;
+}
+.icon-nbwh-zjcd{/*锟斤拷锟接菜碉拷_01.png*/
+	background:url('icons/nbwh/sqn-zjcd.png') no-repeat center center;
+}
+.icon-nbwh-zjqy{/*锟斤拷锟斤拷锟斤拷锟斤拷_13.png*/
+	background:url('icons/nbwh/sqn-zjqy.png') no-repeat center center;
+}
+.icon-nbwh-zjzd{/*锟斤拷锟斤拷锟街碉拷_09.png*/
+	background:url('icons/nbwh/sqn-zjzd.png') no-repeat center center;
+}
+.icon-nbwh-zjzcd{/*锟斤拷锟斤拷锟接菜碉拷*/
+	background:url('icons/nbwh/sqn-zjzcd.png') no-repeat center center;
+}
+.icon-nbwh-zjzqy{/*锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷*/
+	background:url('icons/nbwh/sqn-zjzqy.png') no-repeat center center;
+}
+/*---------------------------------------*/
+.icon-blank{
+	background:url('icons/blank.gif') no-repeat center center;
+}
+.icon-add{
+	background:url('icons/y-add.png') no-repeat center center;
+}
+.icon-add-user{
+	background:url('icons/user-add.png') no-repeat center center;
+}
+.icon-edit{
+	background:url('icons/y-update.png') no-repeat center center;
+}
+.icon-clear{
+	background:url('icons/clear.png') no-repeat center center;
+}
+
+.icon-remove{/*删锟斤拷*/
+	background:url('icons/sqn-remove.png') no-repeat center center;
+}
+.icon-save{
+	background:url('icons/filesave.png') no-repeat center center;
+}
+
+.icon-cut{
+	background:url('icons/cut.png') no-repeat center center;
+}
+.icon-shenhe{/*锟斤拷锟�*/
+	background:url('icons/cut.png') no-repeat center center;
+}
+.icon-ok{
+	background:url('icons/ok.png') no-repeat center center;
+}
+.icon-no{
+	background:url('icons/no.png') no-repeat center center;
+}
+.icon-cancel{
+	background:url('icons/y-close.png') no-repeat center center;
+}
+.icon-reload{
+	background:url('icons/reload.png') no-repeat center center;
+}
+.icon-search{
+	background:url('icons/search.png') no-repeat center center;
+}
+.icon-print{
+	background:url('icons/print.png') no-repeat center center;
+}
+.icon-help{
+	background:url('icons/help.png') no-repeat center center;
+}
+.icon-undo{
+	background:url('icons/undo.png') no-repeat center center;
+}
+.icon-redo{
+	background:url('icons/redo.png') no-repeat center center;
+}
+.icon-back{
+	background:url('icons/back.png') no-repeat center center;
+}
+.icon-up{/*锟斤拷一锟斤拷*/
+	background:url('icons/sqn-up.png') no-repeat center center;
+}
+.icon-next{/*锟斤拷一锟斤拷*/
+	background:url('icons/sqn-next.png') no-repeat center center;
+}
+.icon-sum{
+	background:url('icons/sum.png') no-repeat center center;
+}
+.icon-tip{
+	background:url('icons/tip.png') no-repeat center center;
+}
+.icon-filter{
+	background:url('icons/filter.png') no-repeat center center;
+}
+.icon-man{
+	background:url('icons/man.png') no-repeat center center;
+}
+.icon-lock{
+	background:url('icons/lock.png') no-repeat center center;
+}
+
+.icon-export{/*鏁版嵁瀵煎嚭*/
+	background:url('icons/y-export.png') no-repeat center center;
+}
+
+.icon-mini-add{
+	background:url('icons/mini_add.png') no-repeat center center;
+}
+.icon-mini-edit{
+	background:url('icons/mini_edit.png') no-repeat center center;
+}
+.icon-mini-refresh{
+	background:url('icons/mini_refresh.png') no-repeat center center;
+}
+
+.icon-large-picture{
+	background:url('icons/large_picture.png') no-repeat center center;
+}
+.icon-large-clipart{
+	background:url('icons/large_clipart.png') no-repeat center center;
+}
+.icon-large-shapes{
+	background:url('icons/large_shapes.png') no-repeat center center;
+}
+.icon-large-smartart{
+	background:url('icons/large_smartart.png') no-repeat center center;
+}
+.icon-large-chart{
+	background:url('icons/large_chart.png') no-repeat center center;
+}
+.icon-menu{
+	background:url('icons/menu.png') no-repeat center center;
+}
+.icon-mainmenu{
+	background:url('icons/mainmenu.png') no-repeat center center;
+}
+.icon-familyparent{
+	background:url('icons/tree_familyparent.png') no-repeat center center;
+}
+.icon-familychild{
+	background:url('icons/tree_familychild.png') no-repeat center center;
+}
+.icon-companyparent{
+	background:url('icons/tree_companyparent.png') no-repeat center center;
+}
+.icon-companychild{
+	background:url('icons/tree_companychild.png') no-repeat center center;
+}
+.icon-intervendic{
+	background:url('') no-repeat center center;
+}
+.icon-familyno{	
+	padding:2px 10px;
+	background:url('icons/family_1.png') no-repeat center;	
+}
+.icon-familytp{
+	padding:2px 10px;
+	background:url('icons/family_2.png') no-repeat 3px center;
+}
+.icon-familytz{
+	padding:2px 10px;
+	background:url('icons/family_3.png') no-repeat 3px center;
+}
+.icon-idenOrgCustomer
+{
+	padding:2px 10px;
+	background:url('icons/sf_yonghu.gif') no-repeat 3px center;
+}
+.icon-idenDoc{
+	padding:2px 10px;
+	background:url('icons/sf_yisheng.png') no-repeat 3px center;
+}
+.icon-idenUser{
+	padding:2px 10px;
+	background:url('icons/sf_kehu.gif') no-repeat 3px center;
+}
+.icon-idenServerUser{
+	padding:2px 10px;
+	background:url('icons/sf_server.png') no-repeat 3px center;
+}
+.icon-idenOrgUser{
+	padding:2px 10px;
+	background:url('icons/head.png') no-repeat 3px center;
+}
+.icon-interveneMobile{
+	background:url('icons/phone.png') no-repeat center center;
+}
+
+.icon-interveneEmail{
+	background:url('icons/email.png') no-repeat center center;
+}
+.icon-addEntry{
+	background:url('icons/addEntry.png') no-repeat center center;
+}
+.icon-addSport{
+	background:url('icons/addSport.png') no-repeat center center;
+}
+.icon-appMealEveryDay{
+	background:url('icons/appMealEveryDay.png') no-repeat center center;
+}
+.icon-appSportEveryDay{
+	background:url('icons/appSportEveryDay.png') no-repeat center center;
+}
+.icon-choiceEntryTemplate{
+	background:url('icons/choiceEntryTemplate.png') no-repeat center center;
+}
+.icon-choiceGeneratePrescription{
+	background:url('icons/choiceGeneratePrescription.png') no-repeat center center;
+}
+.icon-prclose{
+	background:url('icons/pr_close.png') no-repeat center center;
+}
+.icon-generatefbPrescription{
+	background:url('icons/generatefbPrescription.png') no-repeat center center;
+}
+.icon-generatePrescription{
+	background:url('icons/generatePrescription.png') no-repeat center center;
+}
+.icon-insert{
+	background:url('icons/pr_insert.png') no-repeat center center;
+}
+.icon-saveTemplate{
+	background:url('icons/saveTemplate.png') no-repeat center center;
+}
+.icon-downFile{
+	background:url('icons/downfile.png') no-repeat center center;
+}
+.icon-balance{
+	background:url('icons/cwgl/jiesuan.png') no-repeat center center;
+}
+.icon-gzt-fzsx{
+	background:url('icons/sqn/sqn-fzsx.png') no-repeat center center;
+}
+.icon-gzt-gxcf{
+	background:url('icons/sqn/sqn-gxcf.png') no-repeat center center;
+}
+.icon-gzt-ktfw{
+	background:url('icons/sqn/sqn-ktfw.png') no-repeat center center;
+}
+.icon-gzt-pldzcf{
+	background:url('icons/sqn/sqn-pldzcf.png') no-repeat center center;
+}
+.icon-gzt-plsckh{
+	background:url('icons/sqn/sqn-plsckh.png') no-repeat center center;
+}
+.icon-gzt-tjcf{
+	background:url('icons/sqn/sqn-tjcf.png') no-repeat center center;
+}
+.icon-gzt-tjdy{
+	background:url('icons/sqn/sqn-tjdy.png') no-repeat center center;
+}
+.icon-gzt-tjtjxm{
+	background:url('icons/sqn/sqn-tjtjxm.png') no-repeat center center;
+}
+.icon-xtgl-jgpz{
+	background:url('icons/xtgl/xtgl-jgpz.png') no-repeat center center;
+}
+.icon-xtgl-yjpz{
+	background:url('icons/xtgl/xtgl-yjpz.png') no-repeat center center;
+}
+
+.icon-qycg-jgpzb{
+	background:url('icons/qycg/jgpzb.png') no-repeat center center;
+}
+.icon-qycg-cgpz{
+	background:url('icons/qycg/cgpz.png') no-repeat center center;
+}
+.icon-qycg-pgwjb{
+	background:url('icons/qycg/pgwjb.png') no-repeat center center;
+}
+.icon-qycg-yjpzb{
+	background:url('icons/qycg/yjpzb.png') no-repeat center center;
+}
+.icon-qycg-yyfsb{
+	background:url('icons/qycg/yyfsb.png') no-repeat center center;
+}
+
+
+.icon-xtgl-yyfs{
+	background:url('icons/xtgl/xtgl-yyfs.png') no-repeat center center;
+}
+.icon-xtgl-jrfwtd{
+	background:url('icons/xtgl/xtgl-jrfwtd.png') no-repeat center center;
+}
+.icon-xtgl-jrkftd{
+	background:url('icons/xtgl/xtgl-jrkftd.png') no-repeat center center;
+}
+.icon-xtgl-zrzyry{
+	background:url('icons/xtgl/xtgl-zrzyry.png') no-repeat center center;
+}
+.icon-xtgl-zrqtkh{
+	background:url('icons/xtgl/xtgl-zrqtkh.png') no-repeat center center;
+}
+.icon-xtgl-sy{
+	background:url('icons/xtgl/xtgl-sy.png') no-repeat center center;
+}
+.icon-xtgl-xy{
+	background:url('icons/xtgl/xtgl-xy.png') no-repeat center center;
+}
+.icon-xtgl-gbxxfl{
+	background:url('icons/xtgl/xtgl-gbxxfl.png') no-repeat center center;
+}
+.icon-xtgl-tjzfl{
+	background:url('icons/xtgl/xtgl-tjzfl.png') no-repeat center center;
+}
+.icon-xtgl-cjyy{
+	background:url('icons/xtgl/xtgl-cjyy.png') no-repeat center center;
+}
+.icon-xtgl-cjks{
+	background:url('icons/xtgl/xtgl-cjks.png') no-repeat center center;
+}
+.icon-ptgl-plqx{
+	background:url('icons/ptgl/sqn-plqx.png') no-repeat center center;
+}
+/*------------------------鍋ュ悍妗ｆ鍥炬爣璁剧疆-------------------------*/
+/*------鍎跨-----*/
+.icon-jkda-etjkdacj{/* 鍎跨鍋ュ悍妗ｆ-閲囬泦 */
+	background:url('icons/jkda/child-jkdacj.png') no-repeat center center;
+}
+.icon-jkda-etjkda{/* 鍎跨鍋ュ悍妗ｆ-btn */
+	background:url('icons/jkda/child-jkda.png') no-repeat center center;
+}
+.icon-jkda-0z1s{/* 0鑷�1宀� */
+	background:url('icons/jkda/child-0z1s.png') no-repeat center center;
+}
+.icon-jkda-1z2s{/* 1鑷�2宀� */
+	background:url('icons/jkda/child-1z2s.png') no-repeat center center;
+}
+.icon-jkda-3z6s{/* 3鑷�6宀� */
+	background:url('icons/jkda/child-3z6s.png') no-repeat center center;
+}
+.icon-jkda-0z1s-01{/* 0鑷�1宀� */
+	background:url('icons/jkda/child-0z1s-01.png') no-repeat center center;
+}
+.icon-jkda-1z2s-01{/* 1鑷�2宀� */
+	background:url('icons/jkda/child-1z2s-01.png') no-repeat center center;
+}
+.icon-jkda-3z6s-01{/* 3鑷�6宀� */
+	background:url('icons/jkda/child-3z6s-01.png') no-repeat center center;
+}
+
+/*------瀛曚骇濡囨。妗�-----*/
+.icon-jkda-ycfjkdacj{/* 瀛曚骇濡囧仴搴锋。妗�-閲囬泦 */
+	background:url('icons/jkda/maternal-jkdacj.png') no-repeat center center;
+}
+.icon-jkda-ycfjkda{/* 瀛曚骇濡囧仴搴锋。妗�-btn */
+	background:url('icons/jkda/maternal-jkda.png') no-repeat center center;
+}
+.icon-jkda-ch42tjc{/* 浜у悗42澶╂鏌� */
+	background:url('icons/jkda/maternal-ch42tjc.png') no-repeat center center;
+}
+.icon-jkda-chfjc{/* 浜у悗棣栨妫�鏌� */
+	background:url('icons/jkda/maternal-chfjc.png') no-repeat center center;
+}
+.icon-jkda-cqjc{/* 浜у墠妫�鏌� */
+	background:url('icons/jkda/maternal-cqjc.png') no-repeat center center;
+}
+/*------绮剧鐤剧梾妗ｆ-----*/
+.icon-jkda-jsjbjkdacj{/* 绮剧鐤剧梾妗ｆ-閲囬泦 */
+	background:url('icons/jkda/psychosis-jkdacj.png') no-repeat center center;
+}
+.icon-jkda-jsjbjkda{/* 绮剧鐤剧梾妗ｆ-btn */
+	background:url('icons/jkda/psychosis-jkda.png') no-repeat center center;
+}
+.icon-jkda-jsjbtjsfjl{/* 绮剧鐤剧梾妗ｆ-btn-娣诲姞闅忚璁板綍 */
+	background:url('icons/jkda/psychosis-tjsfjl.png') no-repeat center center;
+}
+/*------鍎跨鐤嫍鎺ョ-----*/
+.icon-jkda-etymjzcj{/* 鍎跨鐤嫍鎺ョ-閲囬泦 */
+	background:url('icons/jkda/child-ymjzcj.png') no-repeat center center;
+}
+.icon-jkda-etymjz{/* 鍎跨鐤嫍鎺ョ-btn */
+	background:url('icons/jkda/maternal-jkda.png') no-repeat center center;
+}
+.icon-ptgl-zc{
+	background:url('icons/ptgl/sqn-zc.png') no-repeat center center;
+}
+.icon-ptgl-bcssmb{
+	background:url('icons/ptgl/sqn-bcssmb.png') no-repeat center center;
+}
+.icon-ptgl-bcydmb{
+	background:url('icons/ptgl/sqn-bcydmb.png') no-repeat center center;
+}
+.icon-ptgl-czydmb{
+	background:url('icons/ptgl/sqn-czydmb.png') no-repeat center center;
+}
+.icon-ptgl-fb{
+	background:url('icons/ptgl/sqn-fb.png') no-repeat center center;
+}
+.icon-ptgl-syb{
+	background:url('icons/ptgl/sqn-syb.png') no-repeat center center;
+}
+.icon-ptgl-xyb{
+	background:url('icons/ptgl/sqn-xyb.png') no-repeat center center;
+}
+.icon-ptgl-yy{
+	background:url('icons/ptgl/sqn-yy.png') no-repeat center center;
+}
+.icon-ptgl-xzssmb{
+	background:url('icons/ptgl/sqn-xzssmb.png') no-repeat center center;
+}
+.icon-rqfz-ycfz{/* 移出分组 */
+	background:url('icons/ycfz.png') no-repeat center center;
+}
+.icon-manualrefund{/* 手动退款 */
+	background:url('icons/manualRefund.png') no-repeat center center;
+}
+.icon-autorefund{/* 自动退款 */
+	background:url('icons/autoRefund.png') no-repeat center center;
+}
+.icon-allSelected{/* 全选 */
+	background:url('icons/allSelected.png') no-repeat center center;
+}
+.icon-allSelectedCacel{/* 取消全选 */
+	background:url('icons/allSelectedCacel.png') no-repeat center center;
+}

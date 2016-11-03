@@ -45,9 +45,6 @@ public class BaseDaoImpl<O, S extends java.io.Serializable> implements IBaseDao<
 	 * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
 	 */
 	public Session getSession(){
-		if(null == sessionFactory.getCurrentSession()){
-			return sessionFactory.openSession() ;
-		}
 		return sessionFactory.getCurrentSession() ;
 	}
 	/*	增	***************************************************************************************/
