@@ -33,8 +33,16 @@ public class MenuServiceImplTest {
 
 	@Test
 	public void testCreateMenuRights() {
-		//menuService.createMenuRights("工作台", "0", "./mainFrame/menu/aa.action", 1,1);
+		/**
+		 * @param menuName
+		 * @param menuParent
+		 * @param menuUrl
+		 * @param menuLevel
+		 * @param menuOrder
+		 */
+		menuService.createMenuRights("工作台", "0", "./mainFrame/menu/aa.action", 1,1);
 		menuService.createMenuRights("内部维护", "0", "./mainFrame/menu/bb.action", 1,2);
+		menuService.createMenuRights("财务管理", "0", "./mainFrame/menu/bb.action", 1,3);
 	}
 
 }

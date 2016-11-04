@@ -36,7 +36,7 @@ public class SystemLog implements java.io.Serializable{
 	private String requestTime ;// 请求花费时间
 	private String moduleId;//操作对象id
 	private String objectId;//成功失败的状态，操作成功或者失败
-	private Integer isDel; //逻辑删除	0未删除 1 已删除
+	private Boolean isDel; //逻辑删除	0未删除 1 已删除
 	private String delUser; //逻辑删除者
 	private Date delTime; //删除时间
 	@Id
@@ -126,11 +126,11 @@ public class SystemLog implements java.io.Serializable{
 	public void setObjectId(String objectId) {
 		this.objectId = objectId;
 	}
-	@Column(nullable=false)
-	public Integer getIsDel() {
+	@Column(name = "isDel", nullable = false, precision = 1, scale = 0)
+	public boolean getIsDel() {
 		return isDel;
 	}
-	public void setIsDel(Integer isDel) {
+	public void setIsDel(boolean isDel) {
 		this.isDel = isDel;
 	}
 	@Column

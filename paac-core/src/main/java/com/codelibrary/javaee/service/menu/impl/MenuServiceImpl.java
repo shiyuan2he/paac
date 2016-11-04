@@ -27,7 +27,7 @@ import com.hsy.codebase.utils.javase.util.RandomHelper;
 @Service("menuService")
 public class MenuServiceImpl implements IMenuService{
 	@Autowired
-	private IBaseDao<RightsMenu,String> baseDao ;
+	private IBaseDao<Map<String,Object>,RightsMenu> baseDao ;
 	/**
 	 * 
 	 * @description <p>后台创建权限</p>
@@ -55,7 +55,7 @@ public class MenuServiceImpl implements IMenuService{
 		menuRights.setMenuCode(RandomHelper.generateValueByParam("R", "", 5));
 		menuRights.setMenuOrder(Integer.parseInt(RandomHelper.generateValueByParam("", "", 5)));
 		menuRights.setMenuType((char)0);
-		menuRights.setIsDel(0);
+		menuRights.setIsDel(false);
 		baseDao.save(menuRights) ;
 	}
 	/**
@@ -78,17 +78,16 @@ public class MenuServiceImpl implements IMenuService{
 		StringBuilder hql = new StringBuilder() ;
 		hql.append("select new Map(")
 		   .append(" rightsMenu.id as id,rightsMenu.menuCode as menuCode,rightsMenu.menuName as menuName,rightsMenu.menuParent as menuParent")
-		   .append(" rightsMenu.menuUrl as menuUrl,rightsMenu.menuLevel as menuLevel")
+		   .append(" rightsMenu.menuUrl as menuUrl,rightsMenu.menuLevel as menuLevel,rightsMenu.menuType as menuType")
 		   .append(")") 
 		   .append(" from RightsMenu rightsMenu")
 		   .append(" where 1=1")
-		   .append(" rightsMenu.isDel = 0")
+		   .append(" and rightsMenu.isDel = 0")
 	       .append(" and rightsMenu.menuLevel = 1")
 		   ;
-		@SuppressWarnings("unchecked")
-		Map<String,Object> list = (Map<String, Object>) baseDao.find(hql.toString()) ;
-//		List<RightsMenuTree> rightsTree = RightsMenu
-		return null;
+		List<Map<String,Object>> list =  (List<Map<String,Object>>)baseDao.find(hql.toString()) ;
+		List<RightsMenuTree> rightsTree = RightsMenuService.getRightsMenuTreeList(list,this) ;
+		return rightsTree;
 	}
 }
 

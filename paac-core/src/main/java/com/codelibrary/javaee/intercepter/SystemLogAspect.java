@@ -1,12 +1,9 @@
 package com.codelibrary.javaee.intercepter;
-
 import java.io.IOException;
 import java.util.Date;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.apache.commons.lang3.StringUtils;
 import org.apache.struts2.ServletActionContext;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -16,7 +13,6 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-
 import com.alibaba.fastjson.JSONObject;
 import com.codelibrary.javaee.annotation.MethodException;
 import com.codelibrary.javaee.entry.bean.UserInfoBean;
@@ -25,9 +21,6 @@ import com.codelibrary.javaee.service.base.IBaseService;
 import com.codelibrary.javaee.utils.Constant;
 import com.codelibrary.javaee.utils.JarUtils;
 import com.hsy.codebase.utils.javase.string.StringHelper;
-
-
-
 @Aspect
 public class SystemLogAspect {
 	@Autowired
@@ -99,7 +92,7 @@ public class SystemLogAspect {
 			log.setCreateTime(new Date());
 			log.setCreateUserId(userinfo.getUserId());
 			log.setCreateUserName(userinfo.getUsername());
-			log.setIsDel(0);
+			log.setIsDel(false);
 			if(StringHelper.isNotNullOrEmpty(code)){
 				log.setModuleId(code);
 			}

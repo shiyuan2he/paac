@@ -17,7 +17,7 @@
 		</action>
 		<!-- 跳转到后台欢迎页-->
 		<action name="manage_toWelcome" method="toWelcome" class="com.codelibrary.javaee.action.manage.ManageAction">
-			<result name="toWelcome">/WEB-INF/content/welcome.jsp</result>
+			<result name="toWelcome">/WEB-INF/content/mainFrame/welcome.jsp</result>
 		</action>
 	</package>
 </struts>

@@ -19,7 +19,7 @@ public class BaseServiceImpl implements IBaseService {
 	 * @see com.codelibrary.javaee.service.IBaseService#save(java.lang.Object)
 	 */
 	@Override
-	public Serializable save(Object o) {
-		return baseDao.save(o);
+	public Serializable save(Serializable s) {
+		return baseDao.save(s);
 	}
 }

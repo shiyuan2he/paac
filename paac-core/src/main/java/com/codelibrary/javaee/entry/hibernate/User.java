@@ -69,7 +69,7 @@ public class User implements Serializable{
 	private String creater ;//创建账号日期
 	private Date upTime ;// 修改帐号日期
 	private String upUser ; //修改帐号人  本人或者管理员
-	private Integer isDel ;//是否物理删除 1 是 0 否
+	private Boolean isDel ;//是否物理删除 1 是 0 否
 	private String email ;//用户邮箱
 	private Integer gender ;//用户性别 1 男 2女
 	private String genderValue ;//用户性别-中文
@@ -173,11 +173,11 @@ public class User implements Serializable{
 	public void setUpUser(String upUser) {
 		this.upUser = upUser;
 	}
-	@Column(length=1,nullable=false)
-	public Integer getIsDel() {
+	@Column(name = "isDel", nullable = false, precision = 1, scale = 0)
+	public boolean getIsDel() {
 		return isDel;
 	}
-	public void setIsDel(Integer isDel) {
+	public void setIsDel(boolean isDel) {
 		this.isDel = isDel;
 	}
 	@Column(name="certNo",unique=true,length=18)

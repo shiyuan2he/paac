@@ -13,7 +13,7 @@ public class UserInfoBean {
 	private String username ;//用户名
 	private String userLastLoginIp ;//用户上次登陆ip
 	private String userCurrentLoginIp ;//用户本次登陆ip
-	private List<MenuRightsTree> rightsTreeList; //菜单树
+	private List<RightsMenuTree> rightsTreeList; //菜单树
 	
 	public String getUserId() {
 		return userId;
@@ -33,10 +33,10 @@ public class UserInfoBean {
 	public void setUserLastLoginIp(String userLastLoginIp) {
 		this.userLastLoginIp = userLastLoginIp;
 	}
-	public List<MenuRightsTree> getRightsTreeList() {
+	public List<RightsMenuTree> getRightsTreeList() {
 		return rightsTreeList;
 	}
-	public void setRightsTreeList(List<MenuRightsTree> rightsTreeList) {
+	public void setRightsTreeList(List<RightsMenuTree> rightsTreeList) {
 		this.rightsTreeList = rightsTreeList;
 	}
 	public String getUserCurrentLoginIp() {

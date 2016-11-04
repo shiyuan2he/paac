@@ -1,5 +1,7 @@
 package com.codelibrary.javaee.entry.hibernate;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +12,11 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name="wt_rights_menu",schema="paac")
-public class RightsMenu {
+public class RightsMenu implements Serializable{
+	/**
+	 * @description <p>请再次输入属性描述</p>
+	 */
+	private static final long serialVersionUID = 1L;
 	private String id ; //主键
 	private String menuCode ; //菜单编码
 	private String menuName ; //菜单名称
@@ -19,7 +25,7 @@ public class RightsMenu {
 	private String menuUrl ; //菜单地址
 	private Character menuType ; //菜单类型0菜单1菜单项2功能按钮
 	private Integer menuLevel ; //菜单级别
-	private Integer isDel ; // 是否删除
+	private Boolean isDel ; // 是否删除
 	@Id
 	@Column(nullable=false,unique=true)
 	@GenericGenerator(name="PAAC_ID",strategy="com.codelibrary.javaee.utils.IDGeneratorHelper")
@@ -79,11 +85,11 @@ public class RightsMenu {
 	public void setMenuLevel(Integer menuLevel) {
 		this.menuLevel = menuLevel;
 	}
-	@Column(nullable=false,length=1)
-	public Integer getIsDel() {
+	@Column(name = "isDel", nullable = false, precision = 1, scale = 0)
+	public boolean getIsDel() {
 		return isDel;
 	}
-	public void setIsDel(Integer isDel) {
+	public void setIsDel(boolean isDel) {
 		this.isDel = isDel;
 	}
 }
