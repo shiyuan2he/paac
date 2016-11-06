@@ -1,7 +1,5 @@
 package com.codelibrary.javaee.entry.bean;
-
 import java.util.List;
-
 /**
  * @path paac-core/com.codelibrary.javaee.entry.bean.MenuRightsTree.java
  * @description <p>菜单权限树</p>
@@ -19,51 +17,30 @@ public class RightsMenuTree implements java.io.Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private String id;// 节点编码
-	private String name;// 节点名称
-	private String code;// 节点路径1,11,111,1111
+	private String menuCode;// 节点路径1,11,111,1111
+	private String menuParent;//上级菜单ID
 	private List<RightsMenuTree> nodes;// 该节点的子集
-	private boolean open = false; // 控制所有数据节点都打开
-	private boolean checked = false; // 控制某些节点默认选中
-	private String menuName;
-	private String menuParent;
-	private String menuId;
+	private String menuName;//菜单名称
 	private String menuType;//菜单类型0菜单1菜单项2功能按钮
-	private String menuUrl;
+	private String menuUrl;//菜单链接地址
+	private String menuLevel;//菜单等级
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getMenuCode() {
+		return menuCode;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getCode() {
-		return code;
-	}
-	public void setCode(String code) {
-		this.code = code;
+	public void setMenuCode(String menuCode) {
+		this.menuCode = menuCode;
 	}
 	public List<RightsMenuTree> getNodes() {
 		return nodes;
 	}
 	public void setNodes(List<RightsMenuTree> nodes) {
 		this.nodes = nodes;
-	}
-	public boolean isOpen() {
-		return open;
-	}
-	public void setOpen(boolean open) {
-		this.open = open;
-	}
-	public boolean isChecked() {
-		return checked;
-	}
-	public void setChecked(boolean checked) {
-		this.checked = checked;
 	}
 	public String getMenuName() {
 		return menuName;
@@ -77,12 +54,6 @@ public class RightsMenuTree implements java.io.Serializable{
 	public void setMenuParent(String menuParent) {
 		this.menuParent = menuParent;
 	}
-	public String getMenuId() {
-		return menuId;
-	}
-	public void setMenuId(String menuId) {
-		this.menuId = menuId;
-	}
 	public String getMenuType() {
 		return menuType;
 	}
@@ -94,6 +65,12 @@ public class RightsMenuTree implements java.io.Serializable{
 	}
 	public void setMenuUrl(String menuUrl) {
 		this.menuUrl = menuUrl;
+	}
+	public String getMenuLevel() {
+		return menuLevel;
+	}
+	public void setMenuLevel(String menuLevel) {
+		this.menuLevel = menuLevel;
 	}
 }
 

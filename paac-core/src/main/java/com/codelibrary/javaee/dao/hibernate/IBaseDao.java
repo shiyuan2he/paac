@@ -16,11 +16,11 @@ import java.util.List;
 public interface IBaseDao<O,S extends java.io.Serializable> {
 	
 	/*	增	***************************************************************************************/
-	public Serializable save(O o);
+	public Serializable save(S s);
 	/*	删	***************************************************************************************/
-	public void delete(O o) ;
+	public void delete(S s) ;
 	/*	改	***************************************************************************************/
-	public void update(O o) ;
+	public void update(S s) ;
 	/*	查	***************************************************************************************/
 	/**
 	 * @description 

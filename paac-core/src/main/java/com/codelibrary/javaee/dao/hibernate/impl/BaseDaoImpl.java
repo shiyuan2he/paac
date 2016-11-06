@@ -48,24 +48,24 @@ public class BaseDaoImpl<O, S extends java.io.Serializable> implements IBaseDao<
 		return sessionFactory.getCurrentSession() ;
 	}
 	/*	增	***************************************************************************************/
-	public java.io.Serializable save(O o){
-		return this.getSession().save(o);
+	public java.io.Serializable save(S s){
+		return this.getSession().save(s);
 	}
 	
 	/*	删	***************************************************************************************/
-	public void delete(O o){
-		this.getSession().delete(o);
+	public void delete(S s){
+		this.getSession().delete(s);
 	}
 	
 	/*	改	***************************************************************************************/
-	public void update(O o){
-		this.getSession().update(o);
+	public void update(S s){
+		this.getSession().update(s);
 	}
-	public void saveOrUpdate(O o){
-		this.getSession().saveOrUpdate(o);
+	public void saveOrUpdate(S s){
+		this.getSession().saveOrUpdate(s);
 	}
-	public void merge(O o){
-		this.getSession().merge(o);
+	public void merge(S s){
+		this.getSession().merge(s);
 	}
 	/*	查	***************************************************************************************/
 	public O get(Class<O> c, Serializable s) {

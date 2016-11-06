@@ -9,7 +9,7 @@ import com.codelibrary.javaee.action.base.BaseAction;
 import com.codelibrary.javaee.annotation.MethodException;
 import com.codelibrary.javaee.entry.bean.UserInfoBean;
 import com.codelibrary.javaee.entry.hibernate.User;
-import com.codelibrary.javaee.service.IUserService;
+import com.codelibrary.javaee.service.user.IUserService;
 import com.codelibrary.javaee.utils.Constant;
 import com.hsy.codebase.utils.javase.bean.BeanHelper;
 import com.hsy.codebase.utils.javase.string.StringHelper;

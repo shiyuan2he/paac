@@ -17,7 +17,7 @@ import com.hsy.codebase.utils.javase.string.StringHelper;
 @Service("userService")
 public class UserServiceImpl implements IUserService {
 	@Autowired
-	private IBaseDao<User,String> baseDao ;
+	private IBaseDao<User,User> baseDao ;
 	/**
 	 * 
 	 * @description <p>登陆</p>
@@ -80,7 +80,7 @@ public class UserServiceImpl implements IUserService {
 			user.setEncryptionType(Constant.ENCRYPTIONTYPE_BASE64);
 			user.setCreateTime(new Date());
 			user.setCreater(username);
-			user.setIsDel(0); //未物理删除
+			user.setIsDel(false); //未物理删除
 			baseDao.save(user) ;
 			if(StringHelper.isNotNullOrEmpty(user.getId())){
 				return true;
