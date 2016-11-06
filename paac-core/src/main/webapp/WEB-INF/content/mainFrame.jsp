@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
 %>
 <!DOCTYPE html>
 <html>
@@ -16,7 +16,7 @@
 	</head>
 	<body class="easyui-layout">
 		<!-- 头部 -->
-		<div data-options="region:'north'" style="height:110px;background-image: url(<%=path%>/images/mainFrame/top_bg.gif);
+		<div data-options="region:'north',border:false,href:'<%=path%>/mainFrame/manage/manage_to_mainFrame_top.action'" style="height:110px;background-image: url(<%=path%>/images/mainFrame/top_bg.gif);
 					background-repeat: repeat-x;background-position: center top;padding:5px;"></div>
 		<!-- 中部 -->
 		<div id="mainFrameCenter" data-options="region:'center',border:false,href:'' " style="height:100%;width:100%"></div>

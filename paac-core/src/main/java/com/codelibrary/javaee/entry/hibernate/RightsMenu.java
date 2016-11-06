@@ -25,7 +25,7 @@ public class RightsMenu implements Serializable{
 	private String menuUrl ; //菜单地址
 	private Character menuType ; //菜单类型0菜单1菜单项2功能按钮
 	private Integer menuLevel ; //菜单级别
-	private Boolean isDel ; // 是否删除
+	private Character isDel ; // 是否删除
 	@Id
 	@Column(nullable=false,unique=true)
 	@GenericGenerator(name="PAAC_ID",strategy="com.codelibrary.javaee.utils.IDGeneratorHelper")
@@ -86,10 +86,10 @@ public class RightsMenu implements Serializable{
 		this.menuLevel = menuLevel;
 	}
 	@Column(name = "isDel", nullable = false, precision = 1, scale = 0)
-	public boolean getIsDel() {
+	public Character getIsDel() {
 		return isDel;
 	}
-	public void setIsDel(boolean isDel) {
+	public void setIsDel(Character isDel) {
 		this.isDel = isDel;
 	}
 }

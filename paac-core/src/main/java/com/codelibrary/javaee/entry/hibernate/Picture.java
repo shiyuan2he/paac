@@ -17,7 +17,8 @@ public class Picture {
 	private String picDescription ; //图片描述
 	private String picCreater ; //图片创建者
 	private String picCreateTime ; //图片创建时间
-	private String isDel ;//是否逻辑删除
+	private Character isDel ;//是否逻辑删除
+	
 	@Id
 	@Column(nullable=false,unique=true)
 	@GenericGenerator(name="PAAC_ID",strategy="com.codelibrary.javaee.utils.IDGeneratorHelper")
@@ -42,7 +43,7 @@ public class Picture {
 	public void setPicAddress(String picAddress) {
 		this.picAddress = picAddress;
 	}
-	@Column(nullable=false,unique=true,length=300)
+	@Column(nullable=false,length=100)
 	public String getPicDescription() {
 		return picDescription;
 	}
@@ -64,10 +65,10 @@ public class Picture {
 		this.picCreateTime = picCreateTime;
 	}
 	@Column(name = "isDel", nullable = false, precision = 1, scale = 0)
-	public String getIsDel() {
+	public Character getIsDel() {
 		return isDel;
 	}
-	public void setIsDel(String isDel) {
+	public void setIsDel(Character isDel) {
 		this.isDel = isDel;
 	}
 }

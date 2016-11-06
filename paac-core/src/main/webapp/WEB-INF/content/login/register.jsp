@@ -10,14 +10,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>平台云-注册</title>
-	<script type="text/javascript" src="<%=path%>/js/jquery/jquery1.11.3.min.js"></script>
-	<script type="text/javascript" src="<%=path%>/js/easyui/jquery.easyui1.4.5.min.js"></script>	
+	<link rel="stylesheet" type="text/css" href="<%=path%>/js/jquery-easyui-1.4/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="<%=path%>/js/jquery-easyui-1.4/themes/icon.css">
+	<script type="text/javascript" src="<%=path%>/js/jquery-easyui-1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="<%=path%>/js/jquery-easyui-1.4/jquery.easyui.min.js"></script>
 </head>
 <body>
 	<div style="margin:400px 700px">
 		<div class="easyui-panel" title="注册面板" style="width:400px;">
 		<div style="padding:10px 60px 20px 60px">
-	    <form id="register" method="post" action="<%=path%>/manage/user/user_do_register.action">
+	    <form id="register" method="post" action="<%=path%>/mainFrame/user/user_do_register.action">
 	    	<table>
 	    		<tr>
 	    			<td>手机号或者邮箱:</td>

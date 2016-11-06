@@ -96,12 +96,12 @@
 		    <artifactId>spring-aspects</artifactId>
 		    <version>${version.spring}</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${version.spring}</version>
 			<scope>test</scope>
-		</dependency> 
+		</dependency> -->
 		<!-- hibernate package -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -117,7 +117,7 @@
 	     <dependency>
 		      <groupId>junit</groupId>
 		      <artifactId>junit</artifactId>
-		      <version>${version.junit}</version>
+		      <version>${version.junit}</version>R
 		      <scope>test</scope>
 	    </dependency>
 	    
@@ -131,11 +131,6 @@
 		    <groupId>aopalliance</groupId>
 		    <artifactId>aopalliance</artifactId>
 		    <version>1.0</version>
-		</dependency>
-		<dependency>
-		    <groupId>javax.servlet</groupId>
-		    <artifactId>servlet-api</artifactId>
-		    <version>3.0.1</version>
 		</dependency>
 		<!-- mariadb 驱动包 -->
 		<dependency>

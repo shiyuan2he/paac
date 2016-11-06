@@ -32,7 +32,7 @@ public class RightsMenuRelation  implements Serializable{
 	private String inputUser;//创建者
 	private Date updateTime;//更新时间
 	private String upUser;//更新者
-	private Boolean isDel;//是否删除 0未删除 1已删除（逻辑）
+	private Character isDel;//是否删除 0未删除 1已删除（逻辑）
 	
 	//private MenuRights menuRights ;//菜单表外键
 	//private User user ;//用户表外键
@@ -75,10 +75,10 @@ public class RightsMenuRelation  implements Serializable{
 		this.updateTime = updateTime;
 	}
 	@Column(name = "isDel", nullable = false, precision = 1, scale = 0)
-	public boolean getIsDel() {
+	public Character getIsDel() {
 		return isDel;
 	}
-	public void setIsDel(boolean isDel) {
+	public void setIsDel(Character isDel) {
 		this.isDel = isDel;
 	}
 	/*public MenuRights getMenuRights() {

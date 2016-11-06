@@ -47,11 +47,11 @@ public class UserAction extends BaseAction implements ModelDriven<User>{
 				//向session里面放入用户基本信息
 				setSessionBean(user) ;
 				return "do_login_ok" ;
-			}
+			}	
 		}else{
 			_logger.error("【--用户登录--】传递参数失败：用户名或者用户密码传递失败。。");
 		}
-		return "failure" ;
+		return "failure";
 	}
 	/**
 	 * @description <p>推出登录</p>
@@ -115,7 +115,7 @@ public class UserAction extends BaseAction implements ModelDriven<User>{
 			if(!BeanHelper.isNull(userService)){
 				boolean flag = userService.register(user.getUsername(),user.getPassword()) ;
 				if(flag){
-					return "register_ok" ;
+					return "do_register_ok" ;
 				}
 			}
 		}catch(Exception e){
@@ -134,9 +134,6 @@ public class UserAction extends BaseAction implements ModelDriven<User>{
 		return "toView";
 	}
 	
-	public String to_mainView(){
-		return "toMain" ;
-	}
 	/**
 	 * 
 	 * @return

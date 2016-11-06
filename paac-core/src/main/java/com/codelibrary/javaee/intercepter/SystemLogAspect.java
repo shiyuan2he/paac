@@ -92,7 +92,7 @@ public class SystemLogAspect {
 			log.setCreateTime(new Date());
 			log.setCreateUserId(userinfo.getUserId());
 			log.setCreateUserName(userinfo.getUsername());
-			log.setIsDel(false);
+			log.setIsDel((char) 0);
 			if(StringHelper.isNotNullOrEmpty(code)){
 				log.setModuleId(code);
 			}

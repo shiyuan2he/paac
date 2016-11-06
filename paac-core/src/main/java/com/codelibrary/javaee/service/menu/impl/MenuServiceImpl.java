@@ -55,7 +55,7 @@ public class MenuServiceImpl implements IMenuService{
 		menuRights.setMenuCode(RandomHelper.generateValueByParam("R", "", 5));
 		menuRights.setMenuOrder(Integer.parseInt(RandomHelper.generateValueByParam("", "", 5)));
 		menuRights.setMenuType((char)0);
-		menuRights.setIsDel(false);
+		menuRights.setIsDel((char) 0);
 		baseDao.save(menuRights) ;
 	}
 	/**

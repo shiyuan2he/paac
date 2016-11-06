@@ -53,6 +53,9 @@ public class ManageAction extends BaseAction{
 	public String toWelcome(){
 		return "toWelcome" ;
 	}
+	public String to_mainFrame_top(){
+		return "toView" ;
+	}
 	
 }
 

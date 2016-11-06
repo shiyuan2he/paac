@@ -9,7 +9,7 @@ $(function(){
 	/**
 	 * @description <p>进入后台欢迎页面</p>
 	 */
-	mainframe.menuHref('mainFrameCenter','./mainFrame/manage/manage_toWelcome.action');
+	mainframe.menuHref('mainFrameCenter','./mainFrame/manage/manage_to_mainFrame_welcome.action');
 	/**
 	 * @description <p>后台首页底部自动加载当前年份，月份</p>
 	 */
