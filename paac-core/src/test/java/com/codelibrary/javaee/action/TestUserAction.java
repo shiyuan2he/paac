@@ -29,7 +29,7 @@ public class TestUserAction {
 
 	@Test
 	public void test() {
-		userAction.do_register() ;
+		//userAction.do_register() ;
 	}
 
 }

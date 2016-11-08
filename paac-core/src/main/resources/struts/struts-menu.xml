@@ -5,14 +5,14 @@
 <struts>
 	<package name="menu" namespace="/mainFrame/menu" extends="struts-default">
 		<!-- 处理业务的action配置 -->
-		<action name="menu_do_*" method="{1}" class="com.codelibrary.javaee.action.menu.MenuAction">
+		<action name="menu_do_*" method="{1}" class="menuAction">
 		</action>
 		<!-- 跳转到视图层的页面 ｛1｝匹配文件夹 ｛2｝匹配文件名 -->
-		<action name="menu_to_*_*" method="to_{1}_{2}" class="com.codelibrary.javaee.action.menu.MenuAction">
+		<action name="menu_to_*_*" method="to_{1}_{2}" class="menuAction">
 			<result name="toView">/WEB-INF/content/{1}/{2}.jsp</result>
 		</action>
 		<!-- 跳转到视图层的页面 ｛1｝匹配文件夹 ｛2｝匹配文件名 -->
-		<action name="menu_to_main" method="to_main" class="com.codelibrary.javaee.action.menu.MenuAction">
+		<action name="menu_to_main" method="to_main" class="menuAction">
 			<result name="to_main">/WEB-INF/content/mainFrame.jsp</result>
 		</action>
 	</package>

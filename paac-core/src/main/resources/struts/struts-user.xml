@@ -4,16 +4,12 @@
   "http://struts.apache.org/dtds/struts-2.3.dtd" >
 <struts>
 	<package name="user" namespace="/mainFrame/user" extends="struts-default">
-		<!-- 处理业务的action配置 -->
-		<action name="user_do_*" method="do_{1}" class="com.codelibrary.javaee.action.user.UserAction">
-			<result name="failure">/error.jsp</result>
-			<result name="toMain">/WEB-INF/content/mainFrame.jsp</result>
-			<result name="do_login_ok">/WEB-INF/content/mainFrame.jsp</result>
-			<result name="do_register_ok">/WEB-INF/content/login/login.jsp</result>
-		</action>
 		<!-- 跳转到视图层的页面 ｛1｝匹配文件夹 ｛2｝匹配文件名 -->
-		<action name="user_to_*_*" method="to_{1}_{2}" class="com.codelibrary.javaee.action.user.UserAction">
+		<action name="user_to_*_*" method="to_{1}_{2}" class="userAction">
 			<result name="toView">/WEB-INF/content/{1}/{2}.jsp</result>
 		</action>
+		
+		<!-- 处理业务的action配置 -->
+		<action name="user_do_*" method="do_{1}" class="userAction"></action>
 	</package>
 </struts>

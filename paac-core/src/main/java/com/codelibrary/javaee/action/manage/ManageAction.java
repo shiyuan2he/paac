@@ -50,8 +50,8 @@ public class ManageAction extends BaseAction{
 	 * @copyright	此方法版权归本人所有，复制或者剪切请通知本人或者捐赠 通知方式：shiyuan4work@sina.com
 	 * @callnumber 15003828090
 	 */
-	public String toWelcome(){
-		return "toWelcome" ;
+	public String to_mainFrame_welcome(){
+		return "toView" ;
 	}
 	public String to_mainFrame_top(){
 		return "toView" ;

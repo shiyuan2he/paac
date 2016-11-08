@@ -33,13 +33,6 @@
 	    				<input class="easyui-textbox" type="text" id="password" name="password" data-options="required:true,prompt:'请输入登陆密码'"></input>
 	    			</td>
 	    		</tr>
-	    		<tr>
-	    			<td>重复密码:</td>
-	    			<td>
-	    				<input class="easyui-textbox" type="text" id="repassword" 
-	    					data-options="prompt:'请输入登陆密码'"></input>
-	    			</td>
-	    		</tr>
 	    	</table>
 	    </form>
 	    <div style="text-align:center;padding:5px">

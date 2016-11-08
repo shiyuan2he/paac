@@ -17,7 +17,8 @@
     <version.hibernate>5.0.1.Final</version.hibernate>
     <version.spring>4.2.1.RELEASE</version.spring>    
     <version.jdk>1.8</version.jdk>
-    <version.mariadb>1.4.4</version.mariadb> 
+    <version.mariadb>1.4.4</version.mariadb>
+    <version.fastjson>1.2.16</version.fastjson>
   </properties> 
  
   <dependencies>
@@ -48,14 +49,12 @@
 		    <artifactId>struts2-convention-plugin</artifactId>
 		    <version>${version.struts2}</version>
 		</dependency> -->
-		<!-- <dependency> 
+		<dependency>  
 		    <groupId>org.apache.struts</groupId>
 		    <artifactId>struts2-json-plugin</artifactId>
 		    <version>${version.struts2}</version>
-		</dependency> -->
-				
-		
-		<!-- spring package  -->
+		</dependency>
+ 		<!-- spring package  -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
@@ -114,10 +113,10 @@
 		  <artifactId>urlrewritefilter</artifactId>
 		  <version>4.0.4</version>
 	    </dependency>
-	     <dependency>
+	     <dependency> 
 		      <groupId>junit</groupId>
 		      <artifactId>junit</artifactId>
-		      <version>${version.junit}</version>R
+		      <version>${version.junit}</version>
 		      <scope>test</scope>
 	    </dependency>
 	    
@@ -168,5 +167,25 @@
 		    <version>0.2.12</version>
 		</dependency>
 		
+		<!-- paac-base用到的包 -->
+		<!-- <dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${version.fastjson}</version>
+		</dependency> -->
   </dependencies>
+  <build>
+		<finalName>paac-core</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

@@ -7,7 +7,6 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 import org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter;
@@ -17,9 +16,9 @@ public class CoreStrutsFilter extends StrutsPrepareAndExecuteFilter {
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse res,FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest request = (HttpServletRequest) req;
-		HttpServletResponse response = (HttpServletResponse) res;
+		//HttpServletResponse response = (HttpServletResponse) res;
 		String url = request.getRequestURI();
-		logger.info("struts拦截器拦截的请求地址：" + url);
+		logger.info("struts拦截器过滤的请求地址：" + url);
 		/**
 		 * 以下地址放行
 		 * "/paac-core/manage/user/user_to_login_register.action"
@@ -35,6 +34,7 @@ public class CoreStrutsFilter extends StrutsPrepareAndExecuteFilter {
 			return;
 		}*/
 		try {
+//			chain.doFilter(request, response);
 			super.doFilter(req, res, chain);
 			/**
 			 * @notSure <p>搞明白doFilter两个参数和三个参数的区别</p>

@@ -27,5 +27,8 @@
 			<div>©2016.02-<span id="copyrightTime"></span> Platform As a Cloud(www.shiyuanyun.com) All rights reserved.</div>
 		</div>
 	</body>
+	<script type="text/javascript">
+		var path = '<%=path%>' ;
+	</script>
 	<script type="text/javascript" src="<%=path%>/js/mainFrame.js"></script>
 </html>

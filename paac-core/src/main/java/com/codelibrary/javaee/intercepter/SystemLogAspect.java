@@ -1,10 +1,11 @@
 package com.codelibrary.javaee.intercepter;
 import java.io.IOException;
 import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.apache.commons.lang3.StringUtils;
+
 import org.apache.struts2.ServletActionContext;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -13,6 +14,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+
 import com.alibaba.fastjson.JSONObject;
 import com.codelibrary.javaee.annotation.MethodException;
 import com.codelibrary.javaee.entry.bean.UserInfoBean;
@@ -25,47 +27,43 @@ import com.hsy.codebase.utils.javase.string.StringHelper;
 public class SystemLogAspect {
 	@Autowired
 	private IBaseService baseService ;
-	@Pointcut("@annotation(com.codelibrary.javaee.intercepter.MethodException)")
+	@Pointcut("@annotation(com.codelibrary.javaee.annotation.MethodException)")
 	public void methodCachePointcut() {}
 
 	@Around("methodCachePointcut() && @annotation(methodException)")
 	public Object methodCacheHold(ProceedingJoinPoint joinPoint,MethodException methodException) {
 		Object result = null;
 		String remark = "";
-		long state = 1;
+		String state = "1";//默认正常
 		String exceptionMsg = "" ;
 		try {
 			remark = methodException.remark();
-			result = joinPoint.proceed();
+			result = joinPoint.proceed();//action  return
 		} catch (Exception e1) {//捕获异常进这里
-			state = 2;
+			state = "catch Exception:"+e1.getMessage();
 			exceptionMsg = e1.getMessage();
 			e1.printStackTrace();
 		} catch (Throwable e2) {//抛异常进这里
-			state = 2;
+			state = "throw Exception:"+e2.getMessage();
 			exceptionMsg = e2.getMessage();
 			e2.printStackTrace();
 		}
-		if (state == 1) {
-			HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+		JSONObject str = null ;
+		if (StringHelper.equals("1", state)) {//没有异常
+			//HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+			HttpServletRequest request = ServletActionContext.getRequest() ;
+			//先获取错误code，看是否业务处理失败
 			String code=(String) request.getAttribute(Constant.KEY_LOG_ERROR);
-			if(StringUtils.isNotEmpty(code)){
-				remark="state:"+code;
-				JSONObject str = JSONObject.parseObject(remark);
-				remark=str.toString();
-			}else{
-				if (remark.equals("json"))
-					remark = "{\"json\":\"suc\"}";
-				else
-					remark = remark + "_suc";
+			if(StringHelper.isNotNullOrEmpty(code)){//action处理业务失败
+				remark="tip:"+code;
+			}else{//action 处理业务成功
+				remark="tip:success";
 			}
-		} else {
-			if (remark.equals("json")){
-				remark = "{\"json\":\"err\"}";
-			} else {
-				remark = remark + "_err";
-			}
+		} else {//捕获或者抛出异常
+			remark="tip:"+state;
 		}
+		str = JSONObject.parseObject(remark);
+		remark=str.toString();
 		if (remark.length() > 4){
 			printWriter(remark); //返回前台
 		}
@@ -78,7 +76,7 @@ public class SystemLogAspect {
 		}
 		return result;
 	}
-	public void doBeAfter(ProceedingJoinPoint joinPoint, long state, String description) {
+	public void doBeAfter(ProceedingJoinPoint joinPoint, String state, String description) {
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 		HttpSession session = request.getSession();
 		UserInfoBean userinfo = (UserInfoBean)session.getAttribute("userinfo") ;
@@ -92,11 +90,11 @@ public class SystemLogAspect {
 			log.setCreateTime(new Date());
 			log.setCreateUserId(userinfo.getUserId());
 			log.setCreateUserName(userinfo.getUsername());
-			log.setIsDel((char) 0);
+			log.setIsDel("0");
 			if(StringHelper.isNotNullOrEmpty(code)){
 				log.setModuleId(code);
 			}
-			log.setObjectId(String.valueOf(state));
+			log.setObjectId(state);
 			log.setRequestIP(ip);
 			log.setRequestMethod(joinPoint.getTarget().getClass().getName() + "." + joinPoint.getSignature().getName()+ "()");
 			log.setRequestRemark(description);
