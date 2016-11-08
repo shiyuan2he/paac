@@ -48,25 +48,41 @@ public class SystemLogAspect {
 			exceptionMsg = e2.getMessage();
 			e2.printStackTrace();
 		}
-		JSONObject str = null ;
-		if (StringHelper.equals("1", state)) {//没有异常
-			//HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-			HttpServletRequest request = ServletActionContext.getRequest() ;
-			//先获取错误code，看是否业务处理失败
-			String code=(String) request.getAttribute(Constant.KEY_LOG_ERROR);
-			if(StringHelper.isNotNullOrEmpty(code)){//action处理业务失败
-				remark="tip:"+code;
-			}else{//action 处理业务成功
-				remark="tip:success";
+		/**
+		 * @author heshiyuan	@date 2016年11月8日 下午6:12:44
+		 * @description <p>如果注解上的remark为空，添加返回tip，否则返回action里的tip</p>
+		 */
+		if(StringHelper.isNullOrEmpty(remark)){
+			JSONObject str = null ;
+			if (StringHelper.equals("1", state)) {//没有异常
+				//HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+				HttpServletRequest request = ServletActionContext.getRequest() ;
+				//先获取错误code，看是否业务处理失败
+				String code=(String) request.getAttribute(Constant.KEY_LOG_ERROR);
+				if(StringHelper.isNotNullOrEmpty(code)){//action处理业务失败
+					remark="tip:"+code;
+				}else{//action 处理业务成功
+					remark="tip:success";
+				}
+			} else {//捕获或者抛出异常
+				remark="tip:"+state;
 			}
-		} else {//捕获或者抛出异常
-			remark="tip:"+state;
+			str = JSONObject.parseObject(remark);
+			remark=str.toString();
+			if (remark.length() > 4){
+				try {
+					printWriter(remark);//返回前台
+				} catch (Exception e3) {
+					state = "throw Exception:"+e3.getMessage();
+					exceptionMsg = e3.getMessage();
+					e3.printStackTrace();
+				}
+			}
 		}
-		str = JSONObject.parseObject(remark);
-		remark=str.toString();
-		if (remark.length() > 4){
-			printWriter(remark); //返回前台
-		}
+		/**
+		 * @author heshiyuan	@date 2016年11月8日 下午6:12:44
+		 * @description <p>如果注解上的description非空，日志入库</p>
+		 */
 		if(StringHelper.isNotNullOrEmpty(methodException.description())){
 			if(StringHelper.isNotNullOrEmpty(exceptionMsg)){
 				doBeAfter(joinPoint, state, methodException.description()+";捕获异常，异常信息："+exceptionMsg);
@@ -77,7 +93,8 @@ public class SystemLogAspect {
 		return result;
 	}
 	public void doBeAfter(ProceedingJoinPoint joinPoint, String state, String description) {
-		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+		//HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+		HttpServletRequest request = ServletActionContext.getRequest() ;
 		HttpSession session = request.getSession();
 		UserInfoBean userinfo = (UserInfoBean)session.getAttribute("userinfo") ;
 		//String ip = request.getRemoteAddr();
@@ -103,15 +120,11 @@ public class SystemLogAspect {
 			baseService.save(log) ;
 		}
 	}
-	protected void printWriter(String str) {
+	protected void printWriter(String str) throws Exception{
 		HttpServletResponse response = ServletActionContext.getResponse();
 		// 不加这句，在谷歌浏览器中将不能正常识别json数据<谷歌浏览器会自动给数据加上pre标签>
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("utf-8");
-		try {
-			response.getWriter().write(str);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		response.getWriter().write(str);
 	}
 }
