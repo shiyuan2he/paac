@@ -5,9 +5,9 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import com.codelibrary.javaee.action.base.BaseAction;
 import com.codelibrary.javaee.entry.hibernate.User;
 import com.codelibrary.javaee.service.user.IUserService;
+import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * @description <p>处理用户相关逻辑</p>
@@ -20,7 +20,7 @@ import com.codelibrary.javaee.service.user.IUserService;
  * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
  */
 @Controller
-public class UserAction extends BaseAction{
+public class UserAction extends ActionSupport{
 	private static Logger _logger = Logger.getLogger(UserAction.class);
 	private static final long serialVersionUID = 1L;
 	private User user ;
@@ -35,6 +35,7 @@ public class UserAction extends BaseAction{
 	 *		<p>跳转到登陆页面</p>
 	 */
 	public String to_login_login(){
+		_logger.info("跳转到用户登录页面。。");
 		return "toView";
 	}
 	/**
@@ -45,6 +46,7 @@ public class UserAction extends BaseAction{
 	 *		<p>跳转到用户注册页面</p>
 	 */
 	public String to_login_register(){
+		_logger.info("跳转到用户注册页面。。");
 		return "toView" ;
 	}
 	public String getTip() {

@@ -1,5 +1,4 @@
 package com.codelibrary.javaee.intercepter;
-import java.io.IOException;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,8 +11,6 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.alibaba.fastjson.JSONObject;
 import com.codelibrary.javaee.annotation.MethodException;
@@ -21,7 +18,6 @@ import com.codelibrary.javaee.entry.bean.UserInfoBean;
 import com.codelibrary.javaee.entry.hibernate.SystemLog;
 import com.codelibrary.javaee.service.base.IBaseService;
 import com.codelibrary.javaee.utils.Constant;
-import com.codelibrary.javaee.utils.JarUtils;
 import com.hsy.codebase.utils.javase.string.StringHelper;
 @Aspect
 public class SystemLogAspect {
@@ -93,12 +89,11 @@ public class SystemLogAspect {
 		return result;
 	}
 	public void doBeAfter(ProceedingJoinPoint joinPoint, String state, String description) {
-		//HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 		HttpServletRequest request = ServletActionContext.getRequest() ;
 		HttpSession session = request.getSession();
 		UserInfoBean userinfo = (UserInfoBean)session.getAttribute("userinfo") ;
-		//String ip = request.getRemoteAddr();
-		String ip =JarUtils.getIP(request);
+		String ip = request.getRemoteAddr();
+		//String ip =JarUtils.getIP(request);
 		String code=(String) request.getAttribute(Constant.KEY_LOG_SUCCESS);
 		request.removeAttribute(Constant.KEY_LOG_SUCCESS);
 		if(null != userinfo){
@@ -110,12 +105,14 @@ public class SystemLogAspect {
 			log.setIsDel("0");
 			if(StringHelper.isNotNullOrEmpty(code)){
 				log.setModuleId(code);
+			}else{
+				log.setModuleId("default");
 			}
 			log.setObjectId(state);
 			log.setRequestIP(ip);
 			log.setRequestMethod(joinPoint.getTarget().getClass().getName() + "." + joinPoint.getSignature().getName()+ "()");
 			log.setRequestRemark(description);
-			//log.setRequestTime("");
+			log.setRequestTime("4000");
 			log.setRequestUrl(request.getRequestURI());
 			baseService.save(log) ;
 		}

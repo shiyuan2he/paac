@@ -100,6 +100,9 @@
 				<param name="includeProperties">tip</param>
 			</result>
 		</action>
+		<action name="logout" method="logout" class="loginAction">
+			<result name="logout_ok">/website/index.jsp</result>
+		</action>
 	</package>
 	<!-- 用户相关配置文件 -->
 	<include file="struts/struts-user.xml"></include>

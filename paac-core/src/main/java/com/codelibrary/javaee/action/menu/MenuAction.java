@@ -2,7 +2,7 @@ package com.codelibrary.javaee.action.menu;
 
 import org.springframework.stereotype.Controller;
 
-import com.codelibrary.javaee.action.base.BaseAction;
+import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * @description <p>获取菜单action</p>
@@ -15,7 +15,7 @@ import com.codelibrary.javaee.action.base.BaseAction;
  * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
  */
 @Controller
-public class MenuAction extends BaseAction{
+public class MenuAction extends ActionSupport{
 
 	/**
 	 * @description <p></p>

@@ -55,7 +55,7 @@ public class MenuServiceImpl implements IMenuService{
 		menuRights.setMenuCode(RandomHelper.generateValueByParam("R", "", 5));
 		menuRights.setMenuOrder(Integer.parseInt(RandomHelper.generateValueByParam("", "", 5)));
 		menuRights.setMenuType((char)0);
-		menuRights.setIsDel(Character.valueOf((char)0));
+		menuRights.setIsDel("0");
 		baseDao.save(menuRights) ;
 	}
 	/**
@@ -77,7 +77,7 @@ public class MenuServiceImpl implements IMenuService{
 	public List<RightsMenuTree> getMenuRightsTreeList(String userId) {
 		StringBuilder hql = new StringBuilder() ;
 		hql.append("select new Map(")
-		   .append(" rightsMenu.id as id,rightsMenu.menuCode as menuCode,rightsMenu.menuName as menuName,rightsMenu.menuParent as menuParent")
+		   .append(" rightsMenu.id as id,rightsMenu.menuCode as menuCode,rightsMenu.menuName as menuName,rightsMenu.menuParent as menuParent,")
 		   .append(" rightsMenu.menuUrl as menuUrl,rightsMenu.menuLevel as menuLevel,rightsMenu.menuType as menuType")
 		   .append(")") 
 		   .append(" from RightsMenu rightsMenu")

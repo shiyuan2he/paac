@@ -17,7 +17,7 @@ public class Picture {
 	private String picDescription ; //图片描述
 	private String picCreater ; //图片创建者
 	private String picCreateTime ; //图片创建时间
-	private Character isDel ;//是否逻辑删除
+	private String isDel ;//是否逻辑删除
 	
 	@Id
 	@Column(nullable=false,unique=true)
@@ -64,11 +64,11 @@ public class Picture {
 	public void setPicCreateTime(String picCreateTime) {
 		this.picCreateTime = picCreateTime;
 	}
-	@Column(name = "isDel", nullable = false, precision = 1, scale = 0)
-	public Character getIsDel() {
+	@Column(name = "isDel", nullable = false,length=1)
+	public String getIsDel() {
 		return isDel;
 	}
-	public void setIsDel(Character isDel) {
+	public void setIsDel(String isDel) {
 		this.isDel = isDel;
 	}
 }

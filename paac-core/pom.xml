@@ -18,6 +18,7 @@
     <version.spring>4.2.1.RELEASE</version.spring>    
     <version.jdk>1.8</version.jdk>
     <version.mariadb>1.4.4</version.mariadb>
+    <version.jstl>1.2</version.jstl>
     <version.fastjson>1.2.16</version.fastjson>
   </properties> 
  
@@ -166,13 +167,17 @@
 		    <artifactId>mchange-commons-java</artifactId>
 		    <version>0.2.12</version>
 		</dependency>
-		
+		<dependency> 
+		    <groupId>jstl</groupId>
+		    <artifactId>jstl</artifactId>
+		    <version>${version.jstl}</version>
+		</dependency>
 		<!-- paac-base用到的包 -->
 		<!-- <dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 			<version>${version.fastjson}</version>
-		</dependency> -->
+		</dependency>-->
   </dependencies>
   <build>
 		<finalName>paac-core</finalName>

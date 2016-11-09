@@ -42,7 +42,8 @@ public class MenuServiceImplTest {
 		 */
 		menuService.createMenuRights("工作台", "0", "./mainFrame/menu/aa.action", 1,1);
 		menuService.createMenuRights("内部维护", "0", "./mainFrame/menu/bb.action", 1,2);
-		menuService.createMenuRights("财务管理", "0", "./mainFrame/menu/bb.action", 1,3);
+		menuService.createMenuRights("财务管理", "0", "./mainFrame/menu/cc.action", 1,3);
+		menuService.createMenuRights("退出系统", "0", "./mainFrame/login/logout.action", 1,4);
 	}
 
 }

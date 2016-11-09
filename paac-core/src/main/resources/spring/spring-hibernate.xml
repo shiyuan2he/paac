@@ -14,8 +14,8 @@
           http://www.springframework.org/schema/tx
            http://www.springframework.org/schema/tx/spring-tx-4.2.xsd ">
 	<!-- 打开aop 注解 -->
-	<!-- <aop:aspectj-autoproxy proxy-target-class="true" />
-	<bean id="systemLogAspect" class="com.codelibrary.javaee.intercepter.SystemLogAspect" /> -->
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+	<bean id="systemLogAspect" class="com.codelibrary.javaee.intercepter.SystemLogAspect" />
 	<!-- Database config -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="${driverClassName}"/>

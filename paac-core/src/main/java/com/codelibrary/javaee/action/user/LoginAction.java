@@ -1,10 +1,15 @@
 package com.codelibrary.javaee.action.user;
 
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.log4j.Logger;
+import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import com.codelibrary.javaee.action.base.BaseAction;
 import com.codelibrary.javaee.annotation.MethodException;
 import com.codelibrary.javaee.entry.bean.UserInfoBean;
 import com.codelibrary.javaee.entry.hibernate.User;
@@ -13,6 +18,8 @@ import com.codelibrary.javaee.utils.AnnotationUtil;
 import com.codelibrary.javaee.utils.Constant;
 import com.hsy.codebase.utils.javase.bean.BeanHelper;
 import com.hsy.codebase.utils.javase.string.StringHelper;
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
 /**
  * @path paac-core/com.codelibrary.javaee.action.user.LoginAction.java
  * @description <p>登陆</p>
@@ -24,7 +31,7 @@ import com.hsy.codebase.utils.javase.string.StringHelper;
  * @callnumber 15003828090
  */
 @Controller
-public class LoginAction extends BaseAction {
+public class LoginAction extends ActionSupport {
 	/**
 	 * @description <p>请再次输入属性描述</p>
 	 */
@@ -46,19 +53,21 @@ public class LoginAction extends BaseAction {
 	 */
 	@MethodException(remark="select",description="登录系统")
 	public String do_login() throws Exception{
-		if(BeanHelper.isNotNull(user)&&StringHelper.isNotNullOrEmpty(user.getPassword())&&StringHelper.isNotNullOrEmpty(user.getPassword())){
+		HttpServletRequest request = ServletActionContext.getRequest() ;
+		HttpServletResponse response = ServletActionContext.getResponse() ;
+		if(null!=user&&StringHelper.isNotNullOrEmpty(user.getPassword())&&StringHelper.isNotNullOrEmpty(user.getPassword())){
 			user = userService.login(user.getUsername(),user.getPassword()) ;
 			if(BeanHelper.isNotNull(user)){
 				//向session里面放入用户基本信息
 				setSessionBean(user) ;
-				this.request.setAttribute(Constant.KEY_LOG_SUCCESS, user.getId());
+				request.setAttribute(Constant.KEY_LOG_SUCCESS, user.getId());
 				//动态修改日志
 				AnnotationUtil.updateAnnotation(this.getClass(), "do_login", "description", "用户["+user.getUsername()+"]登陆系统成功！");
-				setTip(this.request.getContextPath() + this.response.encodeURL("/mainFrame/manage/manage_toMainView.action"));
+				setTip(request.getContextPath() + response.encodeURL("/mainFrame/manage/manage_toMainView.action"));
 				return "doLoginOk" ;
 			}	
 		}else{
-			this.request.setAttribute(Constant.KEY_LOG_ERROR, user.getUsername());
+			request.setAttribute(Constant.KEY_LOG_ERROR, user.getUsername());
 			AnnotationUtil.updateAnnotation(this.getClass(), "do_login", "description", "用户["+user.getUsername()+"]登陆系统失败！");
 			_logger.error("【--用户登录--】传递参数失败：用户名或者用户密码传递失败。。");
 		}
@@ -79,11 +88,13 @@ public class LoginAction extends BaseAction {
 	 */
 	@MethodException(remark = "",description = "退出登录")
 	public String logout() {
-		UserInfoBean uesrinfo = (UserInfoBean) this.mapSession.get("userinfo") ;
+		Map<String,Object> mapSession = ActionContext.getContext().getSession() ;
+		HttpServletRequest request = ServletActionContext.getRequest() ;
+		UserInfoBean uesrinfo = (UserInfoBean) mapSession.get("userinfo") ;
 		if (uesrinfo != null) {
-			this.mapSession.remove("userinfo") ;
-			this.request.getSession().invalidate();
-			this.request.setAttribute(Constant.KEY_LOG_SUCCESS, "退出登录");
+			mapSession.remove("userinfo") ;
+			request.getSession().invalidate();
+			request.setAttribute(Constant.KEY_LOG_SUCCESS, "退出登录");
 		}
 		return "logout_ok";
 	}
@@ -101,10 +112,11 @@ public class LoginAction extends BaseAction {
 	 * @callnumber 15003828090
 	 */
 	private void setSessionBean(User user2) {
+		Map<String,Object> mapSession = ActionContext.getContext().getSession() ;
 		UserInfoBean userinfo = new UserInfoBean() ;
 		userinfo.setUserId(user2.getId());
 		userinfo.setUsername(user2.getUsername());
-		this.mapSession.put("userinfo", userinfo);
+		mapSession.put("userinfo", userinfo);
 	}
 	/**
 	 * 

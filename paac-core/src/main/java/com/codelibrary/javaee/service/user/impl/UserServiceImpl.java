@@ -80,7 +80,7 @@ public class UserServiceImpl implements IUserService {
 			user.setEncryptionType(Constant.ENCRYPTIONTYPE_BASE64);
 			user.setCreateTime(new Date());
 			user.setCreater(username);
-			user.setIsDel(Character.valueOf((char)0)); //未物理删除
+			user.setIsDel("0"); //未物理删除
 			baseDao.save(user) ;
 			if(StringHelper.isNotNullOrEmpty(user.getId())){
 				return true;
