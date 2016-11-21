@@ -12,4 +12,8 @@
 		<!-- 处理业务的action配置 -->
 		<action name="user_do_*" method="do_{1}" class="userAction"></action>
 	</package>
+	<package name="login" namespace="/mainFrame/login" extends="struts-default">
+		<!-- 处理业务的action配置 -->
+		<action name="login_do_*" method="do_{1}" class="loginAction"></action>
+	</package>
 </struts>

@@ -19,18 +19,18 @@
 	<div style="margin:400px 700px">
 		<div class="easyui-panel" title="注册面板" style="width:400px;">
 		<div style="padding:10px 60px 20px 60px">
-	    <form id="register" method="post" action="<%=path%>/mainFrame/user/user_do_register.action">
+	    <form id="register" method="post" action="<%=path%>/mainFrame/login/login_do_register.action">
 	    	<table>
 	    		<tr>
 	    			<td>手机号或者邮箱:</td>
 	    			<td>
-	    				<input class="easyui-textbox" type="text" id="username" name="username" data-options="required:true,prompt:'请输入手机号或者邮箱'"></input>
+	    				<input class="easyui-textbox" type="text" id="username" name="user.username" data-options="required:true,prompt:'请输入手机号或者邮箱'"></input>
 	    			</td>
 	    		</tr>
 	    		<tr>
 	    			<td>登陆密码:</td>
 	    			<td>
-	    				<input class="easyui-textbox" type="text" id="password" name="password" data-options="required:true,prompt:'请输入登陆密码'"></input>
+	    				<input class="easyui-textbox" type="text" id="password" name="user.password" data-options="required:true,prompt:'请输入登陆密码'"></input>
 	    			</td>
 	    		</tr>
 	    	</table>

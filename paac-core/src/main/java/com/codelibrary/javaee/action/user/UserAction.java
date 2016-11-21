@@ -25,6 +25,7 @@ public class UserAction extends ActionSupport{
 	private static final long serialVersionUID = 1L;
 	private User user ;
 	private String tip ;
+	@SuppressWarnings("unused")
 	@Autowired
 	private IUserService userService ;
 	/**

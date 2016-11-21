@@ -1,6 +1,6 @@
 package com.codelibrary.javaee.utils;
 /**
- * @description <p>请在此处输入类的描述</p>
+ * @description <p>常量类－用于定义全局常量区</p>
  * @path paac-core/com.codelibrary.javaee.utils
  * @time 2016年10月16日 下午7:49:05
  * @github 
