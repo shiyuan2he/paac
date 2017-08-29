@@ -1,23 +1,9 @@
-# intelliJ idea
-*/.idea
-*/paac-base.iml
-*/paac-core.iml
+.idea
 
-# eclipse
-*/*.class
-*/*target
-*/*.settings
-*/*.project
-*.classpath
+*.iml
+*/*.iml
+*/*/*.iml
 
-# Package Files #
-*/*.jar
-*/*.war
-*/*.ear
-
-#java compile
-*/bin/*
-*/bin/*.class
-*.class
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-*/hs_err_pid*
+target
+*/target
+*/*/target
