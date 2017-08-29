@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.hsy.paac</groupId>
+        <artifactId>paac</artifactId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>paac-urms</artifactId>
+    <packaging>pom</packaging>
+
+    <name>paac-urms</name>
+    <modules>
+        <module>paac-urms-base</module>
+        <module>paac-urms-dao</module>
+        <module>paac-urms-controller</module>
+        <module>paac-urms-server</module>
+        <module>paac-urms-rpc-api</module>
+        <module>paac-urms-rpc-service</module>
+    </modules>
+
+    <properties>
+    </properties>
+
+    <dependencies>
+
+    </dependencies>
+</project>
