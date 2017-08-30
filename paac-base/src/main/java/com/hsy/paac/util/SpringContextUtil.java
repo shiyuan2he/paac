@@ -1,5 +1,7 @@
 package com.hsy.paac.util;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.impl.Log4JLogger;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;

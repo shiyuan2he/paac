@@ -23,6 +23,7 @@
         <module>paac-base</module>
         <module>paac-core</module>
         <module>paac-urms</module>
+        <module>paac-admin</module>
     </modules>
     <build>
         <finalName>paac</finalName>

@@ -2,7 +2,7 @@ package com.hsy.paac.service.base.impl;
 
 import java.io.Serializable;
 
-import com.hsy.paac.dao.hibernate.IBaseDao;
+import com.hsy.paac.hibernate.IBaseDao;
 import com.hsy.paac.service.base.IBaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
