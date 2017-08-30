@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.hsy.paac.dao.hibernate.IBaseDao;
+import com.hsy.paac.hibernate.IBaseDao;
 import com.hsy.paac.entry.hibernate.User;
 import com.hsy.paac.service.user.IUserService;
 import com.hsy.paac.base.utils.javase.bean.BeanHelper;

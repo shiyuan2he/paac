@@ -7,3 +7,7 @@
 target
 */target
 */*/target
+
+*.log
+*.log.1
+*.log.2

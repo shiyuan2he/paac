@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.hsy.paac.entry.bean.RightsMenuTree;
 import com.hsy.paac.service.menu.IMenuService;
-import com.hsy.paac.dao.hibernate.IBaseDao;
+import com.hsy.paac.hibernate.IBaseDao;
 import com.hsy.paac.entry.hibernate.RightsMenu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
