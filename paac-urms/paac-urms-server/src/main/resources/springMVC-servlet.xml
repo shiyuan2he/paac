@@ -13,6 +13,8 @@
     ">
     <!-- 根目录'/'对应页面 -->
     <mvc:view-controller path="/urms" view-name="/index"/>
+
+    <mvc:resources mapping="/resources/**" location="/resources/" cache-period="10"/>
     <!-- 拦截器 -->
     <mvc:interceptors>
         <!--获取登录信息-->
