@@ -29,23 +29,16 @@ function login() {
 		data: {
 			username: $('#username').val(),
 			password: $('#password').val(),
-			rememberMe: $('#rememberMe').is(':checked'),
-			backurl: BACK_URL
+			rememberMe: $('#rememberMe').is(':checked')
 		},
 		beforeSend: function() {
 
 		},
 		success: function(json){
-			if (json.code == 1) {
-				location.href = json.data;
+			if (json.code == "NB0000") {
+				location.href = BASE_PATH + "/manage/index";
 			} else {
-				alert(json.data);
-				if (10101 == json.code) {
-					$('#username').focus();
-				}
-				if (10102 == json.code) {
-					$('#password').focus();
-				}
+				alert(json.msg);
 			}
 		},
 		error: function(error){

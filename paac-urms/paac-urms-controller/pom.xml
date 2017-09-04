@@ -17,5 +17,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.hsy.paac</groupId>
+            <artifactId>paac-urms-rpc-service</artifactId>
+            <version>1.0</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
 </project>

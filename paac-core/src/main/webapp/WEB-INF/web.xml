@@ -61,7 +61,7 @@
 		<url-pattern>/AuthImageServlet</url-pattern> </servlet-mapping> -->
 	<filter>
 		<filter-name>struts2</filter-name>
-		<filter-class>com.hsy.paac.intercepter.CoreStrutsFilter</filter-class>
+		<filter-class>com.hsy.paac.urms.base.intercepter.CoreStrutsFilter</filter-class>
 		<!-- <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class> -->
 	</filter>
 	<filter-mapping>

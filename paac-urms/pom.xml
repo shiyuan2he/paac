@@ -18,6 +18,7 @@
         <module>paac-urms-server</module>
         <module>paac-urms-rpc-api</module>
         <module>paac-urms-rpc-service</module>
+        <module>paac-urms-client</module>
     </modules>
 
     <properties>

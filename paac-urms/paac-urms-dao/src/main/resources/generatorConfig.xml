@@ -16,12 +16,12 @@
         <plugin type="org.mybatis.generator.plugins.ToStringPlugin"></plugin>
 
         <!-- 为生成的Java模型类添加序列化接口，并生成serialVersionUID字段 -->
-        <plugin type="com.hsy.paac.plugin.SerializablePlugin">
+        <plugin type="com.hsy.paac.base.plugin.SerializablePlugin">
             <property name="suppressJavaInterface" value="false"/>
         </plugin>
 
         <!-- 生成一个新的selectByExample方法，这个方法可以接收offset和limit参数，主要用来实现分页，只支持mysql(已使用pagehelper代替) -->
-        <!--<plugin type="com.hsy.paac.plugin.PaginationPlugin"></plugin>-->
+        <!--<plugin type="com.hsy.paac.base.plugin.PaginationPlugin"></plugin>-->
 
         <!-- 生成在XML中的<cache>元素 -->
         <plugin type="org.mybatis.generator.plugins.CachePlugin">
@@ -40,7 +40,7 @@
         <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"></plugin>
 
         <!-- 生成的代码去掉注释 -->
-        <commentGenerator type="com.hsy.paac.plugin.CommentGenerator">
+        <commentGenerator type="com.hsy.paac.base.plugin.CommentGenerator">
             <property name="suppressAllComments" value="true" />
             <property name="suppressDate" value="true"/>
         </commentGenerator>
@@ -52,17 +52,20 @@
                         password="paac@mariadb" />
 
         <!-- model生成 -->
-        <javaModelGenerator targetPackage="com.hsy.paac.dao.model" targetProject="/Users/heshiyuan/data/devTools/repo/git/paac/paac-urms/paac-urms-dao/src/main/java" />
+        <javaModelGenerator targetPackage="com.hsy.paac.urms.base.model" targetProject="/Users/heshiyuan/data/devTools/repo/git/paac/paac-urms/paac-urms-base/src/main/java" />
 
         <!-- MapperXML生成 -->
-        <sqlMapGenerator targetPackage="com.hsy.paac.dao.mapper" targetProject="/Users/heshiyuan/data/devTools/repo/git/paac/paac-urms/paac-urms-rpc-service/src/main/java" />
+        <sqlMapGenerator targetPackage="com.hsy.paac.urms.dao.mapper" targetProject="/Users/heshiyuan/data/devTools/repo/git/paac/paac-urms/paac-urms-dao/src/main/java" />
 
         <!-- Mapper接口生成 -->
-        <javaClientGenerator targetPackage="com.hsy.paac.dao.mapper" targetProject="/Users/heshiyuan/data/devTools/repo/git/paac/paac-urms/paac-urms-dao/src/main/java" type="XMLMAPPER" />
+        <javaClientGenerator targetPackage="com.hsy.paac.urms.dao" targetProject="/Users/heshiyuan/data/devTools/repo/git/paac/paac-urms/paac-urms-dao/src/main/java" type="XMLMAPPER" />
 
         <!-- 需要映射的表 -->
-                                    <table tableName="t_urms_user" domainObjectName="TUrmsUser">
-                    <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+                                    <table tableName="t_urms_system" domainObjectName="TUrmsSystem">
+                    <generatedKey column="system_id" sqlStatement="MySql" identity="true"/>
+                </table>
+                                                <table tableName="t_urms_user" domainObjectName="TUrmsUser">
+                    <generatedKey column="user_id" sqlStatement="MySql" identity="true"/>
                 </table>
                         </context>
 </generatorConfiguration>

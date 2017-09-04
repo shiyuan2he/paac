@@ -4,8 +4,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%--<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %--%>>
-<c:set var="basePath" value="${pageContext.request.contextPath}"/>
+<%--<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags"> %--%>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
+%>
 <!DOCTYPE HTML>
 <html lang="zh-cn">
 <head>
@@ -14,17 +17,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>权限管理系统</title>
 
-	<link href="${basePath}/resources/zheng-admin/plugins/bootstrap-3.3.0/css/bootstrap.min.css" rel="stylesheet"/>
-	<link href="${basePath}/resources/zheng-admin/plugins/material-design-iconic-font-2.2.0/css/material-design-iconic-font.min.css" rel="stylesheet"/>
-	<link href="${basePath}/resources/zheng-admin/plugins/waves-0.7.5/waves.min.css" rel="stylesheet"/>
-	<link href="${basePath}/resources/zheng-admin/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
-	<link href="${basePath}/resources/zheng-admin/css/admin.css" rel="stylesheet"/>
+	<link href="<%=basePath%>/resources/paac-admin/plugins/bootstrap-3.3.0/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="<%=basePath%>/resources/paac-admin/plugins/material-design-iconic-font-2.2.0/css/material-design-iconic-font.min.css" rel="stylesheet"/>
+	<link href="<%=basePath%>/resources/paac-admin/plugins/waves-0.7.5/waves.min.css" rel="stylesheet"/>
+	<link href="<%=basePath%>/resources/paac-admin/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+	<link href="<%=basePath%>/resources/paac-admin/css/admin.css" rel="stylesheet"/>
 	<style>
 		/** skins **/
 		<c:forEach var="upmsSystem" items="${upmsSystems}">
-		#${upmsSystem.name} #header {background: ${upmsSystem.theme};}
-		#${upmsSystem.name} .content_tab{background: ${upmsSystem.theme};}
-		#${upmsSystem.name} .s-profile>a{background: url(${basePath}${upmsSystem.banner}) left top no-repeat;}
+		    #${upmsSystem.name} #header {background: ${upmsSystem.theme};}
+		    #${upmsSystem.name} .content_tab{background: ${upmsSystem.theme};}
+		    #${upmsSystem.name} .s-profile>a{background: url(<%=basePath%>${upmsSystem.banner}) left top no-repeat;}
 		</c:forEach>
 	</style>
 </head>
@@ -39,8 +42,8 @@
 			</div>
 		</li>
 		<li id="logo" class="hidden-xs">
-			<a href="${basePath}/manage/index">
-				<img src="${basePath}/resources/zheng-admin/images/logo.png"/>
+			<a href="<%=basePath%>/manage/index">
+				<img src="<%=basePath%>/resources/paac-admin/images/logo.png"/>
 			</a>
 			<span id="system_title">权限管理系统</span>
 		</li>
@@ -73,8 +76,8 @@
 						<li class="divider hidden-xs"></li>
 						<c:forEach var="upmsSystem" items="${upmsSystems}">
 						<li>
-							<a class="waves-effect switch-systems" href="javascript:;" systemid="${upmsSystem.systemId}" systemname="${upmsSystem.name}" systemtitle="${upmsSystem.title}"><i class="${upmsSystem.icon}"></i> ${upmsSystem.title}</a>
-						</li>
+                            <a class="waves-effect switch-systems" href="javascript:;" systemid="${upmsSystem.systemId}" systemname="${upmsSystem.name}" systemtitle="${upmsSystem.title}"><i class="${upmsSystem.icon}"></i> ${upmsSystem.title}</a>
+                        </li>
 						</c:forEach>
 					</ul>
 				</li>
@@ -96,7 +99,7 @@
 							<a class="waves-effect" href="javascript:;"><i class="zmdi zmdi-settings"></i> 系统设置</a>
 						</li>
 						<li>
-							<a class="waves-effect" href="${basePath}/sso/logout"><i class="zmdi zmdi-run"></i> 退出登录</a>
+							<a class="waves-effect" href="<%=basePath%>/sso/logout"><i class="zmdi zmdi-run"></i> 退出登录</a>
 						</li>
 					</ul>
 				</li>
@@ -111,7 +114,7 @@
 		<div class="s-profile">
 			<a class="waves-effect waves-light" href="javascript:;">
 				<div class="sp-pic">
-					<img src="${basePath}${upmsUser.avatar}"/>
+					<img src="<%=basePath%>${upmsUser.avatar}"/>
 				</div>
 				<div class="sp-info">
 					${upmsUser.realname}，您好！
@@ -129,7 +132,7 @@
 					<a class="waves-effect" href="javascript:;"><i class="zmdi zmdi-settings"></i> 系统设置</a>
 				</li>
 				<li>
-					<a class="waves-effect" href="${basePath}/sso/logout"><i class="zmdi zmdi-run"></i> 退出登录</a>
+					<a class="waves-effect" href="<%=basePath%>/sso/logout"><i class="zmdi zmdi-run"></i> 退出登录</a>
 				</li>
 			</ul>
 		</div>
@@ -181,7 +184,7 @@
 		<div class="content_main">
 			<div id="iframe_home" class="iframe cur">
 				<p><h4>通用用户权限管理系统</h4></p>
-				<p><b>演示地址</b>：<a href="http://www.zhangshuzheng.cn/zhengAdmin" target="_blank">http://www.zhangshuzheng.cn/zhengAdmin</a></p>
+				<p><b>演示地址</b>：<a href="http://www.zhangshupaac.cn/paacAdmin" target="_blank">http://www.zhangshupaac.cn/paacAdmin</a></p>
 				<p><b>系统简介</b>：本系统是基于RBAC授权和基于用户授权的细粒度权限控制通用平台，并提供单点登录、会话管理和日志管理。接入的系统可自由定义组织、角色、权限、资源等。</p><br/>
 				<p><h4>系统功能概述：</h4></p>
 				<p><b>系统组织管理</b>：系统和组织增加、删除、修改、查询功能。</p>
@@ -194,23 +197,23 @@
 				<p><h4>对外接口概述：</h4></p>
 				<p><b>系统组织数据接口</b>、<b>用户角色数据接口</b>、<b>资源权限数据接口</b>、<b>单点登录(SSO)接口</b>、<b>用户鉴权接口</b></p><br/>
 				<p><h4>关于作者</h4></p>
-				<p><b>姓　　名</b>：张恕征</p>
-				<p><b>电子邮箱</b>：469741414@qq.com</p>
+				<p><b>姓　　名</b>：何世远</p>
+				<p><b>电子邮箱</b>：shiyuan4work@sina.com</p>
 			</div>
 		</div>
 	</section>
 </section>
 <footer id="footer"></footer>
-<script>var BASE_PATH = '${basePath}';</script>
-<script src="${basePath}/resources/zheng-admin/plugins/jquery.1.12.4.min.js"></script>
-<script src="${basePath}/resources/zheng-admin/plugins/bootstrap-3.3.0/js/bootstrap.min.js"></script>
-<script src="${basePath}/resources/zheng-admin/plugins/waves-0.7.5/waves.min.js"></script>
-<script src="${basePath}/resources/zheng-admin/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="${basePath}/resources/zheng-admin/plugins/BootstrapMenu.min.js"></script>
-<script src="${basePath}/resources/zheng-admin/plugins/device.min.js"></script>
-<script src="${basePath}/resources/zheng-admin/plugins/jquery.cookie.js"></script>
-<script src="${basePath}/resources/zheng-admin/js/admin.js"></script>
-<script src="${basePath}/resources/zheng-admin/plugins/fullPage/jquery.fullPage.min.js"></script>
-<script src="${basePath}/resources/zheng-admin/plugins/fullPage/jquery.jdirk.min.js"></script>
+<script>var BASE_PATH = '<%=basePath%>';</script>
+<script src="<%=basePath%>/resources/paac-admin/plugins/jquery.1.12.4.min.js"></script>
+<script src="<%=basePath%>/resources/paac-admin/plugins/bootstrap-3.3.0/js/bootstrap.min.js"></script>
+<script src="<%=basePath%>/resources/paac-admin/plugins/waves-0.7.5/waves.min.js"></script>
+<script src="<%=basePath%>/resources/paac-admin/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="<%=basePath%>/resources/paac-admin/plugins/BootstrapMenu.min.js"></script>
+<script src="<%=basePath%>/resources/paac-admin/plugins/device.min.js"></script>
+<script src="<%=basePath%>/resources/paac-admin/plugins/jquery.cookie.js"></script>
+<script src="<%=basePath%>/resources/paac-admin/js/admin.js"></script>
+<script src="<%=basePath%>/resources/paac-admin/plugins/fullPage/jquery.fullPage.min.js"></script>
+<script src="<%=basePath%>/resources/paac-admin/plugins/fullPage/jquery.jdirk.min.js"></script>
 </body>
 </html>

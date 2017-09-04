@@ -23,9 +23,8 @@
         </dependency>
         <dependency>
             <groupId>com.hsy.paac</groupId>
-            <artifactId>paac-urms-rpc-service</artifactId>
+            <artifactId>paac-urms-controller</artifactId>
             <version>1.0</version>
-            <type>jar</type>
         </dependency>
         <!--log4j 日志 start-->
         <!--<dependency>
