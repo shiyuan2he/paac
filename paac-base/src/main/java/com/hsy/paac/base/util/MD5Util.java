@@ -1,10 +1,13 @@
-package com.zheng.common.util;
+package com.hsy.paac.base.util;
 
 import java.security.MessageDigest;
-import java.util.UUID;
-
 /**
- * Created by shuzheng on 2017/1/19.
+ * @description <p></p>
+ * @author heshiyuan
+ * @date 05/09/2017 4:52 PM
+ * @email shiyuan4work@sina.com
+ * @github https://github.com/shiyuan2he.git
+ * Copyright (c) 2016 shiyuan4work@sina.com All rights reserved
  */
 public class MD5Util {
 

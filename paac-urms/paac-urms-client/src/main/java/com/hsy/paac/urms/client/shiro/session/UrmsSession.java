@@ -12,7 +12,7 @@ import org.apache.shiro.session.mgt.SimpleSession;
  * Copyright (c) 2017 shiyuan4work@sina.com All rights reserved.
  * @price ¥5    微信：hewei1109
  */
-public class UpmsSession extends SimpleSession{
+public class UrmsSession extends SimpleSession{
     public static enum OnlineStatus {
         on_line("在线"), off_line("离线"), force_logout("强制退出");
         private final String info;

@@ -1,83 +1,82 @@
-package com.zheng.upms.rpc.api;
+package com.hsy.paac.urms.rpc.api;
 
-import com.zheng.upms.dao.model.*;
-
+import com.hsy.paac.urms.base.model.*;
 import java.util.List;
 
 /**
  * upms系统接口
  * Created by shuzheng on 2017/2/11.
  */
-public interface UpmsApiService {
+public interface TUrmsApiService {
 
     /**
      * 根据用户id获取所拥有的权限(用户和角色权限合集)
      * @param upmsUserId
      * @return
      */
-    List<UpmsPermission> selectUpmsPermissionByUpmsUserId(Integer upmsUserId);
+    List<TUrmsPermission> selectTUrmsPermissionByTUrmsUserId(Integer upmsUserId);
 
     /**
      * 根据用户id获取所拥有的权限(用户和角色权限合集)
      * @param upmsUserId
      * @return
      */
-    List<UpmsPermission> selectUpmsPermissionByUpmsUserIdByCache(Integer upmsUserId);
+    List<TUrmsPermission> selectTUrmsPermissionByTUrpmsUserIdByCache(Integer upmsUserId);
 
     /**
      * 根据用户id获取所属的角色
      * @param upmsUserId
      * @return
      */
-    List<UpmsRole> selectUpmsRoleByUpmsUserId(Integer upmsUserId);
+    List<TUrmsRole> selectTUrmsRoleByUrmsUserId(Integer upmsUserId);
 
     /**
      * 根据用户id获取所属的角色
      * @param upmsUserId
      * @return
      */
-    List<UpmsRole> selectUpmsRoleByUpmsUserIdByCache(Integer upmsUserId);
+    List<TUrmsRole> selectTUrmsRoleByUpmsUserIdByCache(Integer upmsUserId);
 
     /**
      * 根据角色id获取所拥有的权限
      * @param upmsRoleId
      * @return
      */
-    List<UpmsRolePermission> selectUpmsRolePermisstionByUpmsRoleId(Integer upmsRoleId);
+    List<TUrmsRolePermission> selectTUrmsRolePermisstionByTUrmsRoleId(Integer upmsRoleId);
 
     /**
      * 根据用户id获取所拥有的权限
      * @param upmsUserId
      * @return
      */
-    List<UpmsUserPermission> selectUpmsUserPermissionByUpmsUserId(Integer upmsUserId);
+    List<TUrmsUserPermission> selectTUrmsUserPermissionByTUrmsUserId(Integer upmsUserId);
 
     /**
      * 根据条件获取系统数据
      * @param upmsSystemExample
      * @return
      */
-    List<UpmsSystem> selectUpmsSystemByExample(UpmsSystemExample upmsSystemExample);
+    List<TUrmsSystem> selectTUrmsSystemByExample(TUrmsSystemExample upmsSystemExample);
 
     /**
      * 根据条件获取组织数据
      * @param upmsOrganizationExample
      * @return
      */
-    List<UpmsOrganization> selectUpmsOrganizationByExample(UpmsOrganizationExample upmsOrganizationExample);
+    List<TUrmsOrganization> selectTUrmsOrganizationByExample(TUrmsOrganizationExample upmsOrganizationExample);
 
     /**
      * 根据username获取UpmsUser
      * @param username
      * @return
      */
-    UpmsUser selectUpmsUserByUsername(String username);
+    TUrmsUser selectTUrmsUserByTUsername(String username);
 
     /**
      * 写入操作日志
      * @param record
      * @return
      */
-    int insertUpmsLogSelective(UpmsLog record);
+    int insertUpmsLogSelective(TUrmsLog record);
 
 }

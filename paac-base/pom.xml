@@ -23,6 +23,9 @@
         <jackson.version>2.8.8</jackson.version>
         <version.swagger2>2.4.0</version.swagger2>
         <version.pagehelper>5.1.1</version.pagehelper>
+        <version.shiro>1.4.0</version.shiro>
+        <version.jedis>2.9.0</version.jedis>
+        <version.httpclient>4.5.3</version.httpclient>
 	</properties>
     <!--springmvc+spring+mybatis start-->
 	<dependencies>
@@ -117,6 +120,38 @@
             <version>${version.swagger2}</version>
         </dependency>
 
+        <!-- shiro -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>${version.shiro}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-web</artifactId>
+            <version>${version.shiro}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-quartz</artifactId>
+            <version>${version.shiro}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>${version.shiro}</version>
+        </dependency>
 
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${version.jedis}</version>
+        </dependency>
+        <!-- httpclient -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>${version.httpclient}</version>
+        </dependency>
     </dependencies>
 </project>

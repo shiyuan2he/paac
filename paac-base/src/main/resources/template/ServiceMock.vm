@@ -1,7 +1,7 @@
 package ${package_name}.rpc.api;
 
 import com.hsy.paac.base.common.BaseServiceMock;
-import ${package_name}.dao.mapper.${model}Mapper;
+import ${package_name}.dao.${model}Mapper;
 import ${package_name}.base.model.${model};
 import ${package_name}.base.model.${model}Example;
 

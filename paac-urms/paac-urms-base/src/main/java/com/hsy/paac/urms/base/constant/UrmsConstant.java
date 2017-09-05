@@ -10,6 +10,6 @@ package com.hsy.paac.urms.base.constant;
  * Copyright (c) 2017 shiyuan4work@sina.com All rights reserved.
  * @price ¥5    微信：hewei1109
  */
-public class UpmsConstant {
+public class UrmsConstant {
     public static final String UPMS_TYPE = "paac.urms.type";
 }

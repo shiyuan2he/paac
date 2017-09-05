@@ -24,8 +24,8 @@ import java.util.*;
  * Copyright (c) 2017 shiyuan4work@sina.com All rights reserved.
  * @price ¥5    微信：hewei1109
  */
-public class UpmsSessionDao extends CachingSessionDAO{
-    private static Logger _log = LoggerFactory.getLogger(UpmsSessionDao.class);
+public class UrmsSessionDao extends CachingSessionDAO{
+    private static Logger _log = LoggerFactory.getLogger(UrmsSessionDao.class);
     // 会话key
     private final static String PAAC_URMS_SHIRO_SESSION_ID = "paac-urms-shiro-session-id";
     // 全局会话key
@@ -62,8 +62,8 @@ public class UpmsSessionDao extends CachingSessionDAO{
             return;
         }
         // 更新session的最后一次访问时间
-        UpmsSession upmsSession = (UpmsSession) session;
-        UpmsSession cacheUpmsSession = (UpmsSession) doReadSession(session.getId());
+        UrmsSession upmsSession = (UrmsSession) session;
+        UrmsSession cacheUpmsSession = (UrmsSession) doReadSession(session.getId());
         if (null != cacheUpmsSession) {
             upmsSession.setStatus(cacheUpmsSession.getStatus());
             upmsSession.setAttribute("FORCE_LOGOUT", cacheUpmsSession.getAttribute("FORCE_LOGOUT"));
@@ -149,8 +149,8 @@ public class UpmsSessionDao extends CachingSessionDAO{
         for (String sessionId : sessionIds) {
             // 会话增加强制退出属性标识，当此会话访问系统时，判断有该标识，则退出登录
             String session = RedisUtil.get(PAAC_URMS_SHIRO_SESSION_ID + "_" + sessionId);
-            UpmsSession upmsSession = (UpmsSession) SerializableUtil.deserialize(session);
-            upmsSession.setStatus(UpmsSession.OnlineStatus.force_logout);
+            UrmsSession upmsSession = (UrmsSession) SerializableUtil.deserialize(session);
+            upmsSession.setStatus(UrmsSession.OnlineStatus.force_logout);
             upmsSession.setAttribute("FORCE_LOGOUT", "FORCE_LOGOUT");
             RedisUtil.set(PAAC_URMS_SHIRO_SESSION_ID + "_" + sessionId, SerializableUtil.serialize(upmsSession), (int) upmsSession.getTimeout() / 1000);
         }
@@ -163,8 +163,8 @@ public class UpmsSessionDao extends CachingSessionDAO{
      * @param sessionId
      * @param onlineStatus
      */
-    public void updateStatus(Serializable sessionId, UpmsSession.OnlineStatus onlineStatus) {
-        UpmsSession session = (UpmsSession) doReadSession(sessionId);
+    public void updateStatus(Serializable sessionId, UrmsSession.OnlineStatus onlineStatus) {
+        UrmsSession session = (UrmsSession) doReadSession(sessionId);
         if (null == session) {
             return;
         }

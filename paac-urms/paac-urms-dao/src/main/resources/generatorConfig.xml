@@ -61,11 +61,17 @@
         <javaClientGenerator targetPackage="com.hsy.paac.urms.dao" targetProject="/Users/heshiyuan/data/devTools/repo/git/paac/paac-urms/paac-urms-dao/src/main/java" type="XMLMAPPER" />
 
         <!-- 需要映射的表 -->
-                                    <table tableName="t_urms_system" domainObjectName="TUrmsSystem">
-                    <generatedKey column="system_id" sqlStatement="MySql" identity="true"/>
+                                    <table tableName="t_urms_log" domainObjectName="TUrmsLog"></table>
+                                                <table tableName="t_urms_organization" domainObjectName="TUrmsOrganization"></table>
+                                                <table tableName="t_urms_permission" domainObjectName="TUrmsPermission">
+                    <generatedKey column="permission_id" sqlStatement="MySql" identity="true"/>
                 </table>
-                                                <table tableName="t_urms_user" domainObjectName="TUrmsUser">
-                    <generatedKey column="user_id" sqlStatement="MySql" identity="true"/>
-                </table>
+                                                <table tableName="t_urms_role" domainObjectName="TUrmsRole"></table>
+                                                <table tableName="t_urms_role_permission" domainObjectName="TUrmsRolePermission"></table>
+                                                <table tableName="t_urms_system" domainObjectName="TUrmsSystem"></table>
+                                                <table tableName="t_urms_user" domainObjectName="TUrmsUser"></table>
+                                                <table tableName="t_urms_user_organization" domainObjectName="TUrmsUserOrganization"></table>
+                                                <table tableName="t_urms_user_permission" domainObjectName="TUrmsUserPermission"></table>
+                                                <table tableName="t_urms_user_role" domainObjectName="TUrmsUserRole"></table>
                         </context>
 </generatorConfiguration>

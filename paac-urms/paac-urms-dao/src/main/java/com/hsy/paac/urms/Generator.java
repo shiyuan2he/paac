@@ -17,7 +17,7 @@ public class Generator {
 	// 根据命名规范，只修改此常量值即可
 	private static String MODULE = "paac-urms";
 	private static String DATABASE = "paac";
-	private static String TABLE_PREFIX = "t_urms_";
+	private static String TABLE_PREFIX = "t_urms";
 	private static String PACKAGE_NAME = "com.hsy.paac.urms";
 	private static String JDBC_DRIVER = PropertiesFileUtil.getInstance("generator").get("generator.jdbc.driver");
 	private static String JDBC_URL = PropertiesFileUtil.getInstance("generator").get("generator.jdbc.url");
@@ -26,8 +26,7 @@ public class Generator {
 	// 需要insert后返回主键的表配置，key:表名,value:主键名
 	private static Map<String, String> LAST_INSERT_ID_TABLES = new HashMap<>();
 	static {
-		LAST_INSERT_ID_TABLES.put("t_urms_user", "user_id");
-		LAST_INSERT_ID_TABLES.put("t_urms_system", "system_id");
+		LAST_INSERT_ID_TABLES.put("t_urms_permission", "permission_id");
 	}
 
 	/**

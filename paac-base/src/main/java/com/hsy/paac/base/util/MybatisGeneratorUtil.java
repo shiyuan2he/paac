@@ -209,9 +209,9 @@ public class MybatisGeneratorUtil {
             context.put("last_insert_id_tables", last_insert_id_tables);
             VelocityUtil.generate(generatorConfig_vm, generatorConfig_xml, context);
             // 删除旧代码
-            deleteDir(new File(baseProject + "/src/main/java/" + package_name.replaceAll("\\.", "/") + "/base/model"));
-            deleteDir(new File(daoProject + "/src/main/java/" + package_name.replaceAll("\\.", "/") + "/dao/mapper"));
-            deleteDir(new File(daoProject + "/src/main/java/" + package_name.replaceAll("\\.", "/") + "/dao"));
+            //deleteDir(new File(baseProject + "/src/main/java/" + package_name.replaceAll("\\.", "/") + "/base/model"));
+            //deleteDir(new File(daoProject + "/src/main/java/" + package_name.replaceAll("\\.", "/") + "/dao/mapper"));
+            //deleteDir(new File(daoProject + "/src/main/java/" + package_name.replaceAll("\\.", "/") + "/dao"));
         } catch (Exception e) {
             e.printStackTrace();
         }

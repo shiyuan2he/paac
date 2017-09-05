@@ -1,8 +1,7 @@
 package com.hsy.paac.urms.rpc.api;
 
-import com.zheng.upms.dao.model.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.hsy.paac.urms.base.model.*;
+import org.apache.log4j.Logger;
 
 import java.util.List;
 
@@ -12,64 +11,61 @@ import java.util.List;
  */
 public class TUrmsApiServiceMock implements TUrmsApiService {
 
-    private static Logger _log = LoggerFactory.getLogger(TUrmsApiServiceMock.class);
+    private static Logger _log = Logger.getLogger(TUrmsApiServiceMock.class);
 
     @Override
-    public List<UpmsPermission> selectUpmsPermissionByUpmsUserId(Integer upmsUserId) {
-        _log.info("TUrmsApiServiceMock => selectUpmsPermissionByUpmsUserId");
+    public List<TUrmsPermission> selectTUrmsPermissionByTUrmsUserId(Integer upmsUserId) {
         return null;
     }
 
     @Override
-    public List<UpmsPermission> selectUpmsPermissionByUpmsUserIdByCache(Integer upmsUserId) {
-        _log.info("TUrmsApiServiceMock => selectUpmsPermissionByUpmsUserIdByCache");
+    public List<TUrmsPermission> selectTUrmsPermissionByTUrpmsUserIdByCache(Integer upmsUserId) {
+        _log.info("TUrmsApiServiceMock => selectTUrmsPermissionByUpmsUserIdByCache");
         return null;
     }
 
     @Override
-    public List<UpmsRole> selectUpmsRoleByUpmsUserId(Integer upmsUserId) {
-        _log.info("TUrmsApiServiceMock => selectUpmsRoleByUpmsUserId");
+    public List<TUrmsRole> selectTUrmsRoleByUrmsUserId(Integer upmsUserId) {
+        _log.info("TUrmsApiServiceMock => selectTUrmsRoleByUpmsUserId");
         return null;
     }
 
     @Override
-    public List<UpmsRole> selectUpmsRoleByUpmsUserIdByCache(Integer upmsUserId) {
-        _log.info("TUrmsApiServiceMock => selectUpmsRoleByUpmsUserIdByCache");
+    public List<TUrmsRole> selectTUrmsRoleByUpmsUserIdByCache(Integer upmsUserId) {
+        _log.info("TUrmsApiServiceMock => selectTUrmsRoleByUpmsUserIdByCache");
         return null;
     }
 
     @Override
-    public List<UpmsRolePermission> selectUpmsRolePermisstionByUpmsRoleId(Integer upmsRoleId) {
-        _log.info("TUrmsApiServiceMock => selectUpmsRolePermisstionByUpmsRoleId");
+    public List<TUrmsRolePermission> selectTUrmsRolePermisstionByTUrmsRoleId(Integer upmsRoleId) {
+        _log.info("TUrmsApiServiceMock => selectTUrmsRolePermisstionByTUrmsRoleId");
         return null;
     }
 
     @Override
-    public List<UpmsUserPermission> selectUpmsUserPermissionByUpmsUserId(Integer upmsUserId) {
-        _log.info("TUrmsApiServiceMock => selectUpmsUserPermissionByUpmsUserId");
+    public List<TUrmsUserPermission> selectTUrmsUserPermissionByTUrmsUserId(Integer upmsUserId) {
+        _log.info("TUrmsApiServiceMock => selectTUrmsPermissionByUpmsUserId");
         return null;
     }
 
     @Override
-    public List<UpmsSystem> selectUpmsSystemByExample(UpmsSystemExample upmsSystemExample) {
+    public List<TUrmsSystem> selectTUrmsSystemByExample(TUrmsSystemExample upmsSystemExample) {
         _log.info("TUrmsApiServiceMock => selectUpmsSystemByExample");
         return null;
     }
 
     @Override
-    public List<UpmsOrganization> selectUpmsOrganizationByExample(UpmsOrganizationExample upmsOrganizationExample) {
+    public List<TUrmsOrganization> selectTUrmsOrganizationByExample(TUrmsOrganizationExample upmsOrganizationExample) {
         _log.info("TUrmsApiServiceMock => selectUpmsOrganizationByExample");
         return null;
     }
 
     @Override
-    public UpmsUser selectUpmsUserByUsername(String username) {
-        _log.info("TUrmsApiServiceMock => selectUpmsUserByUsername");
+    public TUrmsUser selectTUrmsUserByTUsername(String username) {
         return null;
     }
-
     @Override
-    public int insertUpmsLogSelective(UpmsLog record) {
+    public int insertUpmsLogSelective(TUrmsLog record) {
         _log.info("TUrmsApiServiceMock => insertSelective");
         return 0;
     }

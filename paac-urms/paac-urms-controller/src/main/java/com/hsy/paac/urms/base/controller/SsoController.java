@@ -31,10 +31,10 @@ import java.net.URLEncoder;
 @RequestMapping("/sso")
 @Api(value = "单点登录管理", description = "单点登录管理")
 public class SsoController extends BaseController {
+
+    TUrmsSystemService urmsSystemService ;
     // 全局会话key
-    private final static String PAAC_UPMS_SERVER_SESSION_ID = "paac-upms-server-session-id" ;
-    @Autowired
-    TUrmsSystemService urmsSystemService;
+    private final static String PAAC_URMS_SERVER_SESSION_ID = "paac-urms-server-session-id" ;
     @ApiOperation(value = "认证中心首页")
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index(HttpServletRequest request) throws Exception {
@@ -50,7 +50,7 @@ public class SsoController extends BaseController {
         if (0 == count) {
             throw new RuntimeException(String.format("未注册的系统:%s", appid));
         }
-        return "redirect:/rso/login?backurl=" + URLEncoder.encode(backurl, "utf-8");
+        return "redirect:/sso/login?backurl=" + URLEncoder.encode(backurl, "utf-8");
     }
 
 
@@ -62,11 +62,11 @@ public class SsoController extends BaseController {
     @RequestMapping(value="/login",method = RequestMethod.POST)
     @ResponseBody
     public ResponseBodyBean<Object> login(String username, String password, HttpServletRequest request){
-        SessionBean sessionBean = (SessionBean)request.getSession().getAttribute(PAAC_UPMS_SERVER_SESSION_ID);
+        SessionBean sessionBean = (SessionBean)request.getSession().getAttribute(PAAC_URMS_SERVER_SESSION_ID);
         // 判断是否登陆
         if(null == sessionBean){
             if(StringUtils.isNotBlank(username)&&StringUtils.isNotBlank(password)){
-                request.getSession().setAttribute(PAAC_UPMS_SERVER_SESSION_ID,new SessionBean(username,password));
+                request.getSession().setAttribute(PAAC_URMS_SERVER_SESSION_ID,new SessionBean(username,password));
                 return super.success();
             }
         }
