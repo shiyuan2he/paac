@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="paac-urms-rpc-service"/>
+
+    <dubbo:registry address="zookeeper://zkserver:2181"/>
+
+    <dubbo:protocol name="dubbo" port="20881"/>
+
+    <dubbo:monitor protocol="registry"/>
+
+    <!-- 系统 -->
+    <bean id="upmsSystemService" class="com.hsy.paac.urms.rpc.service.impl.TUrmsSystemServiceImpl"/>
+    <dubbo:service interface="com.hsy.paac.urms.rpc.api.TUrmsSystemService" ref="upmsSystemService" timeout="10000"/>
+
+    <!-- 组织 -->
+    <bean id="upmsOrganizationService" class="com.hsy.paac.urms.rpc.service.impl.TUrmsOrganizationServiceImpl"/>
+    <dubbo:service interface="com.hsy.paac.urms.rpc.api.TUrmsOrganizationService" ref="upmsOrganizationService" timeout="10000"/>
+
+    <!-- 用户组织 -->
+    <bean id="upmsUserOrganizationService" class="com.hsy.paac.urms.rpc.service.impl.TUrmsUserOrganizationServiceImpl"/>
+    <dubbo:service interface="com.hsy.paac.urms.rpc.api.TUrmsUserOrganizationService" ref="upmsUserOrganizationService" timeout="10000"/>
+
+    <!-- 用户 -->
+    <bean id="upmsUserService" class="com.hsy.paac.urms.rpc.service.impl.TUrmsUserServiceImpl"/>
+    <dubbo:service interface="com.hsy.paac.urms.rpc.api.TUrmsUserService" ref="upmsUserService" timeout="10000"/>
+
+    <!-- 角色 -->
+    <bean id="upmsRoleService" class="com.hsy.paac.urms.rpc.service.impl.TUrmsRoleServiceImpl"/>
+    <dubbo:service interface="com.hsy.paac.urms.rpc.api.TUrmsRoleService" ref="upmsRoleService" timeout="10000"/>
+
+    <!-- 权限 -->
+    <bean id="upmsPermissionService" class="com.hsy.paac.urms.rpc.service.impl.TUrmsPermissionServiceImpl"/>
+    <dubbo:service interface="com.hsy.paac.urms.rpc.api.TUrmsPermissionService" ref="upmsPermissionService" timeout="10000"/>
+
+    <!-- 角色权限 -->
+    <bean id="upmsRolePermissionService" class="com.hsy.paac.urms.rpc.service.impl.TUrmsRolePermissionServiceImpl"/>
+    <dubbo:service interface="com.hsy.paac.urms.rpc.api.TUrmsRolePermissionService" ref="upmsRolePermissionService" timeout="10000"/>
+
+    <!-- 用户权限 -->
+    <bean id="upmsUserPermissionService" class="com.hsy.paac.urms.rpc.service.impl.TUrmsUserPermissionServiceImpl"/>
+    <dubbo:service interface="com.hsy.paac.urms.rpc.api.TUrmsUserPermissionService" ref="upmsUserPermissionService" timeout="10000"/>
+
+    <!-- 用户角色 -->
+    <bean id="upmsUserRoleService" class="com.hsy.paac.urms.rpc.service.impl.TUrmsUserRoleServiceImpl"/>
+    <dubbo:service interface="com.hsy.paac.urms.rpc.api.TUrmsUserRoleService" ref="upmsUserRoleService" timeout="10000"/>
+
+    <!-- 操作日志 -->
+    <bean id="upmsLogService" class="com.hsy.paac.urms.rpc.service.impl.TUrmsLogServiceImpl"/>
+    <dubbo:service interface="com.hsy.paac.urms.rpc.api.TUrmsLogService" ref="upmsLogService" timeout="10000"/>
+
+    <!-- 接口服务 -->
+    <bean id="upmsApiService" class="com.hsy.paac.urms.rpc.service.impl.TUrmsApiServiceImpl"/>
+    <dubbo:service interface="com.hsy.paac.urms.rpc.api.TUrmsApiService" ref="upmsApiService" timeout="10000"/>
+
+</beans>

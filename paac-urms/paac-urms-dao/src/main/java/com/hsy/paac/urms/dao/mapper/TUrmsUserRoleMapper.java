@@ -1,9 +1,10 @@
-package com.hsy.paac.urms.dao;
+package com.hsy.paac.urms.dao.mapper;
 
 import com.hsy.paac.urms.base.model.TUrmsUserRole;
 import com.hsy.paac.urms.base.model.TUrmsUserRoleExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface TUrmsUserRoleMapper {
     long countByExample(TUrmsUserRoleExample example);

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd ">
+
+    <dubbo:application name="paac-urms-server"/>
+
+    <dubbo:registry file="./paac-urms-server-dubbo.cache" address="zookeeper://zkserver:2181"/>
+
+    <!-- 订阅服务 -->
+    <dubbo:consumer check="false"/>
+
+    <!-- 系统 -->
+    <dubbo:reference id="urmsSystemService" interface="com.hsy.paac.urms.rpc.api.TUrmsSystemService" mock="true"/>
+    <!-- 组织 -->
+    <dubbo:reference id="urmsOrganizationService" interface="com.hsy.paac.urms.rpc.api.TUrmsOrganizationService" mock="true"/>
+    <!-- 用户组织 -->
+    <dubbo:reference id="urmsUserOrganizationService" interface="com.hsy.paac.urms.rpc.api.TUrmsUserOrganizationService" mock="true"/>
+    <!-- 用户 -->
+    <dubbo:reference id="urmsUserService" interface="com.hsy.paac.urms.rpc.api.TUrmsUserService" mock="true"/>
+    <!-- 角色 -->
+    <dubbo:reference id="urmsRoleService" interface="com.hsy.paac.urms.rpc.api.TUrmsRoleService" mock="true"/>
+    <!-- 权限 -->
+    <dubbo:reference id="urmsPermissionService" interface="com.hsy.paac.urms.rpc.api.TUrmsPermissionService" mock="true"/>
+    <!-- 角色权限 -->
+    <dubbo:reference id="urmsRolePermissionService" interface="com.hsy.paac.urms.rpc.api.TUrmsRolePermissionService" mock="true"/>
+    <!-- 用户权限 -->
+    <dubbo:reference id="urmsUserPermissionService" interface="com.hsy.paac.urms.rpc.api.TUrmsUserPermissionService" mock="true"/>
+    <!-- 用户角色 -->
+    <dubbo:reference id="urmsUserRoleService" interface="com.hsy.paac.urms.rpc.api.TUrmsUserRoleService" mock="true"/>
+    <!-- 操作日志 -->
+    <dubbo:reference id="urmsLogService" interface="com.hsy.paac.urms.rpc.api.TUrmsLogService" mock="true"/>
+    <!-- 接口服务 -->
+    <dubbo:reference id="urmsApiService" interface="com.hsy.paac.urms.rpc.api.TUrmsApiService" mock="true"/>
+
+</beans>

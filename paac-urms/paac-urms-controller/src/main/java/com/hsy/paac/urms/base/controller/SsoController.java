@@ -32,9 +32,11 @@ import java.net.URLEncoder;
 @Api(value = "单点登录管理", description = "单点登录管理")
 public class SsoController extends BaseController {
 
+    @Autowired
     TUrmsSystemService urmsSystemService ;
     // 全局会话key
     private final static String PAAC_URMS_SERVER_SESSION_ID = "paac-urms-server-session-id" ;
+
     @ApiOperation(value = "认证中心首页")
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index(HttpServletRequest request) throws Exception {

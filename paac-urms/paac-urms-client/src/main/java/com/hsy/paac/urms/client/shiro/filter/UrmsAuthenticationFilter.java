@@ -53,19 +53,19 @@ public class UrmsAuthenticationFilter extends AuthenticationFilter {
     private final static String PAAC_URMS_CLIENT_SESSION_IDS = "paac-urms-client-session-ids";
 
     @Autowired
-    UrmsSessionDao upmsSessionDao;
+    UrmsSessionDao urmsSessionDao;
 
     @Override
     protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) {
         Subject subject = getSubject(request, response);
         Session session = subject.getSession();
         // 判断请求类型
-        String upmsType = PropertiesFileUtil.getInstance("paac-urms-client").get("paac.urms.type");
-        session.setAttribute(UrmsConstant.UPMS_TYPE, upmsType);
-        if ("client".equals(upmsType)) {
+        String urmsType = PropertiesFileUtil.getInstance("paac-urms-client").get("paac.urms.type");
+        session.setAttribute(UrmsConstant.URMS_TYPE, urmsType);
+        if ("client".equals(urmsType)) {
             return validateClient(request, response);
         }
-        if ("server".equals(upmsType)) {
+        if ("server".equals(urmsType)) {
             return subject.isAuthenticated();
         }
         return false;
@@ -75,8 +75,8 @@ public class UrmsAuthenticationFilter extends AuthenticationFilter {
     protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
         StringBuffer sso_server_url = new StringBuffer(PropertiesFileUtil.getInstance("paac-urms-client").get("paac.urms.sso.server.url"));
         // server需要登录
-        String upmsType = PropertiesFileUtil.getInstance("paac-urms-client").get("paac.urms.type");
-        if ("server".equals(upmsType)) {
+        String urmsType = PropertiesFileUtil.getInstance("paac-urms-client").get("paac.urms.type");
+        if ("server".equals(urmsType)) {
             WebUtils.toHttp(response).sendRedirect(sso_server_url.append("/sso/login").toString());
             return false;
         }
@@ -124,7 +124,7 @@ public class UrmsAuthenticationFilter extends AuthenticationFilter {
             }
         }
         // 判断是否有认证中心code
-        String code = request.getParameter("upms_code");
+        String code = request.getParameter("urms_code");
         // 已拿到code
         if (StringUtils.isNotBlank(code)) {
             // HttpPost去校验code
@@ -152,7 +152,7 @@ public class UrmsAuthenticationFilter extends AuthenticationFilter {
                         // 返回请求资源
                         try {
                             // client无密认证
-                            String username = request.getParameter("upms_username");
+                            String username = request.getParameter("urms_username");
                             subject.login(new UsernamePasswordToken(username, ""));
                             HttpServletResponse httpServletResponse = WebUtils.toHttp(response);
                             httpServletResponse.sendRedirect(backUrl.toString());

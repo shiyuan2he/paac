@@ -2,7 +2,6 @@ package com.hsy.paac.urms.rpc.service.impl;
 
 import com.hsy.paac.base.annotation.BaseService;
 import com.hsy.paac.base.common.BaseServiceImpl;
-import com.hsy.paac.urms.dao.mapper.TUrmsLogMapper;
 import com.hsy.paac.urms.base.model.TUrmsLog;
 import com.hsy.paac.urms.base.model.TUrmsLogExample;
 import com.hsy.paac.urms.rpc.api.TUrmsLogService;

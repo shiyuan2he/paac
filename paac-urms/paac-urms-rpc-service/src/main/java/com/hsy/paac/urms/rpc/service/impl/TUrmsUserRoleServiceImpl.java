@@ -2,7 +2,6 @@ package com.hsy.paac.urms.rpc.service.impl;
 
 import com.hsy.paac.base.annotation.BaseService;
 import com.hsy.paac.base.common.BaseServiceImpl;
-import com.hsy.paac.urms.dao.mapper.TUrmsUserRoleMapper;
 import com.hsy.paac.urms.base.model.TUrmsUserRole;
 import com.hsy.paac.urms.base.model.TUrmsUserRoleExample;
 import com.hsy.paac.urms.rpc.api.TUrmsUserRoleService;

@@ -11,5 +11,5 @@ package com.hsy.paac.urms.base.constant;
  * @price ¥5    微信：hewei1109
  */
 public class UrmsConstant {
-    public static final String UPMS_TYPE = "paac.urms.type";
+    public static final String URMS_TYPE = "paac.urms.type";
 }

@@ -2,7 +2,6 @@ package com.hsy.paac.urms.rpc.service.impl;
 
 import com.hsy.paac.base.annotation.BaseService;
 import com.hsy.paac.base.common.BaseServiceImpl;
-import com.hsy.paac.urms.dao.mapper.TUrmsUserPermissionMapper;
 import com.hsy.paac.urms.base.model.TUrmsUserPermission;
 import com.hsy.paac.urms.base.model.TUrmsUserPermissionExample;
 import com.hsy.paac.urms.rpc.api.TUrmsUserPermissionService;

@@ -1,7 +1,6 @@
 package com.hsy.paac.urms.rpc.api;
 
 import com.hsy.paac.base.common.BaseServiceMock;
-import com.hsy.paac.urms.dao.TUrmsUserPermissionMapper;
 import com.hsy.paac.urms.base.model.TUrmsUserPermission;
 import com.hsy.paac.urms.base.model.TUrmsUserPermissionExample;
 

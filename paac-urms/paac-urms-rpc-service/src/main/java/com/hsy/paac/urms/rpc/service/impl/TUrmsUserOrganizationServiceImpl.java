@@ -2,7 +2,6 @@ package com.hsy.paac.urms.rpc.service.impl;
 
 import com.hsy.paac.base.annotation.BaseService;
 import com.hsy.paac.base.common.BaseServiceImpl;
-import com.hsy.paac.urms.dao.mapper.TUrmsUserOrganizationMapper;
 import com.hsy.paac.urms.base.model.TUrmsUserOrganization;
 import com.hsy.paac.urms.base.model.TUrmsUserOrganizationExample;
 import com.hsy.paac.urms.rpc.api.TUrmsUserOrganizationService;

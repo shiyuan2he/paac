@@ -1,7 +1,6 @@
 package com.hsy.paac.urms.rpc.api;
 
 import com.hsy.paac.base.common.BaseServiceMock;
-import com.hsy.paac.urms.dao.TUrmsUserRoleMapper;
 import com.hsy.paac.urms.base.model.TUrmsUserRole;
 import com.hsy.paac.urms.base.model.TUrmsUserRoleExample;
 
